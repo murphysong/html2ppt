@@ -1,0 +1,337 @@
+{
+  "meta": {
+    "project_name": "AI_Popular_Science_PPT",
+    "version": "2.0",
+    "author": "zhuzhu",
+    "language": "zh-CN",
+    "default_page_type": "overview_cards",
+    "notes": "Dual-mode slide spec for Codex development"
+  },
+  "slides": [
+    {
+      "page_id": "overview_01",
+      "page_type": "overview_cards",
+      "status": "approved",
+      "content": {
+        "title": "新一代大模型发展态势：从“大参数竞争”走向“综合能力竞争”",
+        "tag": "总体判断",
+        "core_statement": "近两年，大模型发展逻辑已由参数规模扩张转向综合能力协同。",
+        "core_support_1": "竞争重心不再只是参数多少，而是能力更强、成本更低、落地更快。",
+        "core_support_2": "评价标准从单一模型分数扩展为多模态、效率、部署、安全与行业适配的综合衡量。",
+        "cards": [
+          {
+            "title": "参数竞大，能力竞强",
+            "subtitle": "由参数扩张转向综合竞争",
+            "icon": "chip",
+            "emphasis": "strong"
+          },
+          {
+            "title": "单模为主，多模融合",
+            "subtitle": "由文本模型转向多模基础模型",
+            "icon": "multimodal",
+            "emphasis": "normal"
+          },
+          {
+            "title": "技术导向，应用导向",
+            "subtitle": "由能力提升转向应用可用提升",
+            "icon": "gear",
+            "emphasis": "normal"
+          },
+          {
+            "title": "单点突破，体系重构",
+            "subtitle": "由模型创新转向产业体系重构",
+            "icon": "network",
+            "emphasis": "normal"
+          }
+        ],
+        "footer": "总体来看，大模型正由模型能力展示阶段，迈向产业可用与体系化部署阶段。"
+      },
+      "layout": {
+        "card_count": 4,
+        "card_style": "2x2",
+        "density": "normal",
+        "hero_box": "compact",
+        "show_tag": true,
+        "show_footer": true,
+        "align_mode": "balanced",
+        "section_emphasis": "hero"
+      },
+      "overrides": {
+        "hero_box_height": 1.08,
+        "font_scale": 1.0
+      },
+      "visual": {
+        "mode": "text_only",
+        "image_position": "none",
+        "image_ratio": "auto",
+        "visual_priority": "medium"
+      }
+    },
+
+    {
+      "page_id": "free_5_like",
+      "page_type": "free_layout",
+      "status": "prototype_checked",
+      "render": {
+        "mode": "absolute_elements",
+        "elements": [
+          {
+            "id": "top_rule",
+            "type": "shape",
+            "shape": "rect",
+            "left": 0.0,
+            "top": 0.0,
+            "width": 13.333,
+            "height": 0.067,
+            "z_index": 1,
+            "style": {
+              "fill_color": [67, 100, 247],
+              "line_color": [67, 100, 247],
+              "line_width_pt": 0
+            }
+          },
+
+          {
+            "id": "title_index",
+            "type": "text",
+            "left": 0.50,
+            "top": 0.28,
+            "width": 3.2,
+            "height": 0.35,
+            "z_index": 10,
+            "text": "5.1 通用大模型概览",
+            "style": {
+              "font_family": "Microsoft YaHei",
+              "font_size_pt": 18,
+              "bold": true,
+              "color": [67, 100, 247],
+              "align": "left",
+              "valign": "middle",
+              "line_spacing": 1.0,
+              "margin_left_inch": 0.00,
+              "margin_right_inch": 0.00,
+              "margin_top_inch": 0.00,
+              "margin_bottom_inch": 0.00
+            }
+          },
+          {
+            "id": "title_main",
+            "type": "text",
+            "left": 0.50,
+            "top": 0.55,
+            "width": 7.6,
+            "height": 0.55,
+            "z_index": 10,
+            "text": "通用大模型是 AI 发展的主引擎",
+            "style": {
+              "font_family": "Microsoft YaHei",
+              "font_size_pt": 32,
+              "bold": true,
+              "color": [26, 26, 26],
+              "align": "left",
+              "valign": "middle",
+              "line_spacing": 1.0
+            }
+          },
+          {
+            "id": "subtitle_bar",
+            "type": "shape",
+            "shape": "rect",
+            "left": 0.52,
+            "top": 1.08,
+            "width": 0.03,
+            "height": 0.35,
+            "z_index": 9,
+            "style": {
+              "fill_color": [67, 100, 247],
+              "line_color": [67, 100, 247],
+              "line_width_pt": 0
+            }
+          },
+          {
+            "id": "subtitle",
+            "type": "text",
+            "left": 0.62,
+            "top": 1.06,
+            "width": 10.8,
+            "height": 0.36,
+            "z_index": 10,
+            "text": "2024-2026：从“技术原型”彻底演变为驱动全球数字经济增长的“公共基础设施”",
+            "style": {
+              "font_family": "Microsoft YaHei",
+              "font_size_pt": 15,
+              "bold": false,
+              "color": [102, 102, 102],
+              "align": "left",
+              "valign": "middle",
+              "line_spacing": 1.0
+            }
+          },
+
+          {
+            "id": "card_left",
+            "type": "shape",
+            "shape": "rounded_rect",
+            "left": 0.50,
+            "top": 1.65,
+            "width": 6.45,
+            "height": 3.25,
+            "z_index": 2,
+            "style": {
+              "fill_color": [248, 249, 250],
+              "line_color": [233, 236, 239],
+              "line_width_pt": 1.0,
+              "radius_inch": 0.10
+            }
+          },
+          {
+            "id": "card_right",
+            "type": "shape",
+            "shape": "rounded_rect",
+            "left": 7.15,
+            "top": 1.65,
+            "width": 5.68,
+            "height": 3.25,
+            "z_index": 2,
+            "style": {
+              "fill_color": [248, 249, 250],
+              "line_color": [233, 236, 239],
+              "line_width_pt": 1.0,
+              "radius_inch": 0.10
+            }
+          },
+
+          {
+            "id": "card_left_title",
+            "type": "text",
+            "left": 0.72,
+            "top": 1.83,
+            "width": 4.0,
+            "height": 0.30,
+            "z_index": 10,
+            "text": "市场规模与渗透双重验证",
+            "style": {
+              "font_family": "Microsoft YaHei",
+              "font_size_pt": 18,
+              "bold": true,
+              "color": [0, 82, 212],
+              "align": "left",
+              "valign": "middle"
+            }
+          },
+          {
+            "id": "card_right_title",
+            "type": "text",
+            "left": 7.37,
+            "top": 1.83,
+            "width": 3.0,
+            "height": 0.30,
+            "z_index": 10,
+            "text": "产业效率重构",
+            "style": {
+              "font_family": "Microsoft YaHei",
+              "font_size_pt": 18,
+              "bold": true,
+              "color": [0, 82, 212],
+              "align": "left",
+              "valign": "middle"
+            }
+          },
+
+          {
+            "id": "case_left",
+            "type": "shape",
+            "shape": "rounded_rect",
+            "left": 0.50,
+            "top": 5.15,
+            "width": 6.45,
+            "height": 1.18,
+            "z_index": 2,
+            "style": {
+              "fill_color": [240, 247, 255],
+              "line_color": [208, 227, 255],
+              "line_width_pt": 1.0,
+              "radius_inch": 0.10
+            }
+          },
+          {
+            "id": "case_right",
+            "type": "shape",
+            "shape": "rounded_rect",
+            "left": 7.15,
+            "top": 5.15,
+            "width": 5.68,
+            "height": 1.18,
+            "z_index": 2,
+            "style": {
+              "fill_color": [240, 247, 255],
+              "line_color": [208, 227, 255],
+              "line_width_pt": 1.0,
+              "radius_inch": 0.10
+            }
+          },
+
+          {
+            "id": "footer_rule",
+            "type": "line",
+            "left": 0,
+            "top": 0,
+            "width": 0,
+            "height": 0,
+            "x1": 0.50,
+            "y1": 6.62,
+            "x2": 12.83,
+            "y2": 6.62,
+            "z_index": 5,
+            "style": {
+              "line_color": [238, 238, 238],
+              "line_width_pt": 1.0
+            }
+          },
+          {
+            "id": "footer_left",
+            "type": "text",
+            "left": 0.50,
+            "top": 6.70,
+            "width": 4.8,
+            "height": 0.22,
+            "z_index": 10,
+            "text": "数据来源：Gartner (2026.01)、信通院 (2025.12)",
+            "style": {
+              "font_family": "Microsoft YaHei",
+              "font_size_pt": 10,
+              "bold": false,
+              "color": [153, 153, 153],
+              "align": "left",
+              "valign": "middle"
+            }
+          },
+          {
+            "id": "footer_right",
+            "type": "text",
+            "left": 10.55,
+            "top": 6.70,
+            "width": 2.28,
+            "height": 0.22,
+            "z_index": 10,
+            "text": "INTERNAL USE ONLY | 12",
+            "style": {
+              "font_family": "Aptos",
+              "font_size_pt": 10,
+              "bold": false,
+              "color": [153, 153, 153],
+              "align": "right",
+              "valign": "middle"
+            }
+          }
+        ],
+        "diagnostics": [
+          "Gradient header line simplified to solid accent line in PPT",
+          "CSS box-shadow omitted for editability and simplicity",
+          "Nested stat grid should be added later by parser/html_to_render.py"
+        ]
+      },
+      "notes": "Free-layout page based on 5.html visual structure"
+    }
+  ]
+}
