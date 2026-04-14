@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/render.schema.json",
+  "title": "Render Object Specification",
+  "type": "object",
+  "required": ["mode", "elements"],
+  "additionalProperties": false,
+  "properties": {
+    "mode": {
+      "type": "string",
+      "enum": ["template_auto", "absolute_elements"]
+    },
+    "elements": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/element" }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "$defs": {
+    "element": {
+      "type": "object",
+      "required": ["id", "type", "left", "top", "width", "height"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": {
+          "type": "string",
+          "enum": ["text", "shape", "image", "line", "group"]
+        },
+        "name": { "type": "string" },
+        "left": { "type": "number", "minimum": 0 },
+        "top": { "type": "number", "minimum": 0 },
+        "width": { "type": "number", "minimum": 0 },
+        "height": { "type": "number", "minimum": 0 },
+        "z_index": { "type": "integer", "default": 0 },
+        "visible": { "type": "boolean", "default": true },
+
+        "text": { "type": "string" },
+        "shape": {
+          "type": "string",
+          "enum": [
+            "rect",
+            "rounded_rect",
+            "ellipse",
+            "circle",
+            "rule_bar",
+            "panel"
+          ]
+        },
+        "src": { "type": "string" },
+
+        "x1": { "type": "number" },
+        "y1": { "type": "number" },
+        "x2": { "type": "number" },
+        "y2": { "type": "number" },
+
+        "style": { "$ref": "#/$defs/style" },
+
+        "children": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/element" }
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "type": { "const": "text" } } },
+          "then": { "required": ["text", "style"] }
+        },
+        {
+          "if": { "properties": { "type": { "const": "shape" } } },
+          "then": { "required": ["shape", "style"] }
+        },
+        {
+          "if": { "properties": { "type": { "const": "image" } } },
+          "then": { "required": ["src"] }
+        },
+        {
+          "if": { "properties": { "type": { "const": "line" } } },
+          "then": { "required": ["x1", "y1", "x2", "y2", "style"] }
+        },
+        {
+          "if": { "properties": { "type": { "const": "group" } } },
+          "then": { "required": ["children"] }
+        }
+      ]
+    },
+
+    "style": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "font_family": { "type": "string" },
+        "font_size_pt": { "type": "number", "minimum": 1 },
+        "bold": { "type": "boolean" },
+        "italic": { "type": "boolean" },
+        "underline": { "type": "boolean" },
+
+        "color": { "$ref": "#/$defs/rgb" },
+        "fill_color": { "$ref": "#/$defs/rgb" },
+        "line_color": { "$ref": "#/$defs/rgb" },
+
+        "line_width_pt": { "type": "number", "minimum": 0 },
+        "radius_inch": { "type": "number", "minimum": 0 },
+
+        "align": {
+          "type": "string",
+          "enum": ["left", "center", "right", "justify"]
+        },
+        "valign": {
+          "type": "string",
+          "enum": ["top", "middle", "bottom"]
+        },
+
+        "line_spacing": { "type": "number", "minimum": 0.5, "maximum": 3.0 },
+        "margin_left_inch": { "type": "number", "minimum": 0 },
+        "margin_right_inch": { "type": "number", "minimum": 0 },
+        "margin_top_inch": { "type": "number", "minimum": 0 },
+        "margin_bottom_inch": { "type": "number", "minimum": 0 },
+
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "fit_mode": {
+          "type": "string",
+          "enum": ["stretch", "contain", "cover", "crop"]
+        }
+      }
+    },
+
+    "rgb": {
+      "type": "array",
+      "prefixItems": [
+        { "type": "integer", "minimum": 0, "maximum": 255 },
+        { "type": "integer", "minimum": 0, "maximum": 255 },
+        { "type": "integer", "minimum": 0, "maximum": 255 }
+      ],
+      "items": false
+    }
+  }
+}
