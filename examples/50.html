@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 芯片存储网络数据中心协同升级</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 40px 60px;
+            display: flex; flex-direction: column; position: relative;
+            border-top: 8px solid #003399;
+        }
+
+        /* 标题区域 */
+        .header { margin-bottom: 20px; }
+        .title-index { font-size: 24px; color: #003399; font-weight: bold; margin-bottom: 5px; }
+        .title-main { font-size: 42px; color: #1a1a1a; font-weight: bold; }
+        .title-sub { font-size: 20px; color: #666; margin-top: 5px; border-left: 5px solid #003399; padding-left: 15px; }
+
+        /* 内容网格布局 */
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; flex-grow: 1; }
+
+        /* 技术模块卡片样式 */
+        .tech-card { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 12px; padding: 20px; position: relative; }
+        .tech-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; border-radius: 12px 12px 0 0; background: #003399; }
+        
+        .card-h { font-size: 24px; font-weight: bold; color: #003366; margin-bottom: 15px; display: flex; align-items: center; }
+        .card-h span { font-size: 14px; font-weight: normal; margin-left: auto; background: #eef2ff; color: #003399; padding: 2px 8px; border-radius: 4px; }
+        
+        .tech-desc { font-size: 15px; line-height: 1.6; color: #444; margin-bottom: 15px; }
+        .stat-item { background: #fff; padding: 12px; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #00B4DB; }
+        .stat-val { font-size: 20px; font-weight: bold; color: #d93025; }
+        .stat-label { font-size: 13px; color: #666; }
+
+        /* 底部案例性能增益区 */
+        .bottom-section { 
+            grid-column: span 3; background: linear-gradient(135deg, #003366 0%, #001a33 100%); 
+            border-radius: 15px; padding: 25px; color: white; display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 25px; align-items: center;
+        }
+        .case-title { border-right: 1px solid rgba(255,255,255,0.2); padding-right: 20px; }
+        .case-h { font-size: 22px; font-weight: bold; margin-bottom: 5px; color: #4facfe; }
+        .case-p { font-size: 14px; opacity: 0.8; }
+        
+        .metric-box { text-align: center; }
+        .metric-v { font-size: 36px; font-weight: bold; color: #fff; }
+        .metric-v span { font-size: 18px; color: #28a745; margin-left: 5px; }
+        .metric-l { font-size: 14px; opacity: 0.7; margin-top: 5px; }
+
+        /* 核心评价结论 */
+        .insight-box { margin-top: 15px; background: #fff8e1; border: 1px dashed #f0ad4e; padding: 15px; border-radius: 10px; font-size: 16px; color: #856404; display: flex; align-items: center; }
+        .insight-box b { font-size: 18px; margin-right: 10px; color: #d93025; }
+
+        /* 页脚 */
+        .footer { margin-top: 15px; display: flex; justify-content: space-between; font-size: 13px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <!-- 标题 -->
+        <div class="header">
+            <div class="title-index">4.3 整栈系统协同升级</div>
+            <h1 class="title-main">从单点算力到“整栈协同”：算力竞争逻辑的代际跃迁</h1>
+            <p class="title-sub">跨层级优化：突破硬件物理极限，应对万亿参数时代的指数级算力缺口</p>
+        </div>
+
+        <div class="content-grid">
+            <!-- CXL 总线 -->
+            <div class="tech-card">
+                <div class="card-h">CXL 总线协议 <span>存算解耦/内存池化</span></div>
+                <p class="tech-desc">打破CPU、GPU与存储间的“内存孤岛”，实现统一互联标准与资源动态调度。</p>
+                <div class="stat-item">
+                    <div class="stat-val">68%</div>
+                    <div class="stat-label">2026年支持CXL功能服务器占比预测 (较23年提升5.6倍)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-val">128GT/s | +22%</div>
+                    <div class="stat-label">澜起3.1带宽峰值 | 内存利用率提升幅度</div>
+                </div>
+                <p style="font-size: 13px; color: #777;">* 测试：Llama3-70B场景下，推理延迟降低 16%。</p>
+            </div>
+
+            <!-- CPO 硅光 -->
+            <div class="tech-card">
+                <div class="card-h">硅光互联 (CPO) <span>突破铜缆传输极限</span></div>
+                <p class="tech-desc">光模块与芯片封装融合，解决超大规模集群中的信号衰减与通信墙问题。</p>
+                <div class="stat-item">
+                    <div class="stat-val">1.6T | 72%</div>
+                    <div class="stat-label">1.6T模块占比 | AI场景跨柜/跨集群互联主力</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-val">1.5pJ/bit | -50%</div>
+                    <div class="stat-label">单比特能耗标准 | 传输时延降低幅度</div>
+                </div>
+                <p style="font-size: 13px; color: #777;">* 华为灵衢2.0：实现8192卡无收敛全互联，跨柜时延仅 3μs。</p>
+            </div>
+
+            <!-- 高密度液冷 -->
+            <div class="tech-card">
+                <div class="card-h">高密度液冷 <span>绿色算力核心支撑</span></div>
+                <p class="tech-desc">支撑500W+功耗芯片运行，浸没式液冷使单机柜功率密度突破物理天花板。</p>
+                <div class="stat-item">
+                    <div class="stat-val">PUE &lt; 1.04</div>
+                    <div class="stat-label">浸没式散热标准 (中科曙光硅立方实测数据)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-val">47% - 65%</div>
+                    <div class="stat-label">2026年全球渗透率预测 | 中国“东数西算”枢纽渗透率</div>
+                </div>
+                <p style="font-size: 13px; color: #777;">* 标准：YD/T 6049-2024《冷板式液冷整机柜技术要求》正式发布。</p>
+            </div>
+
+            <!-- 底部性能与结论 -->
+            <div class="bottom-section">
+                <div class="case-title">
+                    <div class="case-h">标杆案例：华为昇腾 Atlas 950</div>
+                    <div class="case-p">芯片+全光互联+CANN软件栈+液冷全栈优化</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-v">85%<span>↑</span></div>
+                    <div class="metric-label">平均算力利用率 (行业均值 40%)</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-v">2.6<span>倍</span></div>
+                    <div class="metric-label">Llama3-70B 训练速度提升</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-v">3.2<span>倍</span></div>
+                    <div class="metric-label">推理吞吐量提升幅度</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="insight-box">
+            <b>IDC 2025 新标准：</b>首次将“系统协同能力”列为核心评估指标，权重占比 <b>40%</b>。算力竞争已进入“谁能让每一分算力都产生价值”的新阶段。
+        </div>
+
+        <div class="footer">
+            <div>数据来源：Yole 2025、ODCC、TrendForce、IDC、华为/曙光企业发布</div>
+            <div>INTERNAL USE ONLY | STRATEGY CONFIDENTIAL | 43</div>
+        </div>
+    </div>
+
+</body>
+</html>

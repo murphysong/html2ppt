@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 技术架构与路线：适配垂域需求的创新</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 30px 40px;
+            display: flex; flex-direction: column; position: relative;
+        }
+
+        /* 顶部装饰条 */
+        .header-line { position: absolute; top: 0; left: 0; width: 100%; height: 8px; background: linear-gradient(90deg, #0052D4, #00B4DB); }
+        
+        /* 标题区域 */
+        .header { margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .title-index { font-size: 22px; color: #0052D4; font-weight: bold; }
+        .title-main { font-size: 38px; color: #1a1a1a; font-weight: bold; }
+
+        /* 内容网格布局 */
+        .content-container { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; flex-grow: 1; }
+
+        /* 模块标题样式 */
+        .mod-title { font-size: 22px; font-weight: bold; color: #fff; background: #0052D4; padding: 8px 15px; border-radius: 4px; margin-bottom: 15px; display: inline-block; }
+
+        /* 卡片样式 */
+        .card { background: #f8f9fa; border: 1px solid #e1e8ed; border-radius: 8px; padding: 15px; margin-bottom: 15px; }
+        .tech-head { font-size: 18px; font-weight: bold; color: #0052D4; margin-bottom: 8px; display: flex; align-items: center; }
+        .tech-head::before { content: ""; width: 4px; height: 18px; background: #00B4DB; margin-right: 10px; }
+        
+        .tech-body { font-size: 15px; color: #444; line-height: 1.5; }
+        .data-tag { display: inline-block; padding: 2px 8px; background: #eef2ff; color: #0052D4; border-radius: 4px; font-weight: bold; font-size: 13px; margin-top: 5px; }
+
+        /* 江苏本地板块样式 */
+        .local-section { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        .univ-card { background: #fff; border: 1px solid #d0e3ff; border-radius: 8px; padding: 12px; position: relative; }
+        .univ-name { font-weight: bold; color: #1a1a1a; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 8px; font-size: 16px; }
+        
+        /* 强调文字 */
+        .highlight { color: #d93025; font-weight: bold; }
+        .biz-tag { background: #e6f4ea; color: #1e8e3e; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-right: 5px; }
+
+        /* 页脚 */
+        .footer { margin-top: 15px; display: flex; justify-content: space-between; font-size: 13px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+
+        /* 多栏微型布局 */
+        .mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-line"></div>
+        
+        <div class="header">
+            <div class="title-index">04 技术架构与路线</div>
+            <h1 class="title-main">适配垂域需求的创新：效率、增强与可解释性</h1>
+        </div>
+
+        <div class="content-container">
+            <!-- 左侧：主流技术路线 -->
+            <div class="section">
+                <div class="mod-title">4.1 主流技术路线：全链路优化</div>
+                
+                <div class="card">
+                    <div class="tech-head">RAG 2.0：知识图谱对齐与动态检索</div>
+                    <div class="tech-body">
+                        引入深度段落整合与知识图谱对齐，解决幻觉与知识过期问题。<br>
+                        <span class="data-tag">成果：医疗场景幻觉率 ↓42%，知识更新延迟 3月 ➔ 1周</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="tech-head">NSA架构：动态分层稀疏注意力</div>
+                    <div class="tech-body">
+                        通过压缩、选择性与滑动注意力三大分支平衡性能。<br>
+                        <span class="data-tag">成果：参数量减少 70%，推理延迟 1200ms ➔ 450ms</span>
+                    </div>
+                </div>
+
+                <div class="mini-grid">
+                    <div class="card">
+                        <div class="tech-head">MoE (混合专家)</div>
+                        <div class="tech-body">
+                            动态激活特定行业专家模块。<br>
+                            <span class="data-tag">成本 ↓50%</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tech-head">Agent Fine-tuning</div>
+                        <div class="tech-body">
+                            具备自主规划与工具调用能力。<br>
+                            <span class="data-tag">通行效率 ↑15%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧：江苏本地技术突破 -->
+            <div class="section">
+                <div class="mod-title" style="background: #00B4DB;">4.2 江苏本地技术突破：产学研融合</div>
+                
+                <div class="local-section">
+                    <div class="univ-card">
+                        <div class="univ-name">东南大学：源头创新与伦理底座</div>
+                        <div class="tech-body">
+                            • <span class="biz-tag">伦理</span> <b>“问道”</b>：全球首个系统级伦理模型，可解释性达 <span class="highlight">92%</span>。<br>
+                            • <span class="biz-tag">工程</span> <b>“砼真砼知”</b>：混凝土配合比设计周期 <span class="highlight">15天 ➔ 2天</span>。<br>
+                            • <span class="biz-tag">法律</span> <b>“法衡-R1”</b>：构建150万思维链数据，公证审核效率 <span class="highlight">↑4倍</span>。
+                        </div>
+                    </div>
+
+                    <div class="univ-card">
+                        <div class="univ-name">南京大学：慢性病健教与生物医疗</div>
+                        <div class="tech-body">
+                            • <span class="biz-tag">医疗</span> <b>“超医”</b>：服务20家基层中心，慢病处方准确率 <span class="highlight">89%</span>。<br>
+                            • <span class="biz-tag">顶会</span> 多模态蛋白质模型：蛋白质功能预测准确率提升 <span class="highlight">27%</span>。
+                        </div>
+                    </div>
+
+                    <div class="univ-card">
+                        <div class="univ-name">企业端：适配产业深水区</div>
+                        <div class="tech-body">
+                            • <b>南钢：</b>“左右脑”双向驱动群智能模型，将转鼓强度提升 <span class="highlight">3%</span>，能耗降低 5%。<br>
+                            • <b>联著实业：</b>“TSP语义编译器+DeepSeek”框架，成本降幅 <span class="highlight">>70%</span>；牵头制定《中文新闻语义结构化标注》国标。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：ICML2025、ACL2025、EMNLP2025、东南大学/南京大学/南钢官方发布</div>
+            <div>INTERNAL USE ONLY | 2026 产业深度报告</div>
+        </div>
+    </div>
+
+</body>
+</html>

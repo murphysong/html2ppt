@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 47 绿色算力与区域分工</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 40px 60px;
+            display: flex; flex-direction: column; position: relative; border-top: 10px solid #28a745;
+        }
+
+        /* 装饰背景 */
+        .slide::before {
+            content: "GREEN COMPUTING"; position: absolute; top: 50px; right: 60px;
+            font-size: 80px; font-weight: 900; color: #f0f0f0; z-index: 0;
+        }
+
+        /* 标题区域 */
+        .header { position: relative; z-index: 1; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 15px; }
+        .title-index { font-size: 24px; color: #28a745; font-weight: bold; }
+        .title-main { font-size: 44px; color: #1a1a1a; font-weight: bold; margin-top: 5px; }
+
+        /* 内容布局布局 */
+        .content-grid { display: grid; grid-template-columns: 1fr 1.3fr; grid-template-rows: auto 1fr; gap: 25px; flex-grow: 1; z-index: 1; }
+
+        /* 通用卡片样式 */
+        .card { background: #fdfdfd; border: 1px solid #e1e8ed; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; }
+        .card-title { font-size: 24px; font-weight: bold; color: #004c99; margin-bottom: 18px; display: flex; align-items: center; }
+        .card-title::before { content: ""; width: 6px; height: 24px; background: #28a745; margin-right: 12px; border-radius: 3px; }
+
+        /* PUE对比区域 */
+        .pue-compare { display: flex; gap: 15px; margin-bottom: 15px; }
+        .pue-box { flex: 1; padding: 15px; border-radius: 8px; text-align: center; }
+        .pue-old { background: #f8f9fa; border: 1px solid #dee2e6; }
+        .pue-new { background: #eef7f2; border: 1px solid #28a745; }
+        .pue-val { font-size: 28px; font-weight: bold; }
+        .pue-label { font-size: 14px; color: #666; margin-top: 5px; }
+
+        /* 47.2 空间错配对比 */
+        .mismatch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .mismatch-item { background: white; padding: 15px; border-radius: 10px; border-left: 5px solid #004c99; box-shadow: 0 4px 6px rgba(0,0,0,0.03); }
+        .mismatch-h { font-size: 18px; font-weight: bold; margin-bottom: 10px; color: #333; }
+        .mismatch-data { font-size: 14px; line-height: 1.6; color: #555; }
+        .highlight-v { color: #d32f2f; font-weight: bold; font-size: 20px; }
+
+        /* 47.3 协同模式 */
+        .synergy-row { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px; }
+        .mode-card { background: linear-gradient(135deg, #ffffff 0%, #f9fbf9 100%); border: 1px solid #d4edda; padding: 20px; border-radius: 12px; }
+        .mode-h { font-size: 20px; font-weight: bold; color: #155724; margin-bottom: 12px; border-bottom: 1px solid #c3e6cb; padding-bottom: 8px; }
+        .mode-p { font-size: 15px; line-height: 1.6; color: #444; }
+        .tag { display: inline-block; background: #28a745; color: white; padding: 2px 10px; border-radius: 4px; font-size: 13px; margin-bottom: 8px; }
+
+        /* 页脚 */
+        .footer { margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; display: flex; justify-content: space-between; font-size: 14px; color: #999; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header">
+            <div class="title-index">47. 绿色算力与区域分工</div>
+            <h1 class="title-main">能源与算力的协同：从“高耗能”向“高能效”的逻辑迁徙</h1>
+        </div>
+
+        <div class="content-grid">
+            <!-- 47.1 技术指标与标准 -->
+            <div class="card">
+                <div class="card-title">技术指标约束与国际标准</div>
+                <div class="pue-compare">
+                    <div class="pue-box pue-old">
+                        <div class="pue-val" style="color: #666;">1.5 - 1.8</div>
+                        <div class="pue-label">传统风冷 PUE</div>
+                    </div>
+                    <div class="pue-box pue-new">
+                        <div class="pue-val" style="color: #28a745;">1.05 - 1.2</div>
+                        <div class="pue-label">行业液冷 PUE</div>
+                    </div>
+                </div>
+                <p style="font-size: 15px; line-height: 1.6; color: #444;">
+                    ● <b>技术突破：</b>中科曙光浸没式液冷 <b>PUE 低至 1.04</b>，单机柜功率密度 160kW，节能超 30%。<br>
+                    ● <b>国际标准：</b><span style="color:#004c99;">ISO/IEC 30134-2:2026</span> 正式发布，统一全球 PUE 测量统计口径。<br>
+                    ● <b>经济效益：</b>10MW 级液冷中心，年节省电费 <b>> 3000 万元</b>。
+                </p>
+            </div>
+
+            <!-- 47.2 东西部区域分工 -->
+            <div class="card">
+                <div class="card-title">东西部分工：解决能源与需求的空间错配</div>
+                <div class="mismatch-grid">
+                    <div class="mismatch-item">
+                        <div class="mismatch-h">资源/需求错配</div>
+                        <div class="mismatch-data">
+                            西部：<span class="highlight-v">70%</span> 绿电 / 20% 需求<br>
+                            东部：<span class="highlight-v">70%</span> 需求 / 30% 绿电
+                        </div>
+                    </div>
+                    <div class="mismatch-item" style="border-left-color: #28a745;">
+                        <div class="mismatch-h">西部枢纽 (东数西算)</div>
+                        <div class="mismatch-data">
+                            新建中心平均 <span class="highlight-v">PUE ≤ 1.28</span><br>
+                            绿电占比达 <span class="highlight-v">80%</span> 以上
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; font-size: 15px; line-height: 1.6; color: #444;">
+                    ● <b>西部 (训练基地)：</b>承担模型训练、渲染、灾备等非实时任务。青海标杆项目单位算力电费<b>降低 50%</b>。<br>
+                    ● <b>东部 (推理核心)：</b>聚焦低时延实时推理、交互任务，贴近终端用户。
+                </p>
+            </div>
+
+            <!-- 47.3 协同模式 -->
+            <div class="synergy-row">
+                <div class="mode-card">
+                    <span class="tag">模式 A</span>
+                    <div class="mode-h">绿电直供 (算电协同)</div>
+                    <p class="mode-p"><b>贵州贵安案例：</b>建设风-光-储一体化系统，每年直供清洁电力 <b>> 10 亿度</b>，碳排放强度降低 <b>90%</b> 以上。</p>
+                </div>
+                <div class="mode-card">
+                    <span class="tag">模式 B</span>
+                    <div class="mode-h">余热回收 (能源梯级利用)</div>
+                    <p class="mode-p"><b>斯德哥尔摩案例：</b>液冷系统 45-60℃ 余热接入供暖网，覆盖 10 万户居民，年省煤 <b>> 20 万吨</b>。</p>
+                </div>
+                <div class="mode-card">
+                    <span class="tag">模式 C</span>
+                    <div class="mode-h">智能泵控 (极致能效)</div>
+                    <p class="mode-p"><b>微软 Azure 2026：</b>动态调整流量使泵功占比降至 3%，余热回收效率达 <b>85%</b>，实现“算力产热+城市供暖”协同。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：国家数据局、ISO标准委、中科曙光实测、IDC 2025 预测</div>
+            <div>INTERNAL USE ONLY | 2026 AI INFRASTRUCTURE SERIES | PAGE 47</div>
+        </div>
+    </div>
+
+</body>
+</html>

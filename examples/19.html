@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 垂域模型的兴起：产业对“专精”的迫切需求</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 40px 50px;
+            display: flex; flex-direction: column; position: relative;
+        }
+
+        /* 顶部装饰条 */
+        .header-line { position: absolute; top: 0; left: 0; width: 100%; height: 8px; background: linear-gradient(90deg, #0046ad, #007bff); }
+        
+        /* 标题区域 */
+        .header { margin-bottom: 20px; }
+        .title-main { font-size: 40px; color: #1a1a1a; font-weight: bold; }
+        .title-sub { font-size: 20px; color: #666; margin-top: 5px; border-left: 5px solid #0046ad; padding-left: 15px; }
+
+        /* 内容布局布局 */
+        .content-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; flex-grow: 1; }
+
+        /* 模块标题样式 */
+        .mod-title { font-size: 24px; font-weight: bold; color: #ffffff; background: #0046ad; padding: 10px 20px; border-radius: 5px; margin-bottom: 15px; display: inline-block; }
+        .mod-title.red { background: #d93025; }
+        .mod-title.green { background: #28a745; }
+
+        /* 卡片样式 */
+        .card { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 10px; padding: 20px; margin-bottom: 20px; height: calc(100% - 60px); }
+        
+        /* 痛点/特征列表 */
+        .item { margin-bottom: 20px; }
+        .item-head { font-size: 19px; font-weight: bold; color: #333; margin-bottom: 8px; display: flex; align-items: center; }
+        .item-head::before { content: ""; display: inline-block; width: 8px; height: 18px; background: #0046ad; margin-right: 10px; }
+        .red .item-head::before { background: #d93025; }
+        .green .item-head::before { background: #28a745; }
+
+        .item-content { font-size: 16px; color: #444; line-height: 1.5; padding-left: 18px; }
+        .highlight { font-weight: bold; color: #d93025; }
+        .success { font-weight: bold; color: #28a745; }
+
+        /* 数据对比区 */
+        .data-box { background: #ffffff; border: 1px dashed #adb5bd; padding: 12px; border-radius: 6px; margin-top: 8px; font-size: 14px; }
+        
+        /* 页脚 */
+        .footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 15px; font-size: 14px; color: #999; }
+
+        /* 案例标识 */
+        .case-tag { background: #eef2ff; color: #0046ad; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-right: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-line"></div>
+        
+        <div class="header">
+            <h1 class="title-main">垂域模型的兴起：产业对“专精”的迫切需求</h1>
+            <p class="title-sub">从通用大模型的“全能幻觉”转向“行业专家”的必然选择</p>
+        </div>
+
+        <div class="content-container">
+            <!-- 左侧：通用大模型的水土不服 -->
+            <div class="column red">
+                <div class="mod-title red">2.1 通用模型的“三大痛点”</div>
+                <div class="card">
+                    <div class="item">
+                        <div class="item-head">知识盲区与幻觉率高企</div>
+                        <div class="item-content">
+                            专业场景致命缺陷：无法覆盖最新行业规范与机理耦合关系。<br>
+                            <div class="data-box">
+                                <span class="case-tag">测试数据</span> 工业新规识别准确率仅 <span class="highlight">23%</span>；医疗临床核心场景平均准确率仅 <span class="highlight">10%</span>；江苏调研显示肿瘤方案冲突率达 <span class="highlight">37%</span>。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-head">成本效率的不可承受</div>
+                        <div class="item-content">
+                            落地门槛极高：单次训练超千万美元；API推理成本占AI总投入 <span class="highlight">60%</span>。<br>
+                            <div class="data-box">
+                                <span class="case-tag">IDC调研</span> 通用模型算力利用率仅 <span class="highlight">12%</span>，远低于工业场景要求的 30% 阈值，大量算力损耗在“无关能力”上。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-head">安全合规与适配性缺失</div>
+                        <div class="item-content">
+                            “黑箱特性”无法追溯责任，且难以区分行业细微差异。<br>
+                            <div class="data-box">
+                                <span class="case-tag">业务挑战</span> 无法区分“氧化铁皮”与“裂纹”；不识别结构化档案标注规则；存在个人隐私泄露风险。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧：垂域模型的定义与特征 -->
+            <div class="column green">
+                <div class="mod-title green">2.2 垂域模型的“核心价值”</div>
+                <div class="card">
+                    <div class="item">
+                        <div class="item-head">专业性：构建专属能力底座</div>
+                        <div class="item-content">
+                            行业机理与数据双驱动。融合“行业机理模型”解决多参数耦合问题。<br>
+                            <div class="data-box">
+                                <span class="case-tag">标杆案例</span> 南钢“元冶”大模型：融合冶金热力学模型，合金配比准确率提升至 <span class="success">99.2%</span>。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-head">安全性：全生命周期管控</div>
+                        <div class="item-content">
+                            嵌入安全合规基因：数据不出厂、模型可追溯、人类在环决策。<br>
+                            <div class="data-box">
+                                <span class="case-tag">安全策略</span> 差异化脱敏技术 + 企业本地化部署，核心工艺数据“脱敏不失真”，决策100%可溯。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-head">效率与可控性：适配行业流程</div>
+                        <div class="item-content">
+                            “小而精”架构（1B-10B参数），推理成本仅为通用模型的 <span class="success">1/5</span>。<br>
+                            <div class="data-box">
+                                <span class="case-tag">落地增效</span> 档案审核场景：效率提升 <span class="success">30倍</span>；支持边缘部署，满足钢铁/电力等“断网不停产”需求。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：IDC 2024、EMNLP 2024、南京大学 2025 调研报告</div>
+            <div>INTERNAL USE ONLY | 行业深度解析报告</div>
+        </div>
+    </div>
+
+</body>
+</html>

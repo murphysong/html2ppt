@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 智能体架构选择与南京产业实践</title>
+    <style>
+        /* 页面基础设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* 16:9 幻灯片容器 */
+        .slide {
+            width: 1600px;
+            height: 900px;
+            background-color: #ffffff;
+            position: relative;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* 顶部装饰条 */
+        .header-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, #003366, #0066cc, #4facfe);
+        }
+
+        /* 标题区域 */
+        .header {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .title-group h1 {
+            font-size: 44px;
+            color: #1a1a1a;
+            letter-spacing: 1px;
+        }
+
+        .title-group p {
+            font-size: 20px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .tag-info {
+            background: #eef2ff;
+            color: #003366;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* 内容布局 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 30px;
+            flex-grow: 1;
+        }
+
+        /* 左侧：架构选择矩阵 */
+        .section-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-title::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background: #0066cc;
+            margin-right: 12px;
+        }
+
+        .scenario-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fdfdfd;
+            border: 1px solid #e1e8ed;
+            font-size: 15px;
+        }
+
+        .scenario-table th {
+            background: #f8f9fa;
+            color: #333;
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .scenario-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e1e8ed;
+            line-height: 1.5;
+        }
+
+        .arch-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .arch-single { background: #e3f2fd; color: #1976d2; }
+        .arch-multi { background: #e8f5e9; color: #2e7d32; }
+
+        /* 右侧：南京案例 */
+        .case-container {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .case-card {
+            background: #f9fbff;
+            border: 1px solid #dbeafe;
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .case-logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1e40af;
+        }
+
+        .case-stats {
+            display: flex;
+            gap: 15px;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .stat-val {
+            display: block;
+            font-size: 24px;
+            font-weight: bold;
+            color: #dc2626;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .case-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .detail-box {
+            background: rgba(255,255,255,0.6);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .detail-box b {
+            color: #003366;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* 页脚 */
+        .footer {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .highlight-text {
+            color: #1e40af;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-line"></div>
+        
+        <div class="header">
+            <div class="title-group">
+                <h1>智能体架构选型与宁产标杆案例</h1>
+                <p>2025-2026 产业落地观察：从线性任务到全链路多主体协同</p>
+            </div>
+            <div class="tag-info">南京：长三角智能制造高地</div>
+        </div>
+
+        <div class="content-grid">
+            <!-- 左侧：选型矩阵 -->
+            <div class="section-left">
+                <div class="card-title">5.3 架构适用场景边界</div>
+                <table class="scenario-table">
+                    <thead>
+                        <tr>
+                            <th width="30%">场景类型</th>
+                            <th width="20%">推荐架构</th>
+                            <th>核心决策依据</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>线性低复杂度</b><br><small>客服查询、简单数据查询</small></td>
+                            <td><span class="arch-badge arch-single">单智能体</span></td>
+                            <td>任务步数 <b>&lt;10步</b>，追求极低延迟与处理成本。</td>
+                        </tr>
+                        <tr>
+                            <td><b>跨专业复杂任务</b><br><small>软件工程、金融风控</small></td>
+                            <td><span class="arch-badge arch-multi">多智能体</span></td>
+                            <td>需多领域知识，专业化分工提升复杂任务质量。</td>
+                        </tr>
+                        <tr>
+                            <td><b>高风险场景</b><br><small>医疗诊断、合规审查</small></td>
+                            <td><span class="arch-badge arch-multi">多智能体</span></td>
+                            <td>利用<b>交叉验证</b>机制隔离错误，保障高可靠性。</td>
+                        </tr>
+                        <tr>
+                            <td><b>极低延迟要求</b><br><small>实时工业监控</small></td>
+                            <td><span class="arch-badge arch-single">单智能体</span></td>
+                            <td>避免多主体协同带来的网络与逻辑同步延迟。</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; font-size: 14px; color: #555; border-left: 4px solid #ccc;">
+                    <b>选型准则：</b>步骤数 > 10 或涉及多专业深度耦合时，优先选择多智能体架构。
+                </div>
+            </div>
+
+            <!-- 右侧：南京案例 -->
+            <div class="case-container">
+                <!-- 南钢案例 -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <div class="case-logo">南钢：元冶·钢铁大模型</div>
+                        <div class="case-stats">
+                            <div class="stat-item"><span class="stat-val">50% ↓</span><span class="stat-label">新产品研发周期</span></div>
+                            <div class="stat-item"><span class="stat-val">12% ↓</span><span class="stat-label">单位产值能耗</span></div>
+                            <div class="stat-item"><span class="stat-val">9% ↓</span><span class="stat-label">供应链总成本</span></div>
+                        </div>
+                    </div>
+                    <div class="case-details">
+                        <div class="detail-box">
+                            <b>研发端协同</b>
+                            自主检索历史数据并调用仿真工具，快速生成最优钢材方案。
+                        </div>
+                        <div class="detail-box">
+                            <b>生产端决策</b>
+                            实时分析转炉压温，自动调节供氧强度与加料逻辑。
+                        </div>
+                        <div class="detail-box">
+                            <b>供应链响应</b>
+                            原材料库存联动物流调度，全自动调整采购计划与路线。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 汇通达案例 -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <div class="case-logo">汇通达：千橙 AI 超级店长</div>
+                        <div class="case-stats">
+                            <div class="stat-item"><span class="stat-val">1 亿元+</span><span class="stat-label">2025 AI 业务收入</span></div>
+                            <div class="stat-item"><span class="stat-val">40% ↑</span><span class="stat-label">商品采购效率</span></div>
+                            <div class="stat-item"><span class="stat-val">25% ↑</span><span class="stat-label">营销转化率</span></div>
+                        </div>
+                    </div>
+                    <div class="case-details">
+                        <div class="detail-box">
+                            <b>智能采购</b>
+                            覆盖2800家门店，实时对齐销售数据与供应商库存。
+                        </div>
+                        <div class="detail-box">
+                            <b>自动化直播</b>
+                            脚本生成+数据调用，直播筹备从 <b>3天➔4小时</b>。
+                        </div>
+                        <div class="detail-box">
+                            <b>精准私域</b>
+                            分析浏览与购买史，自动生成个性化文案推送。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <div>资料来源：南京钢铁股份、汇通达网络、信通院《智能体产业报告》</div>
+            <div>INTERNAL USE ONLY | PAGE 32</div>
+        </div>
+    </div>
+
+</body>
+</html>

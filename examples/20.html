@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif; }
+        body { background: #f5f7f9; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .slide { width: 1600px; height: 900px; background: white; position: relative; padding: 40px 60px; border-top: 8px solid #004098; }
+        
+        .header { margin-bottom: 30px; }
+        .title { font-size: 42px; font-weight: bold; color: #1a1a1a; }
+        .subtitle { font-size: 22px; color: #004098; margin-top: 10px; font-weight: bold; }
+
+        .content-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; margin-top: 20px; }
+        
+        /* 方升标准卡片 */
+        .standard-card { background: #f8faff; border: 1px solid #d0daff; border-radius: 12px; padding: 25px; }
+        .card-head { font-size: 24px; font-weight: bold; color: #004098; margin-bottom: 20px; border-bottom: 2px solid #004098; padding-bottom: 10px; }
+        .metric-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .metric-item { background: white; padding: 15px; border-radius: 8px; border: 1px solid #e1e8ed; }
+        .m-val { font-size: 32px; font-weight: bold; color: #d93025; }
+        .m-label { font-size: 16px; color: #666; margin-top: 5px; }
+
+        /* 案例对比表 */
+        .case-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .case-table th { background: #004098; color: white; padding: 18px; text-align: left; font-size: 20px; }
+        .case-table td { padding: 18px; border-bottom: 1px solid #eee; font-size: 17px; line-height: 1.6; }
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 14px; font-weight: bold; margin-bottom: 8px; }
+        .tag-success { background: #e6f4ea; color: #1e8e3e; }
+
+        .footer { position: absolute; bottom: 30px; right: 60px; font-size: 14px; color: #999; }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">3.1 从“通用能力”到“行业不可替代性”</h1>
+            <p class="subtitle">能力跨越：中国信通院“方升”测试体系定义的“好用”标准</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="standard-card">
+                <div class="card-head">“方升”测试体系核心指标</div>
+                <div class="metric-row">
+                    <div class="metric-item"><div class="m-val">≥ 90%</div><div class="m-label">领域知识覆盖率</div></div>
+                    <div class="metric-item"><div class="m-val">≥ 85%</div><div class="m-label">场景适配准确率</div></div>
+                    <div class="metric-item"><div class="m-val">≤ 500ms</div><div class="m-label">推理延迟</div></div>
+                    <div class="metric-item"><div class="m-val">≥ 150%</div><div class="m-label">投入产出比 (ROI)</div></div>
+                </div>
+                <p style="margin-top: 25px; color: #555; line-height: 1.6; font-size: 16px;">
+                    <b>工程可用性评估：</b> 引入 pass@k、codebleu、安全性等维度，强制验证 <i>GB 50052-2024 供配电系统设计规范</i> 等行业硬性合规标准。
+                </p>
+            </div>
+
+            <table class="case-table">
+                <thead>
+                    <tr><th width="30%">企业 / 模型</th><th>业务价值突破（通用模型无法实现）</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="tag tag-success">研发避险</span><br><b>南钢“元冶”大模型</b></td>
+                        <td>调研周期 <b>6个月➔1个月</b>；合金配比准确率 <b>99.2%</b>；提前3个月量产，新增营收 <b>>2亿元</b>。</td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag tag-success">实时安全</span><br><b>康力电梯智慧模型</b></td>
+                        <td>故障响应时间 <b>30min➔5min</b>；毫秒级电动车入梯/跌倒识别；2025年毛利率提升 <b>1.8%</b>。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">数据来源：信通院“方升”测试报告、南钢/康力电梯 2025 财报</div>
+    </div>
+</body>
+</html>

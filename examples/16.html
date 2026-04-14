@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 能力演进的技术驱动力 (2)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif; }
+        body { background-color: #f5f7fa; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .slide { width: 1600px; height: 900px; background: white; padding: 40px 60px; display: flex; flex-direction: column; position: relative; border-top: 8px solid #00B4DB; }
+        .header { margin-bottom: 25px; }
+        .index { color: #00B4DB; font-size: 24px; font-weight: bold; }
+        .title { font-size: 44px; color: #1a1a1a; font-weight: bold; }
+        .main-content { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; flex-grow: 1; }
+        
+        .module { border: 1px solid #e0e6ed; border-radius: 12px; padding: 25px; background: #fdfdfd; display: flex; flex-direction: column; }
+        .mod-header { display: flex; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #00B4DB; padding-bottom: 10px; }
+        .mod-title { font-size: 26px; font-weight: bold; color: #0052D4; }
+
+        .sub-sec { margin-bottom: 18px; }
+        .sub-title { font-size: 19px; font-weight: bold; color: #333; margin-bottom: 8px; border-left: 4px solid #00B4DB; padding-left: 10px; }
+        .detail-text { font-size: 16px; line-height: 1.6; color: #444; }
+        .highlight { color: #00B4DB; font-weight: bold; }
+
+        .case-box { background: #f0faff; border-radius: 8px; padding: 15px; margin-top: 10px; }
+        .case-tag { font-size: 14px; font-weight: bold; color: #00B4DB; border: 1px solid #00B4DB; padding: 2px 6px; border-radius: 4px; margin-bottom: 5px; display: inline-block; }
+
+        .footer { margin-top: auto; padding-top: 15px; border-top: 1px solid #eee; font-size: 14px; color: #999; display: flex; justify-content: space-between; }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <div class="index">11. 技术驱动力 (II)</div>
+            <div class="title">推理与对齐：系统优化与价值落地的“最后一公里”</div>
+        </div>
+
+        <div class="main-content">
+            <!-- 11.3 推理优化算法 -->
+            <div class="module">
+                <div class="mod-header"><div class="mod-title">11.3 推理优化算法突破</div></div>
+                <div class="sub-sec">
+                    <div class="sub-title">系统级优化：LightningIndexer</div>
+                    <p class="detail-text">DeepSeek V3.2：增量 KV 索引技术。实现 KV Cache 增量更新，维持高压缩比的同时 <span class="highlight">零延迟开销</span>。</p>
+                </div>
+                <div class="sub-sec">
+                    <div class="sub-title">并发与吞吐：AugServe</div>
+                    <p class="detail-text">有效吞吐量较 vLLM 提升 <span class="highlight">4.7-33.1倍</span>，首包时延降低 96.3%，高并发场景性能发生数量级跃迁。</p>
+                </div>
+                <div class="case-box">
+                    <div class="case-tag">通义千问 3.5</div>
+                    <p class="detail-text">采用 <b>Chunked Prefill</b> 技术：拆分长输入，首包时延降低 <span class="highlight">50%</span>，避免显存耗尽。</p>
+                </div>
+            </div>
+
+            <!-- 11.4 对齐技术革新 -->
+            <div class="module">
+                <div class="mod-header"><div class="mod-title">11.4 对齐技术革新</div></div>
+                <div class="sub-sec">
+                    <div class="sub-title">从 RLHF 到高效算法演进</div>
+                    <p class="detail-text"><b>GRPO (DeepSeek V3)：</b>指令跟随得分 79.8，幻觉率降低 <span class="highlight">20%</span>。</p>
+                    <p class="detail-text"><b>URPO (摩尔线程)：</b>无需独立奖励模型，对齐成本降低 <span class="highlight">50%</span>。</p>
+                </div>
+                <div class="sub-sec">
+                    <div class="sub-title">细粒度对齐：TI-DPO</div>
+                    <p class="detail-text">中科院自动化所：Token 重要性感知框架。精准识别推理关键点，对齐效果提升 <span class="highlight">12%</span>。</p>
+                </div>
+                <div class="case-box" style="background: #fff5f5;">
+                    <p class="detail-text"><b>行业结论：</b>新一代算法使对齐技术从“高端定制”走向“低成本标配”，模型输出更符合人类意图与价值观。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>资料来源：AAAI 2026, ICLR 2026 Oral, 阿里云, 浙大 AugServe 团队</div>
+            <div>PAGE 23</div>
+        </div>
+    </div>
+</body>
+</html>

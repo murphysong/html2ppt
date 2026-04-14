@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>VLA模型：具身智能的核心技术底座</title>
+    <style>
+        /* 基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f5f7fa; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 30px 40px;
+            display: flex; flex-direction: column; position: relative;
+            border-top: 8px solid #004080;
+        }
+
+        /* 标题区域 */
+        .header { margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+        .title-main { font-size: 38px; color: #1a1a1a; font-weight: bold; }
+        .title-sub { font-size: 18px; color: #004080; font-weight: bold; padding: 5px 12px; background: #e6f0ff; border-radius: 4px; }
+
+        /* 内容布局布局 */
+        .content-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 20px; flex-grow: 1; }
+
+        /* 通用卡片 */
+        .card { background: #fcfdfe; border: 1px solid #e1e8ed; border-radius: 8px; padding: 15px; }
+        .card-h { font-size: 20px; font-weight: bold; color: #004080; margin-bottom: 12px; border-left: 5px solid #004080; padding-left: 10px; }
+
+        /* 理论突破部分 */
+        .theory-item { margin-bottom: 15px; padding: 10px; background: white; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
+        .theory-tag { font-size: 12px; font-weight: bold; color: #fff; background: #0066cc; padding: 2px 8px; border-radius: 3px; margin-right: 8px; }
+        .theory-title { font-size: 15px; font-weight: bold; color: #333; }
+        .theory-desc { font-size: 13.5px; color: #555; line-height: 1.5; margin-top: 5px; }
+        .stat { color: #d93025; font-weight: bold; }
+
+        /* 架构细节部分 */
+        .arch-sub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .arch-box { background: #f0f4f8; padding: 10px; border-radius: 6px; }
+        .arch-box h4 { font-size: 14px; color: #1a1a1a; margin-bottom: 5px; }
+        .arch-box li { font-size: 12.5px; list-style: none; margin-bottom: 3px; color: #444; }
+
+        /* 表格样式 */
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+        th { background: #004080; color: white; padding: 10px; text-align: left; }
+        td { padding: 8px; border: 1px solid #eee; vertical-align: top; line-height: 1.4; }
+        .model-name { font-weight: bold; color: #004080; }
+
+        /* 底部强化学习看板 */
+        .bottom-banner { margin-top: 15px; background: linear-gradient(90deg, #004080, #0066cc); color: white; padding: 15px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .banner-text { font-size: 15px; font-weight: bold; }
+        .banner-stat { display: flex; gap: 25px; }
+        .banner-stat-item { text-align: center; }
+        .banner-val { font-size: 22px; font-weight: bold; }
+        .banner-label { font-size: 12px; opacity: 0.8; }
+
+        /* 页脚 */
+        .footer { margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; color: #999; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header">
+            <h1 class="title-main">VLA 模型：从「语义理解」到「物理执行」的具身进化</h1>
+            <div class="title-sub">2024-2025：具身智能从专用走向通用的核心底座</div>
+        </div>
+
+        <div class="content-grid">
+            <!-- 左侧：理论突破与长程优化 -->
+            <div class="section-left">
+                <div class="card" style="height: 100%;">
+                    <div class="card-h">核心理论进展（2024-2025 顶会成果）</div>
+                    
+                    <div class="theory-item">
+                        <span class="theory-tag">ICML 2025</span><span class="theory-title">UP-VLA & OTTER：泛化性飞跃</span>
+                        <p class="theory-desc">UP-VLA引入未来5秒预测，未知场景完成率提升 <span class="stat">28%</span>；OTTER采用文本感知视觉提取，零样本成功率提升 <span class="stat">35%</span>。</p>
+                    </div>
+
+                    <div class="theory-item">
+                        <span class="theory-tag">NeurIPS 2025</span><span class="theory-title">VLA-OS：规划与动作解耦</span>
+                        <p class="theory-desc">首次解构规划范式，支持长程任务中实时修正，失败率降低 <span class="stat">41%</span>。解决自回归模型的误差累积痛点。</p>
+                    </div>
+
+                    <div class="theory-item">
+                        <span class="theory-tag">HKU / 华为</span><span class="theory-title">Dream-VLA：扩散式架构</span>
+                        <p class="theory-desc">考虑全局上下文，生成多路径动作序列优化。LIBERO基准完成率达 <span class="stat">97.2%</span>，真实场景失败率降低 <span class="stat">38%</span>。</p>
+                    </div>
+
+                    <div class="theory-item" style="border-left: 4px solid #d93025; background: #fff8f8;">
+                        <span class="theory-title">Test-Time Scaling Law (斯坦福/英伟达)</span>
+                        <p class="theory-desc">推理端增加验证采样（1➔5次），未知场景成功率可预测提升 <span class="stat">25%</span>。提供无需额外数据的性能优化指南。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧：架构细节与技术方案 -->
+            <div class="section-right">
+                <div class="card" style="height: 100%;">
+                    <div class="card-h">架构细节：动作 Token 化与融合机制</div>
+                    
+                    <div class="arch-sub-grid">
+                        <div class="arch-box">
+                            <h4>动作 Token 化方案</h4>
+                            <ul>
+                                <li>● <b>离散 Token 化：</b>0.1度分辨率，适用于高精度装配 (OpenVLA)。</li>
+                                <li>● <b>连续离散化：</b>0.05N力控精度，适用于易碎品抓取 (Octo)。</li>
+                                <li>● <b>部分级运动：</b>毫米级精度，适用于精细灵巧操作 (Being-H0)。</li>
+                            </ul>
+                        </div>
+                        <div class="arch-box">
+                            <h4>多模态融合方案</h4>
+                            <ul>
+                                <li>● <b>软提示融合：</b>动态适配环境偏移 (X-VLA IROS冠军)。</li>
+                                <li>● <b>共享空间：</b>SigLIP+DINOv2特征交叉注意力融合 (OpenVLA)。</li>
+                                <li>● <b>随机模态：</b>噪声适应，提升工业复杂场景鲁棒性。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-h" style="margin-top: 15px;">SOTA 产业级模型对比</div>
+                    <table>
+                        <tr>
+                            <th>模型</th>
+                            <th>规模/数据</th>
+                            <th>核心突破</th>
+                            <th>实测表现</th>
+                        </tr>
+                        <tr>
+                            <td class="model-name">OpenVLA</td>
+                            <td>7B / 97万轨迹</td>
+                            <td>首个大规模开源底座</td>
+                            <td>换产调试时间缩短 <span class="stat">60%</span></td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">X-VLA</td>
+                            <td>0.9B / 120万轨迹</td>
+                            <td>软提示Transformer架构</td>
+                            <td>120min自主叠衣 (IROS 2025)</td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">FastDrive</td>
+                            <td>3B / 500万轨迹</td>
+                            <td>轻量化车端优化</td>
+                            <td>延迟 <span class="stat">&lt;20ms</span>；车端推理速 ↑4倍</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部强化学习看板 -->
+        <div class="bottom-banner">
+            <div class="banner-text">NeurIPS 2025 实证：强化学习（RL）是突破泛化瓶颈的关键</div>
+            <div class="banner-stat">
+                <div class="banner-stat-item">
+                    <div class="banner-val">+42.6%</div>
+                    <div class="banner-label">未知物体抓取成功率 (vs SFT)</div>
+                </div>
+                <div class="banner-stat-item">
+                    <div class="banner-val">自修复</div>
+                    <div class="banner-label">在扰动/物体移动场景自动恢复</div>
+                </div>
+                <div class="banner-stat-item" style="border-left: 1px solid rgba(255,255,255,0.3); padding-left: 20px;">
+                    <div class="banner-val">客观规律</div>
+                    <div class="banner-label">从交互中习得物理智能而非“模仿”</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：ICML 2025, NeurIPS 2025, HKU, 华为, 斯坦福大学等联合研究</div>
+            <div>INTERNAL USE ONLY | PAGE 36</div>
+        </div>
+    </div>
+
+</body>
+</html>

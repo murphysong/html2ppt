@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 推理能力成为焦点</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 40px 50px;
+            display: flex; flex-direction: column; position: relative;
+        }
+
+        /* 顶部装饰与标题 */
+        .header-line { position: absolute; top: 0; left: 0; width: 100%; height: 10px; background: linear-gradient(90deg, #0052D4, #4364F7, #6FB1FC); }
+        .header { margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+        .title-group .index { font-size: 24px; color: #4364F7; font-weight: bold; }
+        .title-group .main { font-size: 44px; color: #1a1a1a; font-weight: bold; margin-top: 5px; }
+        .header-tag { font-size: 18px; color: #666; padding: 8px 15px; background: #f0f4ff; border-radius: 5px; border-left: 5px solid #4364F7; }
+
+        /* 内容布局：三栏异步 */
+        .content-container { display: grid; grid-template-columns: 1fr 1.2fr 0.8fr; gap: 25px; flex-grow: 1; }
+
+        /* 通用卡片样式 */
+        .card { background: #fdfdfd; border: 1px solid #e1e8ed; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; }
+        .card-title { font-size: 22px; font-weight: bold; color: #1a1a1a; margin-bottom: 18px; display: flex; align-items: center; }
+        .card-title::before { content: ""; width: 6px; height: 22px; background: #4364F7; margin-right: 12px; border-radius: 3px; }
+
+        /* 模块1：市场与投入 */
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .stat-item { background: #fff; border: 1px solid #eee; padding: 15px; border-radius: 8px; text-align: center; }
+        .stat-val { font-size: 30px; font-weight: bold; color: #0052D4; }
+        .stat-label { font-size: 14px; color: #666; margin-top: 5px; }
+        .data-list { font-size: 15px; line-height: 1.6; color: #444; }
+        .data-list li { margin-bottom: 10px; list-style: none; padding-left: 15px; position: relative; }
+        .data-list li::before { content: "●"; position: absolute; left: 0; color: #4364F7; font-size: 10px; top: 2px; }
+
+        /* 模块2：技术突破 (重点) */
+        .tech-box { background: #f8faff; border: 1px solid #d0e3ff; border-radius: 10px; padding: 15px; margin-bottom: 15px; }
+        .tech-tag { font-size: 14px; font-weight: bold; color: #fff; background: #0052D4; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; display: inline-block; }
+        .tech-desc { font-size: 15px; line-height: 1.5; color: #333; }
+        .highlight-text { color: #d93025; font-weight: bold; }
+
+        /* 模块3：商业价值 */
+        .value-card { background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%); border-left: 6px solid #28a745; margin-bottom: 15px; padding: 15px; }
+        .value-title { font-weight: bold; color: #2e7d32; font-size: 17px; margin-bottom: 8px; display: flex; justify-content: space-between; }
+        .value-content { font-size: 14px; color: #444; line-height: 1.5; }
+
+        /* 底部 */
+        .footer { margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; display: flex; justify-content: space-between; font-size: 14px; color: #999; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-line"></div>
+        
+        <div class="header">
+            <div class="title-group">
+                <div class="index">10. 产业新重心：推理革命</div>
+                <div class="main">从“预训练”转向“服务”：推理效率定义 AI 下半场</div>
+            </div>
+            <div class="header-tag">本质：从“产品思维”转向“持续运营的服务思维”</div>
+        </div>
+
+        <div class="content-container">
+            
+            <!-- 10.1 行业投入转向 -->
+            <div class="card">
+                <div class="card-title">市场与投入转向</div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-val">$520<small> 亿</small></div>
+                        <div class="stat-label">2026推理算力市场(IDC)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-val">70%<small> +</small></div>
+                        <div class="stat-label">推理占AI总计算量(SEMI)</div>
+                    </div>
+                </div>
+                <ul class="data-list">
+                    <li><b>厂商投入：</b>DeepSeek 研发投入 40 亿，<span class="highlight-text">70%</span> 用于推理优化；OpenAI 推理成本占总运营成本 <span class="highlight-text">47%</span>。</li>
+                    <li><b>企业侧：</b>73% 企业 AI 云支出中推理占 >60%；GPU 平均利用率 <span class="highlight-text">&lt;40%</span>，传统“预留算力”模式亟待转型。</li>
+                </ul>
+            </div>
+
+            <!-- 10.2 三位一体技术突破 -->
+            <div class="card" style="background: #f4f7ff;">
+                <div class="card-title">推理优化：效率与成本的双重突围</div>
+                
+                <div class="tech-box">
+                    <div class="tech-tag">架构：MoE 稀疏激活</div>
+                    <div class="tech-desc">
+                        <b>GPT-OSS-120B：</b>Token 激活率仅 <span class="highlight-text">4.25%</span>，计算量降低 95%。<br>
+                        <b>DeepSeek V4：</b>显存占用降 40%，速度提升 1.8 倍。
+                    </div>
+                </div>
+
+                <div class="tech-box">
+                    <div class="tech-tag">系统：KV 缓存与分块预填</div>
+                    <div class="tech-desc">
+                        <b>LightningIndexer：</b>增量 KV 索引，实现无延迟压缩。<br>
+                        <b>通义 3.5：</b>Chunked Prefill 技术使首包时延降低 <span class="highlight-text">50%</span>。
+                    </div>
+                </div>
+
+                <div class="tech-box">
+                    <div class="tech-tag">硬件：量化与国产适配</div>
+                    <div class="tech-desc">
+                        <b>混合量化：</b>FP8+INT4 使通义 3.5 部署成本降 60%。<br>
+                        <b>国产适配：</b>DeepSeek 100% 适配华为昇腾，推理成本较英伟达 GPU 集群降 <span class="highlight-text">60%</span>。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10.3 企业级价值落地 -->
+            <div class="card">
+                <div class="card-title">商业价值与场景覆盖</div>
+                
+                <div class="value-card">
+                    <div class="value-title">极致降本 <span>-85%</span></div>
+                    <div class="value-content">某电商系统从 GPT-4 切换至国产推理优化模型，月成本从 8 万元骤降至 1.2 万元。</div>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-title">规模增效 <span>1.7万次/h</span></div>
+                    <div class="value-content">安全运营大模型实现 95% 研判准确率，每小时研判峰值替代 80% 初级工程师工作。</div>
+                </div>
+
+                <div class="value-card" style="border-left-color: #00B4DB;">
+                    <div class="value-title">边缘新场景 <span>实时响应</span></div>
+                    <div class="value-content"><b>风电运维：</b>轻量级推理模型嵌入边缘设备，实时分析涡轮数据，运维成本降低 70%。</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <div>数据来源：IDC (2026)、德勤、SEMI 中国、DeepSeek & OpenAI 财报披露</div>
+            <div>STRATEGY & OPERATIONS | CONFIDENTIAL | PAGE 21</div>
+        </div>
+    </div>
+
+</body>
+</html>

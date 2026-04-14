@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 具身智能：AI的本质跃迁</title>
+    <style>
+        /* 页面基础设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* 16:9 幻灯片容器 */
+        .slide {
+            width: 1600px;
+            height: 900px;
+            background-color: #ffffff;
+            position: relative;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        /* 顶部装饰条 */
+        .header-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #003366, #0052D4, #4facfe);
+        }
+
+        /* 标题区域 */
+        .header {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .title-group h1 {
+            font-size: 40px;
+            color: #1a1a1a;
+            font-weight: bold;
+        }
+
+        .title-group p {
+            font-size: 20px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .page-index {
+            font-size: 24px;
+            color: #0052D4;
+            font-weight: bold;
+        }
+
+        /* 内容布局 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.2fr;
+            gap: 25px;
+            flex-grow: 1;
+        }
+
+        /* 通用卡片样式 */
+        .card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #e9ecef;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 8px;
+        }
+
+        .card-title::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 22px;
+            background: #003366;
+            margin-right: 12px;
+            border-radius: 2px;
+        }
+
+        /* 子标题 */
+        .sub-h {
+            font-size: 17px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0 5px 0;
+        }
+
+        /* 正文内容 */
+        .text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #d93025;
+            font-weight: bold;
+        }
+
+        .blue-tag {
+            background: #e7f0ff;
+            color: #0052D4;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* 数据看板 */
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .data-item {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .data-val {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .data-label {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* 案例框 */
+        .case-box {
+            background: #fff;
+            border-left: 4px solid #28a745;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* 页脚 */
+        .footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-line"></div>
+        
+        <div class="header">
+            <div class="title-group">
+                <h1>为什么具身智能值得单独看</h1>
+                <p>2024-2025：从“理解世界”向“改变世界”的本质跃迁</p>
+            </div>
+            <div class="page-index">P33</div>
+        </div>
+
+        <div class="content-grid">
+            
+            <!-- 第一列：范式转移 -->
+            <div class="card">
+                <div class="card-title">逻辑跃迁：物理闭环</div>
+                <div class="sub-h">离身认知 ➔ 具身闭环</div>
+                <div class="text">
+                    传统AI受限于符号空间，LLM/VLM缺乏物理常识（重力/摩擦力）。GPT-4o在物理操控基准中成功率仅<span class="highlight">28.9%</span>，难以满足工业需求。
+                </div>
+                <div class="sub-h">感知-认知-执行-反馈</div>
+                <div class="text">
+                    具身智能通过传感器获取第一人称数据，输出精准扭矩指令，在交互中动态涌现智能，而非预设规则。
+                </div>
+                <div class="case-box">
+                    <b>学术验证：</b>NeurIPS 2025 将具身智能设为核心议题，IAAI/IEEE将其定义为AI下一个核心研究方向。
+                </div>
+            </div>
+
+            <!-- 第二列：产业验证 -->
+            <div class="card">
+                <div class="card-title">产业验证：爆发式增长</div>
+                <div class="data-grid">
+                    <div class="data-item">
+                        <div class="data-val">447 起</div>
+                        <div class="data-label">2025中国投资事件</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="data-val">94%</div>
+                        <div class="data-label">2030预测CAGR</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="data-val">400 亿+</div>
+                        <div class="data-label">融资金额 (RMB)</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="data-val">$770 亿</div>
+                        <div class="data-label">2030中国用户支出</div>
+                    </div>
+                </div>
+                <div class="sub-h">商业价值落地</div>
+                <div class="text">
+                    <span class="blue-tag">优必选 Walker S</span> 落地比亚迪/宁德时代，装配良率<span class="highlight">99.5%</span>，调试缩短90%。<br>
+                    <span class="blue-tag">星动纪元 ERA-42</span> 分拣效率人工3倍，错误率仅0.1%。
+                </div>
+                <div class="text" style="font-size: 13px; color: #666; font-style: italic;">
+                    中国市场规模达 52.85亿元，占全球比重 27.12%。
+                </div>
+            </div>
+
+            <!-- 第三列：技术里程碑 -->
+            <div class="card">
+                <div class="card-title">技术里程碑：工业级跨越</div>
+                
+                <div class="sub-h">Gemini Robotics 1.5 (Google)</div>
+                <div class="text">
+                    首款专为具身推理优化的大模型。生成“思考轨迹”，实现<span class="highlight">先思考后行动</span>。未知环境完成率达前代2.3倍。
+                </div>
+
+                <div class="sub-h">Atlas-Gen3 (Boston Dynamics)</div>
+                <div class="text">
+                    视觉-触觉实时反馈。0.01N精度感知纹理。拾取易碎品成功率<span class="highlight">92%</span>。
+                </div>
+
+                <div class="sub-h">Optimus Gen3 (Tesla)</div>
+                <div class="text">
+                    拧紧任务良率<span class="highlight">99.7%</span>。行走6km/h，负重50kg，定义总装场景工业精度。
+                </div>
+
+                <div class="sub-h">RoboBrain 2.0 (智源)</div>
+                <div class="text">
+                    开源具身大模型。多机协同评分<span class="highlight">80.33</span>。零样本泛化，适配人形/四足/机械臂。
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <div>资料来源：IDC、NeurIPS 2025、谷歌DeepMind、特斯拉Tesla、智源研究院</div>
+            <div>INTERNAL USE ONLY | CONFIDENTIAL</div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 智能体能力的边界与协同进化</title>
+    <style>
+        :root {
+            --primary-blue: #003366;
+            --accent-blue: #0066cc;
+            --tech-green: #28a745;
+            --alert-red: #d93025;
+            --bg-light: #f8f9fa;
+            --text-main: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+        }
+
+        body {
+            background-color: #666;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 16:9 容器 */
+        .slide {
+            width: 1600px;
+            height: 900px;
+            background: #fff;
+            position: relative;
+            padding: 40px 60px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 页眉 */
+        .header {
+            border-bottom: 3px solid var(--primary-blue);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .header .subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* 顶部两栏：单 vs 多 */
+        .top-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .column-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .column-title i {
+            width: 8px;
+            height: 24px;
+            background: var(--accent-blue);
+            margin-right: 12px;
+            display: inline-block;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px;
+            height: 100%;
+            border: 1px solid #eee;
+        }
+
+        /* 5.1 单智能体数据 */
+        .stat-box {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--alert-red);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* 5.2 核心优势列表 */
+        .advantage-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .adv-item {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid var(--tech-green);
+            font-size: 16px;
+        }
+
+        .adv-item b {
+            color: var(--primary-blue);
+        }
+
+        /* 底部三栏：协同机制 */
+        .bottom-row {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .mechanism-card {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .mechanism-card h3 {
+            font-size: 20px;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .mechanism-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .tag {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: var(--accent-blue);
+            color: #fff;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        /* 脚注 */
+        .footer {
+            margin-top: auto;
+            font-size: 12px;
+            color: #999;
+            text-align: right;
+            padding-top: 10px;
+        }
+
+        .highlight-text {
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <!-- 页眉 -->
+        <div class="header">
+            <h1>5. 智能体的协同进化：从单体瓶颈到组织化协作</h1>
+            <div class="subtitle">2026 产业洞察：认知带宽的突破与多智能体系统（MAS）的崛起</div>
+        </div>
+
+        <div class="top-row">
+            <!-- 5.1 单智能体局限 -->
+            <div class="section">
+                <div class="column-title"><i></i>5.1 单智能体的能力边界</div>
+                <div class="card">
+                    <p class="highlight-text">认知带宽限制 (Skill Scaling Law - UBC 2026)</p>
+                    <div class="stat-box">
+                        <div class="stat-item">
+                            <div class="stat-value">95%</div>
+                            <div class="stat-label">技能数 10-30 时准确率</div>
+                        </div>
+                        <div class="stat-item">
+                            <div style="font-size: 24px; margin-top: 10px; color: #ccc;">➔</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">&lt; 50%</div>
+                            <div class="stat-label">技能数突破 100 时准确率</div>
+                        </div>
+                    </div>
+                    <p style="font-size: 15px; line-height: 1.6;">
+                        ● <b>场景局限：</b>即便最先进的单智能体 IMR-LLM，在复杂多机器人调度中成功率仅为 <span style="color:var(--alert-red); font-weight:bold;">68%</span>。<br>
+                        ● <b>核心瓶颈：</b>单体模型难以同时实现多源异构数据协同、多目标优先级排序及多约束动态平衡。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 5.2 多智能体优势 -->
+            <div class="section">
+                <div class="column-title"><i></i>5.2 多智能体协同（MAS）的优势</div>
+                <div class="card">
+                    <div class="advantage-list">
+                        <div class="adv-item"><b>专业化分工：</b>模拟人类组织，每个Agent专注特定领域。</div>
+                        <div class="adv-item"><b>错误隔离：</b>通过交叉验证机制降低系统性风险。</div>
+                        <div class="adv-item"><b>并行执行：</b>大幅提升效率，调研周期 10天 ➔ 3天。</div>
+                        <div class="adv-item"><b>动态扩展：</b>根据任务复杂度弹性调整 Agent 数量。</div>
+                    </div>
+                    <div class="stat-box" style="margin-top: 20px; border-left: 5px solid var(--tech-green);">
+                        <div class="stat-item">
+                            <div class="stat-value" style="color: var(--tech-green);">-60%</div>
+                            <div class="stat-label">任务错误率降低 (Everest Group)</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" style="color: var(--tech-green);">+40%</div>
+                            <div class="stat-label">执行速度提升效率</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 协同机制 -->
+        <div class="bottom-row">
+            <div class="mechanism-card">
+                <span class="tag">流水线协作</span>
+                <h3>MetaGPT</h3>
+                <p><b>机制：</b>SOP 驱动 + 共享内存。模拟人类企业的部门分工。<br><b>价值：</b>适合边界清晰的复杂任务（软件工程等），开发周期缩短 <b>30%</b>。</p>
+            </div>
+            <div class="mechanism-card">
+                <span class="tag">对话协作</span>
+                <h3>AutoGen</h3>
+                <p><b>机制：</b>动态对话图。模拟人类自由讨论，支持实时调整交互拓扑。<br><b>价值：</b>适合开放式问题求解（科研探索），并行验证选择最优解。</p>
+            </div>
+            <div class="mechanism-card">
+                <span class="tag">专家协作</span>
+                <h3>CrewAI</h3>
+                <p><b>机制：</b>角色-目标-工具绑定。模拟跨专业团队，引入审计者角色。<br><b>价值：</b>适合高风险场景（金融/医疗），错误率大幅降低 <b>65%</b>。</p>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            数据来源：UBC 2026、ICRA 2026、Everest Group 2025、中国信通院 | 内部绝密·请勿外传
+        </div>
+    </div>
+</body>
+</html>

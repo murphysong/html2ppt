@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 45. 云边端协同：场景分化下的必然选择</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f4f7f9; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 40px 60px;
+            display: flex; flex-direction: column; position: relative;
+            border-top: 10px solid #003399;
+        }
+
+        /* 标题区域 */
+        .header { margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 15px; }
+        .title-index { font-size: 24px; color: #003399; font-weight: bold; }
+        .title-main { font-size: 42px; color: #1a1a1a; font-weight: bold; margin-top: 5px; }
+        .title-sub { font-size: 18px; color: #666; margin-top: 8px; border-left: 5px solid #003399; padding-left: 15px; }
+
+        /* 内容布局布局 */
+        .content-grid { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 25px; flex-grow: 1; }
+
+        /* 模块卡片通用样式 */
+        .card { background: #fdfdfd; border: 1px solid #e1e8ed; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; }
+        .card-title { font-size: 22px; font-weight: bold; color: #003366; margin-bottom: 15px; display: flex; align-items: center; }
+        .card-title::before { content: ""; width: 6px; height: 22px; background: #003399; margin-right: 12px; border-radius: 3px; }
+
+        /* 45.1 金字塔需求模型 */
+        .pyramid-container { position: relative; padding: 10px; flex-grow: 1; }
+        .pyramid-level { margin-bottom: 10px; padding: 15px; border-radius: 8px; border-left: 8px solid; }
+        .level-cloud { background: #eef5ff; border-color: #003399; }
+        .level-edge { background: #eefbff; border-color: #00B4DB; }
+        .level-terminal { background: #f0fff4; border-color: #28a745; }
+        .level-h { font-weight: bold; font-size: 18px; color: #333; margin-bottom: 5px; }
+        .level-p { font-size: 14px; color: #666; line-height: 1.4; }
+        .stat-contrast { margin-top: 15px; background: #fff5f5; border: 1px dashed #d93025; padding: 12px; border-radius: 6px; font-size: 14px; }
+
+        /* 45.2 技术路径：卡片式 */
+        .tech-box { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+        .tech-tag { font-size: 12px; font-weight: bold; color: #003399; background: #eef2ff; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 6px; }
+        .tech-h { font-size: 16px; font-weight: bold; color: #1a1a1a; margin-bottom: 5px; }
+        .tech-p { font-size: 13.5px; color: #555; line-height: 1.5; }
+        .highlight { color: #d93025; font-weight: bold; }
+
+        /* 45.3 产业落地案例 */
+        .case-card { border-left: 5px solid #28a745; background: white; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .case-h { font-size: 18px; font-weight: bold; color: #1a1a1a; margin-bottom: 8px; }
+        .case-p { font-size: 13.5px; color: #444; line-height: 1.5; }
+        .case-v { margin-top: 8px; font-weight: bold; color: #2e7d32; font-size: 14px; border-top: 1px solid #f0f0f0; padding-top: 5px; }
+
+        /* 页脚信息 */
+        .footer { margin-top: auto; padding-top: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 14px; color: #999; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header">
+            <div class="title-index">45. 区域算力网络架构</div>
+            <h1 class="title-main">云边端协同：场景分化下的必然选择</h1>
+            <p class="title-sub">将算力置于离数据最近处：解决空间错配，平衡时延、带宽与隐私的全局最优解</p>
+        </div>
+
+        <div class="content-grid">
+            <!-- 45.1 场景需求分层：金字塔模型 -->
+            <div class="card">
+                <div class="card-title">45.1 算力需求的分层结构</div>
+                <div class="pyramid-container">
+                    <div class="pyramid-level level-cloud">
+                        <div class="level-h">云端 (Cloud)：大规模训练</div>
+                        <p class="level-p">万亿级参数预训练，E级智算中心。对算力密度要求极高，成本占比 >60%。</p>
+                    </div>
+                    <div class="pyramid-level level-edge">
+                        <div class="level-h">边缘 (Edge)：城市级推理</div>
+                        <p class="level-p">百P级智算中心，覆盖智能交通、工业质检。<b>端到端时延 < 50ms</b>。</p>
+                    </div>
+                    <div class="pyramid-level level-terminal">
+                        <div class="level-h">端侧 (Terminal)：实时响应</div>
+                        <p class="level-p">自动驾驶、AR导航、机器人控制。<b>时延要求 < 10ms</b> 极致线。</p>
+                    </div>
+                    <div class="stat-contrast">
+                        <b>IDC 实测对比 (ResNet-50)：</b><br>
+                        云端推理时延：1200ms <br>
+                        边缘推理时延：45ms <br>
+                        <span class="highlight">时延差距达 26 倍</span>，决定了实时应用的商业存续。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 45.2 技术优化路径 -->
+            <div class="card" style="background: #f0f4ff; border-color: #d0daff;">
+                <div class="card-title">45.2 系统级优化：突破时延/带宽矛盾</div>
+                
+                <div class="tech-box">
+                    <span class="tech-tag">IEEE INFOCOM 2026</span>
+                    <div class="tech-h">相似性驱动 Token 修剪</div>
+                    <p class="tech-p">保留 10%-20% 核心语义 Token。推理加速 <span class="highlight">2.27 倍</span>，能耗减半，精度损失 < 1%。</p>
+                </div>
+
+                <div class="tech-box">
+                    <span class="tech-tag">《计算机学报》2025</span>
+                    <div class="tech-h">不确定性校准协同框架</div>
+                    <p class="tech-p">轻量级边缘模型 + 云端大模型联动。云端算力消耗降低 <span class="highlight">40%</span>，时延控制在 20ms 内。</p>
+                </div>
+
+                <div class="tech-box">
+                    <span class="tech-tag">Edge Big Bang 2025</span>
+                    <div class="tech-h">层级化投机调度技术</div>
+                    <p class="tech-p">浅层网络边缘生成“草稿”，深层云端验证。实时对话延迟降低 <span class="highlight">35%</span>，算力节省 30%。</p>
+                </div>
+            </div>
+
+            <!-- 45.3 产业落地实证 -->
+            <div class="card">
+                <div class="card-title">45.3 规模化落地案例</div>
+                
+                <div class="case-card">
+                    <div class="case-h">工业制造：紫金山实验室</div>
+                    <p class="case-p">部署边缘微服务器实现产线实时质检。</p>
+                    <div class="case-v">误检率 ↓ 40% | 效率 ↑ 50% | 年收益 +200万</div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-h">城市交通：上海临港海底节点</div>
+                    <p class="case-p">0.5ms 超低延迟，支撑 10 万辆车路协同数据处理。</p>
+                    <div class="case-v">响应延迟：50ms ➔ 10ms 以内</div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-h">医疗健康：阿里云 & 武汉协和</div>
+                    <p class="case-p">边缘算力下沉至影像科，实现实时辅助诊断。</p>
+                    <div class="case-v">延迟 ↓ 85% (30ms内) | 诊断准确率 ↑ 15%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：IDC、中国电信 IEEE INFOCOM、浪潮信息、紫金山实验室</div>
+            <div>INTERNAL REFERENCE | 2026 AI INFRASTRUCTURE REPORT | PAGE 45</div>
+        </div>
+    </div>
+
+</body>
+</html>

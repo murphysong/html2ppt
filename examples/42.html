@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 具身智能系统架构</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 30px 50px;
+            display: flex; flex-direction: column; position: relative;
+        }
+
+        /* 顶部装饰条 */
+        .header-line { position: absolute; top: 0; left: 0; width: 100%; height: 8px; background: linear-gradient(90deg, #003366, #0052D4, #4facfe); }
+        
+        /* 标题区域 */
+        .header { margin-bottom: 20px; }
+        .title-index { font-size: 24px; color: #0052D4; font-weight: bold; margin-bottom: 5px; }
+        .title-main { font-size: 40px; color: #1a1a1a; font-weight: bold; }
+
+        /* 内容网格布局 */
+        .grid-container { display: grid; grid-template-columns: 1fr 1.8fr; gap: 20px; flex-grow: 1; margin-bottom: 15px; }
+
+        /* 主架构卡片 */
+        .card { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 12px; padding: 15px; display: flex; flex-direction: column; }
+        .card-title { font-size: 20px; font-weight: bold; color: #003366; margin-bottom: 12px; border-bottom: 2px solid #003366; padding-bottom: 5px; }
+        
+        /* 1. 快慢脑协同架构 */
+        .brain-logic { display: flex; flex-direction: column; gap: 10px; }
+        .brain-box { border-radius: 8px; padding: 12px; border-left: 6px solid; }
+        .slow-brain { border-color: #0052D4; background: #eef2ff; }
+        .fast-brain { border-color: #00B4DB; background: #e0f7fa; }
+        .brain-h { font-weight: bold; font-size: 17px; margin-bottom: 5px; color: #1a1a1a; display: flex; justify-content: space-between; }
+        .brain-p { font-size: 14px; color: #444; line-height: 1.5; }
+        .stat-tag { font-size: 12px; color: #fff; background: #d93025; padding: 1px 6px; border-radius: 3px; }
+
+        /* 2. 技术参数看板 */
+        .params-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+        .param-sub-card { background: white; border: 1px solid #eee; border-radius: 8px; padding: 12px; }
+        .param-h { font-size: 16px; font-weight: bold; color: #0052D4; margin-bottom: 8px; display: flex; align-items: center; }
+        .param-h::before { content: ""; width: 4px; height: 16px; background: #0052D4; margin-right: 8px; }
+        .param-list { font-size: 13px; line-height: 1.6; color: #555; }
+        .param-list b { color: #1a1a1a; }
+        .metric-red { color: #d93025; font-weight: bold; }
+
+        /* 3. 云边端协同表格 */
+        .cloud-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+        .cloud-table th { background: #003366; color: white; padding: 10px; text-align: left; }
+        .cloud-table td { padding: 10px; border-bottom: 1px solid #eee; }
+        .cloud-table tr:nth-child(even) { background: #f9f9f9; }
+
+        /* 页脚 */
+        .footer { margin-top: 10px; display: flex; justify-content: space-between; font-size: 14px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-line"></div>
+        
+        <div class="header">
+            <div class="title-index">3.5 具身智能的系统架构</div>
+            <h1 class="title-main">「感知-认知-执行-反馈」闭环系统与快慢脑协同逻辑</h1>
+        </div>
+
+        <div class="grid-container">
+            <!-- 左栏：主流架构逻辑 -->
+            <div class="card">
+                <div class="card-title">主流方案：快慢脑协同架构 (落地占比 68%)</div>
+                <div class="brain-logic">
+                    <div class="brain-box slow-brain">
+                        <div class="brain-h">慢脑 (Planning Layer) <span class="stat-tag">7-9Hz</span></div>
+                        <div class="brain-p"><b>决策中枢：</b>基于GPT-4o/Gemini 1.5。任务拆解、长时序规划、环境建模。延迟约 <span class="metric-red">100ms</span>。匹配人类大脑决策速度。</div>
+                    </div>
+                    <div class="brain-box fast-brain">
+                        <div class="brain-h">快脑 (Control Layer) <span class="stat-tag">200Hz</span></div>
+                        <div class="brain-p"><b>动作中枢：</b>模仿学习/动态规划。负责全身平衡、阻抗控制、避障。响应延迟 <span class="metric-red">&lt;20ms</span>。</div>
+                    </div>
+                    <div style="font-size: 13px; color: #666; padding: 5px; border: 1px dashed #ccc; border-radius: 4px;">
+                        <b>协同机制：</b>通过ROS 2 DDS协议交互，接口延迟 <span class="metric-red">&lt;5ms</span>。实现触觉反馈与规划指令的闭环修正（如滑落补偿）。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右栏：模块技术参数 -->
+            <div class="card">
+                <div class="card-title">各模块核心技术参数（2024-2025 实测数据）</div>
+                <div class="params-grid">
+                    <!-- 感知层 -->
+                    <div class="param-sub-card">
+                        <div class="param-h">感知层：多模态物理接口</div>
+                        <ul class="param-list" style="list-style: none;">
+                            <li>● <b>Optimus手指触觉：</b>空间分辨率 <span class="metric-red">0.1mm</span>，力精度 <span class="metric-red">0.01N</span>，可辨识丝绸/麻布纹理。</li>
+                            <li>● <b>复旦电子皮肤：</b>灵敏度达人类 <span class="metric-red">10倍</span>。</li>
+                            <li>● <b>为旌VS859芯片：</b>功耗降 70%，续航由 4h 延至 <span class="metric-red">6h</span>。</li>
+                        </ul>
+                    </div>
+                    <!-- 认知层 -->
+                    <div class="param-sub-card">
+                        <div class="param-h">认知层：动态预测大脑</div>
+                        <ul class="param-list" style="list-style: none;">
+                            <li>● <b>开悟世界模型 3.0：</b>支持 <span class="metric-red">1080P</span> 视频生成，预判未来 5s 动态，因果预测精度 <span class="metric-red">89%</span>。</li>
+                            <li>● <b>智源RoboBrain 2.0：</b>多机协同得分 <span class="metric-red">80.33</span>，实现跨本体零样本泛化。</li>
+                        </ul>
+                    </div>
+                    <!-- 执行层 -->
+                    <div class="param-sub-card">
+                        <div class="param-h">执行层：柔顺物理动作</div>
+                        <ul class="param-list" style="list-style: none;">
+                            <li>● <b>Optimus Gen3：</b>全身自由度 <span class="metric-red">45个</span> (手部22)，扭矩密度提升 30%，可抓取 2mm 电子元件。</li>
+                            <li>● <b>宇树关节模组：</b>负重 50kg 行走速度 <span class="metric-red">2m/s</span>。</li>
+                            <li>● <b>艾利特6轴：</b>良率 <span class="metric-red">99.5%</span>。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 云边端协同 -->
+                <table class="cloud-table">
+                    <thead>
+                        <tr>
+                            <th width="15%">层级</th>
+                            <th width="35%">功能定位</th>
+                            <th width="20%">典型部署</th>
+                            <th width="30%">核心参数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>端侧</b></td>
+                            <td>实时动作控制、安全急停、动态避障</td>
+                            <td>机器人本体</td>
+                            <td>延迟 <span class="metric-red">&lt;20ms</span>；Jetson Thor</td>
+                        </tr>
+                        <tr>
+                            <td><b>边缘</b></td>
+                            <td>中频任务、路径规划、局域网自治</td>
+                            <td>园区/工厂</td>
+                            <td>延迟 <span class="metric-red">&lt;10ms</span>；部署1-5B模型</td>
+                        </tr>
+                        <tr>
+                            <td><b>云侧</b></td>
+                            <td>大规模仿真、模型预训练、长效分析</td>
+                            <td>公有/私有云</td>
+                            <td>部署 <span class="metric-red">≥70B</span> 大模型；H100集群</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>资料来源：中国信通院《具身智能发展报告(2025)》、特斯拉、智源研究院、宇树科技</div>
+            <div>INTERNAL USE ONLY | PAGE 35</div>
+        </div>
+    </div>
+
+</body>
+</html>

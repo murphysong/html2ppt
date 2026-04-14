@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .slide { 
+            width: 1600px; height: 900px; background: white; padding: 40px 60px;
+            display: flex; flex-direction: column; border-top: 8px solid #4364F7;
+        }
+        .header { margin-bottom: 25px; }
+        .index { color: #4364F7; font-size: 24px; font-weight: bold; }
+        .title { font-size: 44px; color: #1a1a1a; font-weight: bold; }
+
+        /* 垂直场景网格 */
+        .vertical-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-bottom: 30px;
+        }
+        .v-card {
+            background: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative;
+        }
+        .v-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px; border-radius: 12px 12px 0 0; }
+        .v-card-fin::before { background: #0052D4; }
+        .v-card-med::before { background: #28a745; }
+        .v-card-ind::before { background: #ffc107; }
+
+        .v-type { font-size: 18px; font-weight: bold; color: #666; margin-bottom: 10px; display: block; }
+        .v-name { font-size: 26px; font-weight: bold; color: #1a1a1a; margin-bottom: 15px; }
+        .v-param { display: inline-block; background: #f0f2f5; padding: 4px 12px; border-radius: 20px; font-size: 16px; margin-bottom: 15px; }
+        .v-desc { font-size: 17px; line-height: 1.6; color: #444; }
+        .v-stat { margin-top: 15px; font-weight: bold; color: #d93025; border-top: 1px dashed #eee; padding-top: 15px; }
+
+        /* 共识总结区 */
+        .consensus-box {
+            background: linear-gradient(90deg, #4364F7, #6FB1FC); color: white; padding: 30px; border-radius: 12px;
+            display: flex; align-items: center; gap: 40px;
+        }
+        .consensus-title { font-size: 24px; font-weight: bold; border-right: 2px solid rgba(255,255,255,0.3); padding-right: 40px; white-space: nowrap; }
+        .consensus-text { font-size: 19px; line-height: 1.6; }
+
+        .footer { margin-top: auto; display: flex; justify-content: space-between; color: #999; font-size: 14px; padding-top: 15px; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <div class="index">6.2 - 6.3 场景化适配</div>
+            <div class="title">垂直领域的“参数够用即止”与行业共识</div>
+        </div>
+
+        <!-- 垂直模型案例 -->
+        <div class="vertical-grid">
+            <!-- 金融 -->
+            <div class="v-card v-card-fin">
+                <span class="v-type">金融场景</span>
+                <div class="v-name">平安 PingAnGPT</div>
+                <div class="v-param">参数规模：竞品 35%</div>
+                <div class="v-desc">覆盖 97 个金融场景，反洗钱识别准确率超越万亿级通用模型。</div>
+                <div class="v-stat">合规风控得分 +28%</div>
+            </div>
+            <!-- 医疗 -->
+            <div class="v-card v-card-med">
+                <span class="v-type">医疗场景</span>
+                <div class="v-name">天士力 数智本草</div>
+                <div class="v-param">参数规模：380 亿</div>
+                <div class="v-desc">基于历代医案专属数据。中药研发场景适配性显著高于通用大模型。</div>
+                <div class="v-stat">研发周期缩短 30%</div>
+            </div>
+            <!-- 工业 -->
+            <div class="v-card v-card-ind">
+                <span class="v-type">工业场景</span>
+                <div class="v-name">华为盘古视觉</div>
+                <div class="v-param">参数规模：30 亿</div>
+                <div class="v-desc">专注于亚毫米级缺陷识别，实现了千亿级通用模型无法达到的工业精度。</div>
+                <div class="v-stat">准确率 65% ➔ 95%</div>
+            </div>
+        </div>
+
+        <!-- 行业共识 -->
+        <div class="consensus-box">
+            <div class="consensus-title">2026 行业共识<br><small style="font-weight: normal; opacity: 0.8;">信通院白皮书</small></div>
+            <div class="consensus-text">
+                <b>“参数规模不再是核心指标，激活效率与场景适配性才是。”</b><br>
+                DeepSeek V4 以百亿级激活参数在 SWE-bench 软件工程基准中超越 GPT-5.2；<br>
+                通义千问 3.5 以 GPT-4 60% 的参数量，实现预训练推理效率提升 3 倍。
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：信通院 2026 大模型产业白皮书、DeepSeek 实验室、华为云官网</div>
+            <div>PAGE 16</div>
+        </div>
+    </div>
+</body>
+</html>

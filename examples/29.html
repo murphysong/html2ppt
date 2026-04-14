@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT第23页-智能体的定义与本质</title>
+    <style>
+        /* 页面基础设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* 16:9 幻灯片容器 */
+        .slide {
+            width: 1600px;
+            height: 900px;
+            background-color: #ffffff;
+            position: relative;
+            padding: 40px 50px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 顶部装饰条 */
+        .header-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #004098, #0072ff);
+        }
+
+        /* 标题区域 */
+        .header {
+            margin-bottom: 25px;
+        }
+
+        .title-index {
+            font-size: 22px;
+            color: #004098;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .title-main {
+            font-size: 40px;
+            color: #1a1a1a;
+            font-weight: bold;
+        }
+
+        /* 内容网格布局 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            grid-template-rows: auto 1fr;
+            gap: 25px;
+            flex: 1;
+        }
+
+        /* 通用卡片样式 */
+        .card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #e9ecef;
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #004098;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-title::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 22px;
+            background: #004098;
+            margin-right: 12px;
+            border-radius: 3px;
+        }
+
+        /* 2.1 定义演进 */
+        .def-box {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .def-item {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-left: 4px solid #004098;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .def-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 4px;
+            font-weight: bold;
+        }
+
+        .def-text {
+            font-size: 15px;
+            line-height: 1.4;
+            color: #333;
+        }
+
+        /* 2.4 理论模型公式 */
+        .formula-card {
+            background: linear-gradient(135deg, #004098 0%, #0072ff 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 15px;
+        }
+
+        .formula-text {
+            font-size: 34px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .formula-desc {
+            font-size: 16px;
+            margin-top: 15px;
+            opacity: 0.9;
+        }
+
+        /* 2.3 对比表格 */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 14px;
+        }
+
+        .comparison-table th {
+            background: #e6f0ff;
+            color: #004098;
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #dee2e6;
+        }
+
+        .comparison-table td {
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .comparison-table .highlight-col {
+            background: #fdfefe;
+            font-weight: bold;
+        }
+
+        /* 2.2 核心本质（三大机制） */
+        .essence-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .essence-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-top: 4px solid #28a745;
+        }
+
+        .essence-title {
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .essence-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .stat {
+            color: #c00000;
+            font-weight: bold;
+        }
+
+        /* 页脚 */
+        .footer {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            color: #999;
+            font-size: 13px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-line"></div>
+        
+        <div class="header">
+            <div class="title-index">2. 智能体的定义与本质</div>
+            <h1 class="title-main">架构驱动的“认知-执行”闭环：从工具到代理</h1>
+        </div>
+
+        <div class="content-grid">
+            
+            <!-- 2.1 定义演进 -->
+            <div class="card">
+                <div class="card-title">2.1 定义：从响应实体到自主决策系统</div>
+                <div class="def-box">
+                    <div class="def-item">
+                        <div class="def-label">经典理论 (Russell & Norvig)</div>
+                        <div class="def-text">通过传感器感知环境、通过执行器产生作用的实体。</div>
+                    </div>
+                    <div class="def-item">
+                        <div class="def-label">标准化组织 (FIPA)</div>
+                        <div class="def-text">核心特征：自主性、社会能力、反应性、预动性。</div>
+                    </div>
+                    <div class="def-item">
+                        <div class="def-label">现代定义 (OpenAI 2026)</div>
+                        <div class="def-text">以大模型为<b>大脑驱动</b>，具备自主规划、调用工具、记忆迭代能力的自动化系统。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2.4 核心公式 -->
+            <div class="formula-card">
+                <div class="formula-text">Agent = LLM + Planning + Memory + Tool Use</div>
+                <div class="formula-desc">大模型（大脑） + 规划（决策） + 记忆（经验） + 工具（手脚）</div>
+            </div>
+
+            <!-- 2.3 区别对比 -->
+            <div class="card">
+                <div class="card-title">2.3 核心差异：自主认知能力</div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>维度</th>
+                            <th>传统 AI 工具 (RPA / 聊天机器人)</th>
+                            <th>智能体 (Agent)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="highlight-col">核心能力</td>
+                            <td>基于规则的被动响应，执行预定义流程</td>
+                            <td><b>基于目标的主动规划</b>，自主拆解任务</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-col">记忆机制</td>
+                            <td>无长期记忆，依赖单次输入</td>
+                            <td>具备短期记忆与<b>长期知识沉淀</b></td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-col">工具调用</td>
+                            <td>需硬编码工具列表，无法动态适配</td>
+                            <td><b>自主发现并调用</b>外部 API 与工具</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-col">本质属性</td>
+                            <td>“人类操作的延伸” (模仿动作)</td>
+                            <td><b>“人类决策的延伸” (替代思考)</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 2.2 核心机制 -->
+            <div class="card">
+                <div class="card-title">2.2 本质：架构突破释放产业价值</div>
+                <div class="essence-grid">
+                    <div class="essence-item">
+                        <div class="essence-title">记忆机制</div>
+                        <div class="essence-desc">解决上下文遗忘。Synthius-Mem 准确率达 <span class="stat">94.37%</span>，支持长期任务经验检索。</div>
+                    </div>
+                    <div class="essence-item">
+                        <div class="essence-title">工具调用</div>
+                        <div class="essence-desc">解决能力边界。DeepSeek-Coder 得分 <span class="stat">67.8%</span>，核心在于自主调用代码解释器。</div>
+                    </div>
+                    <div class="essence-item">
+                        <div class="essence-title">反馈机制</div>
+                        <div class="essence-desc">解决自我修正。通过“执行-观察-反思”闭环，将大模型幻觉率降低约 <span class="stat">30%</span>。</div>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; font-size: 14px; color: #666; font-style: italic;">
+                    * 智能体的本质并非“更强大的模型”，而是“大模型 + 认知架构 + 工具生态”的协同。
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <div>资料来源：OpenAI 2026 官方定义、FIPA 标准、《人工智能：现代方法》、Synthius-Mem 实验数据</div>
+            <div>INTERNAL USE ONLY | PAGE 23</div>
+        </div>
+    </div>
+
+</body>
+</html>

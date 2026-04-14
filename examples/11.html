@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .slide { 
+            width: 1600px; height: 900px; background: white; padding: 40px 60px;
+            display: flex; flex-direction: column; border-right: 12px solid #28a745;
+        }
+        .header { margin-bottom: 25px; }
+        .index { color: #28a745; font-size: 24px; font-weight: bold; }
+        .title { font-size: 42px; color: #1a1a1a; font-weight: bold; }
+
+        .content-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; flex-grow: 1; }
+
+        /* 中国阵营卡片 */
+        .cn-models { display: flex; flex-direction: column; gap: 15px; }
+        .model-card { background: #f6fff8; border: 1px solid #c3e6cb; border-radius: 10px; padding: 18px; }
+        .card-top { display: flex; justify-content: space-between; margin-bottom: 10px; align-items: center; }
+        .m-name { font-size: 22px; font-weight: bold; color: #155724; }
+        .m-badge { background: #28a745; color: white; padding: 2px 10px; border-radius: 4px; font-size: 14px; }
+        .m-desc { font-size: 16px; line-height: 1.5; color: #444; }
+        .m-key { margin-top: 10px; color: #d93025; font-weight: bold; font-size: 16px; }
+
+        /* 企业选型标准 */
+        .standard-box { background: #f8f9fa; border-radius: 12px; padding: 25px; border: 1px solid #eee; }
+        .std-title { font-size: 24px; font-weight: bold; margin-bottom: 25px; text-align: center; }
+        
+        .std-bar-container { margin-bottom: 15px; }
+        .std-label { display: flex; justify-content: space-between; font-size: 16px; margin-bottom: 8px; font-weight: bold; }
+        .std-bar-bg { width: 100%; height: 12px; background: #e9ecef; border-radius: 6px; overflow: hidden; }
+        .std-bar-fill { height: 100%; background: linear-gradient(90deg, #28a745, #85d996); border-radius: 6px; }
+
+        /* 底部数据对比 */
+        .data-summary { 
+            margin-top: 30px; background: #1a1a1a; color: white; padding: 25px; border-radius: 12px;
+            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; text-align: center;
+        }
+        .sum-item { border-right: 1px solid #444; }
+        .sum-item:last-child { border-right: none; }
+        .sum-v { font-size: 36px; font-weight: bold; color: #28a745; }
+        .sum-l { font-size: 14px; opacity: 0.8; margin-top: 5px; }
+
+        .footer { margin-top: auto; display: flex; justify-content: space-between; color: #999; font-size: 14px; padding-top: 15px; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <div class="index">8.2 - 8.3 市场反馈</div>
+            <div class="title">中国阵营差异化优势与企业级选型标准</div>
+        </div>
+
+        <div class="content-layout">
+            <div class="cn-models">
+                <div class="model-card">
+                    <div class="card-top"><span class="m-name">DeepSeek V4</span><span class="m-badge">极致性价比</span></div>
+                    <p class="m-desc">推理成本仅为 GPT-5 的 1/20。100% 适配华为昇腾，成为国产算力环境下的企业首选。</p>
+                    <div class="m-key">2026 Q1 调用量增长 127%</div>
+                </div>
+                <div class="model-card">
+                    <div class="card-top"><span class="m-name">通义千问 3.5</span><span class="m-badge">生态适配</span></div>
+                    <p class="m-desc">与阿里云 PAI、ModelScope 深度集成。中文任务得分较 GPT-5 高 12%。</p>
+                    <div class="m-key">医疗/政务场景份额 > 30%</div>
+                </div>
+                <div class="model-card" style="background: #fffdf6; border-color: #ffeeba;">
+                    <div class="card-top"><span class="m-name">MiniMax M2.5</span><span class="m-badge">高吞吐效率</span></div>
+                    <p class="m-desc">激活参数约 40B，输出价格仅 1.1 美元/百万 Token。连续五周蝉联全球调用量第一。</p>
+                    <div class="m-key">周调用量达 1.89 万亿 Token</div>
+                </div>
+            </div>
+
+            <div class="standard-box">
+                <div class="std-title">2026 企业选型需求优先级</div>
+                <div class="std-bar-container">
+                    <div class="std-label"><span>复杂推理能力</span><span>40%</span></div>
+                    <div class="std-bar-bg"><div class="std-bar-fill" style="width: 40%;"></div></div>
+                </div>
+                <div class="std-bar-container">
+                    <div class="std-label"><span>稳定性与服务质量</span><span>20%</span></div>
+                    <div class="std-bar-bg"><div class="std-bar-fill" style="width: 20%;"></div></div>
+                </div>
+                <div class="std-bar-container">
+                    <div class="std-label"><span>推理成本 ROI</span><span>15%</span></div>
+                    <div class="std-bar-bg"><div class="std-bar-fill" style="width: 15%;"></div></div>
+                </div>
+                <div class="std-bar-container">
+                    <div class="std-label"><span>合规性与安全性</span><span>15%</span></div>
+                    <div class="std-bar-bg"><div class="std-bar-fill" style="width: 15%;"></div></div>
+                </div>
+                <div class="std-bar-container">
+                    <div class="std-label"><span>生态适配能力</span><span>10%</span></div>
+                    <div class="std-bar-bg"><div class="std-bar-fill" style="width: 10%;"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-summary">
+            <div class="sum-item">
+                <div class="sum-v">12.96 万亿</div>
+                <div class="sum-l">中国大模型周 Token 调用量</div>
+            </div>
+            <div class="sum-item">
+                <div class="sum-v">4.28 倍</div>
+                <div class="sum-l">中国调用量 vs 美国调用量</div>
+            </div>
+            <div class="sum-item">
+                <div class="sum-v">1/10 ~ 1/20</div>
+                <div class="sum-l">中国模型推理成本 vs 美国</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>资料来源：阿里研究院、信通院 2026 Q1 数据报告、各厂商财报</div>
+            <div>PAGE 19</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 2026-2030 未来展望</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f4f7f9; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 40px 50px;
+            display: flex; flex-direction: column; position: relative;
+        }
+
+        /* 装饰条与标题 */
+        .header-accent { position: absolute; top: 0; left: 0; width: 100%; height: 10px; background: linear-gradient(90deg, #003399, #00B4DB, #F09819); }
+        .header { margin-bottom: 25px; }
+        .title-index { font-size: 24px; color: #003399; font-weight: bold; }
+        .title-main { font-size: 42px; color: #1a1a1a; font-weight: bold; margin-top: 5px; }
+        .title-sub { font-size: 20px; color: #666; margin-top: 5px; }
+
+        /* 内容网格：三轴演进 */
+        .vision-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px; flex-grow: 1; }
+
+        /* 通用卡片样式 */
+        .vision-card { border-radius: 15px; padding: 25px; display: flex; flex-direction: column; position: relative; border: 1px solid #eee; }
+        .vision-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 6px; border-radius: 15px 15px 0 0; }
+        
+        /* 颜色分类 */
+        .card-tech::before { background: #003399; }
+        .card-industry::before { background: #00B4DB; }
+        .card-compliance::before { background: #F09819; }
+
+        .card-title { font-size: 24px; font-weight: bold; margin-bottom: 20px; display: flex; align-items: center; }
+        .card-title i { margin-right: 12px; font-style: normal; }
+
+        /* 内容详情层级 */
+        .section { margin-bottom: 20px; }
+        .section-h { font-size: 18px; font-weight: bold; color: #333; margin-bottom: 8px; display: flex; justify-content: space-between; }
+        .section-p { font-size: 15px; color: #555; line-height: 1.6; }
+        
+        /* 数据标签 */
+        .badge { font-size: 12px; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+        .badge-blue { background: #eef2ff; color: #003399; }
+        .badge-green { background: #e6f4ea; color: #1e8e3e; }
+        .badge-orange { background: #fff7ed; color: #c2410c; }
+
+        /* 重点案例框 */
+        .highlight-box { background: #f8f9fa; border-left: 4px solid #003399; padding: 12px; margin-top: 10px; border-radius: 0 8px 8px 0; }
+        .highlight-box b { color: #1a1a1a; font-size: 14px; }
+
+        /* 页脚 */
+        .footer { margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; color: #999; font-size: 14px; }
+        
+        .stat-line { color: #d93025; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-accent"></div>
+        
+        <div class="header">
+            <div class="title-index">07 未来展望</div>
+            <h1 class="title-main">2026-2030 趋势预判：从“专精”走向“生态”</h1>
+            <p class="title-sub">技术深度融合、产业协同创新与全球合规对齐的五年跨越</p>
+        </div>
+
+        <div class="vision-grid">
+            
+            <!-- 7.1 技术趋势 -->
+            <div class="vision-card card-tech">
+                <div class="card-title">🚀 7.1 技术：深度感知与行动</div>
+                
+                <div class="section">
+                    <div class="section-h">多模态融合标配 <span class="badge badge-blue">能力 ↑50%</span></div>
+                    <p class="section-p">融合传感器数据、红外影像与文本，实现精准预警。医疗诊断/工业控制迈向全感官认知。</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-h">具身智能落地 <span class="badge badge-blue">100家企业</span></div>
+                    <p class="section-p">从“对话”到“执行”。江苏布局<b>3家具身智能创新中心</b>，赋能机器人自主维修与物流调度。</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-h">RAG 2.0 + 知识图谱</div>
+                    <p class="section-p">HippoRAG2.0实现知识更新延迟缩短至<span class="stat-line">1周</span>，幻觉率降低<span class="stat-line">42%</span>，强化逻辑推理。</p>
+                </div>
+
+                <div class="highlight-box">
+                    <b>效率优化：</b> NSA 架构下一代版本将实现参数效率提升 <span class="stat-line">80%</span>，推理成本再降 50%。
+                </div>
+            </div>
+
+            <!-- 7.2 产业趋势 -->
+            <div class="vision-card card-industry">
+                <div class="card-title">🌐 7.2 产业：从工具到公共服务</div>
+                
+                <div class="section">
+                    <div class="section-h">产业级生态构建 <span class="badge badge-green">万亿规模</span></div>
+                    <p class="section-p">2030年人工智能产业规模超<span class="stat-line">万亿元</span>。培育10个以上国内领先垂域大模型。</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-h">开放共享模式</div>
+                    <p class="section-p">南钢“元冶”2.0向全行业开放模型接口。联著实业微调框架服务超<span class="stat-line">100家</span>制造企业。</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-h">长三角协同</div>
+                    <p class="section-p">打破区域壁垒，构建跨区域数据、场景、知识共享生态，形成“宁沪苏锡”具身智能集群。</p>
+                </div>
+
+                <div class="highlight-box" style="border-left-color: #00B4DB;">
+                    <b>区域引擎：</b> 南京(工业具身)、苏州(服务具身)、无锡(汽车具身)差异化协同发展。
+                </div>
+            </div>
+
+            <!-- 7.3 合规趋势 -->
+            <div class="vision-card card-compliance">
+                <div class="card-title">⚖️ 7.3 合规：全球标准对齐</div>
+                
+                <div class="section">
+                    <div class="section-h">合规细化与门槛</div>
+                    <p class="section-p">医疗/金融等核心领域要求诊断准确率与可解释性双 <span class="stat-line">≥90%</span>。合规要求嵌入研发全流程。</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-h">国际标准对接 <span class="badge badge-orange">全球化</span></div>
+                    <p class="section-p">适配欧盟<b>《AI法案》</b>与美国相关标准，构建跨境数据流转与伦理合规的“全球通行证”。</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-h">第三方审计支撑</div>
+                    <p class="section-p">东大“问道”提供国际合规检测服务。信通院对接国际认证体系（如AI4Trust）。</p>
+                </div>
+
+                <div class="highlight-box" style="border-left-color: #F09819;">
+                    <b>伦理工程化：</b> 抽象伦理原则转化为可执行的工程标准，实现“安全即代码(Security as Code)”。
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <div>数据来源：信通院“方升”测试 2025、ICML2025、ACL2025、江苏省“人工智能+”行动方案</div>
+            <div>INTERNAL REFERENCE | STRATEGIC PLAN 2030 | PAGE 27</div>
+        </div>
+    </div>
+
+</body>
+</html>

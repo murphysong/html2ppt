@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 大模型基础能力的改变</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 40px 50px;
+            display: flex; flex-direction: column; position: relative;
+        }
+
+        /* 顶部装饰与标题 */
+        .header-stripe { position: absolute; top: 0; left: 0; width: 100%; height: 8px; background: linear-gradient(90deg, #1e3c72, #2a5298, #2193b0); }
+        .header { margin-bottom: 25px; }
+        .title-index { font-size: 24px; color: #2a5298; font-weight: bold; }
+        .title-main { font-size: 42px; color: #1a1a1a; font-weight: bold; margin-top: 5px; }
+        .title-sub { font-size: 18px; color: #666; margin-top: 5px; }
+
+        /* 四象限布局 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+            flex-grow: 1;
+        }
+
+        /* 支柱卡片样式 */
+        .pillar-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            background: #fdfdfd;
+            transition: all 0.3s;
+        }
+        .pillar-card:hover { border-color: #2a5298; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+
+        .pillar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #2a5298;
+            padding-bottom: 10px;
+        }
+        .pillar-title { font-size: 22px; font-weight: bold; color: #1a1a1a; }
+        .pillar-tag { font-size: 14px; background: #2a5298; color: white; padding: 3px 12px; border-radius: 20px; }
+
+        /* 内容详情层级 */
+        .detail-row { margin-bottom: 12px; }
+        .detail-label { font-size: 15px; color: #555; font-weight: bold; margin-bottom: 4px; display: flex; align-items: center; }
+        .detail-label::before { content: "•"; color: #2a5298; margin-right: 8px; font-size: 20px; }
+        
+        .score-box { background: #f0f4f8; padding: 10px; border-radius: 6px; font-size: 14px; color: #333; line-height: 1.6; }
+        .val-highlight { color: #d93025; font-weight: bold; }
+        .tech-highlight { color: #1e3c72; font-weight: bold; }
+
+        /* 企业价值小条 */
+        .value-footer {
+            margin-top: auto;
+            background: #eef7f2;
+            border-left: 4px solid #28a745;
+            padding: 10px 15px;
+            font-size: 15px;
+            color: #2e7d32;
+        }
+
+        /* 底部页脚 */
+        .footer {
+            margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee;
+            display: flex; justify-content: space-between; font-size: 14px; color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-stripe"></div>
+        
+        <div class="header">
+            <div class="title-index">9. 核心能力跃迁</div>
+            <div class="title-main">大模型基础能力的改变：从“文本生成”转向“问题解决”</div>
+            <div class="title-sub">2024-2026：思维链、工具Agent、多模态原生与长上下文构建的四大能力支柱</div>
+        </div>
+
+        <div class="grid-container">
+            <!-- 9.1 思维链与逻辑推理 -->
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-title">9.1 思维链 (CoT) 与逻辑推理</div>
+                    <div class="pillar-tag">认知核心</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">量化得分 (AIME / MATH)</div>
+                    <div class="score-box">
+                        DeepSeek V4: <span class="val-highlight">99.4 / 97.3</span> | GPT-5.2: <span class="val-highlight">98.1 / 95.7</span><br>
+                        百度 ERNIE 4.5: GSM8K <span class="val-highlight">96.6分</span> (2025年榜首)
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">技术突破</div>
+                    <p class="score-box">提出 <span class="tech-highlight">“结构化推理训练”</span>，将代码逻辑转化为思维链模板，使编程推理性能提升 <span class="tech-highlight">150%</span>。</p>
+                </div>
+                <div class="value-footer">
+                    <b>企业价值：</b>金融投资分析计算准确率 82%➔95%，时间 2h➔15min，年省成本 >300万元。
+                </div>
+            </div>
+
+            <!-- 9.2 工具调用与 Agent -->
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-title">9.2 工具调用与 Agent 能力</div>
+                    <div class="pillar-tag">执行核心</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">量化得分 (SWE-bench / HumanEval+)</div>
+                    <div class="score-box">
+                        DeepSeek V4: <span class="val-highlight">83.7%</span> (超 GPT-5.2 的 80.0%)<br>
+                        支持 338 种编程语言，HumanEval+ 得分 <span class="val-highlight">93.5</span>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">技术突破</div>
+                    <p class="score-box">通义千问 3.5 原生工具协议，调用成功率 <span class="tech-highlight">92%</span>；支持跨领域多智能体协同流程。</p>
+                </div>
+                <div class="value-footer">
+                    <b>企业价值：</b>某车企工业质检良品率达 99.6%，人财成本降 68%；安全告警研判准确率 >95%。
+                </div>
+            </div>
+
+            <!-- 9.3 多模态理解与生成 -->
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-title">9.3 多模态理解与原生融合</div>
+                    <div class="pillar-tag">感知核心</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">量化得分 (MMMU)</div>
+                    <div class="score-box">
+                        GPT-5.2 Ultra: <span class="val-highlight">85.9分</span> (榜首) | DeepSeek V4: 非文本信息损失 <span class="val-highlight">&lt;5%</span><br>
+                        告别“插件拼接”，实现端到端原生模态融合。
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">技术突破</div>
+                    <p class="score-box">文心 5.0 结合视觉/音频/语气理解潜台词，内容分析准确率较拼接架构提升 <span class="tech-highlight">35%</span>。</p>
+                </div>
+                <div class="value-footer">
+                    <b>企业价值：</b>盘古视觉大模型实现亚毫米级缺陷识别，检测效率提升 40%，支持红外/激光多感官。
+                </div>
+            </div>
+
+            <!-- 9.4 长上下文学习 -->
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-title">9.4 长上下文学习能力</div>
+                    <div class="pillar-tag">记忆核心</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">窗口长度与准确率 (LongBench v2)</div>
+                    <div class="score-box">
+                        OpenAI o1: <span class="val-highlight">57.7%</span> (超人类) | Claude 4: <span class="val-highlight">120万 Token</span><br>
+                        DeepSeek V4: 100万 Token 准确率 <span class="val-highlight">56.2%</span> (超 GPT-5.2)
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">技术突破</div>
+                    <p class="score-box">Meta <span class="tech-highlight">RoPE-ABF</span> 方法：无需额外训练即可实现百万级窗口稳定外推，大幅降低扩展成本。</p>
+                </div>
+                <div class="value-footer">
+                    <b>企业价值：</b>研报解读效率提升 40倍 (2h➔3min)；律所合同摘要错误率降低 60%。
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：SWE-bench, LongBench v2, AIME 2026, MMMU 基准测试</div>
+            <div>INTERNAL USE ONLY | PAGE 20</div>
+        </div>
+    </div>
+
+</body>
+</html>

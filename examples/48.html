@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>AI基础设施重心变化：从训练到推理的范式转移</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 40px 50px;
+            display: flex; flex-direction: column; position: relative; border-top: 8px solid #003e8c;
+        }
+
+        /* 标题区域 */
+        .header { margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 15px; }
+        .title-index { font-size: 24px; color: #003e8c; font-weight: bold; }
+        .title-main { font-size: 42px; color: #1a1a1a; font-weight: bold; margin-top: 5px; }
+
+        /* 内容布局 */
+        .content-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            grid-template-rows: auto auto; 
+            gap: 20px; 
+            flex-grow: 1; 
+        }
+
+        /* 模块样式 */
+        .card { 
+            background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 12px; padding: 20px;
+            display: flex; flex-direction: column;
+        }
+        .card-title { 
+            font-size: 22px; font-weight: bold; color: #003e8c; margin-bottom: 15px; 
+            display: flex; align-items: center; 
+        }
+        .card-title::before { 
+            content: ""; display: inline-block; width: 6px; height: 22px; 
+            background: #003e8c; margin-right: 12px; border-radius: 3px; 
+        }
+
+        /* 数据看板 */
+        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .stat-box { background: white; padding: 15px; border-radius: 8px; text-align: center; border: 1px solid #dee2e6; }
+        .stat-val { font-size: 28px; font-weight: bold; color: #d93025; }
+        .stat-unit { font-size: 14px; color: #666; margin-left: 4px; }
+        .stat-label { font-size: 14px; color: #555; margin-top: 8px; }
+
+        /* 中美对比卡片 */
+        .comparison-bar { display: flex; align-items: center; margin-top: 15px; background: white; padding: 15px; border-radius: 8px; }
+        .comp-item { flex: 1; text-align: center; }
+        .comp-val { font-size: 32px; font-weight: bold; color: #1a1a1a; }
+        .comp-label { font-size: 16px; font-weight: bold; color: #003e8c; margin-bottom: 5px; }
+
+        /* 文本细节 */
+        .text-list { list-style: none; font-size: 16px; line-height: 1.6; color: #333; margin-top: 10px; }
+        .text-list li { margin-bottom: 12px; padding-left: 20px; position: relative; }
+        .text-list li::before { content: "●"; position: absolute; left: 0; color: #003e8c; font-size: 14px; }
+        .highlight { color: #003e8c; font-weight: bold; }
+        .warning { color: #d93025; font-weight: bold; }
+
+        /* 底部信息流 */
+        .footer { 
+            margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; 
+            display: flex; justify-content: space-between; font-size: 14px; color: #999; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header">
+            <div class="title-index">04 算力底座：从“造模型”到“用模型”</div>
+            <h1 class="title-main">AI 基础设施重心变化：从训练到推理的范式转移</h1>
+        </div>
+
+        <div class="content-grid">
+            <!-- 模块 1：算力规模与投入结构 -->
+            <div class="card">
+                <div class="card-title">中国智算规模与全球基础设施支出</div>
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="stat-val">1460.3</div>
+                        <div class="stat-label">2026年中国智算规模 (EFLOPS)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-val">4500<small class="stat-unit">亿</small></div>
+                        <div class="stat-label">全球AI基础支出 (USD)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-val">+22%</div>
+                        <div class="stat-label">基础设施投入占比增幅</div>
+                    </div>
+                </div>
+                <ul class="text-list">
+                    <li><span class="highlight">增速分化：</span>推理算力增速是训练算力的 <span class="warning">3-5 倍</span>，成为智能算力增长的核心引擎。</li>
+                    <li><span class="highlight">投资反转：</span>全球 AI 基础设施支出已占总支出的 <span class="highlight">54%</span>，基础设施定义产业核心投入。</li>
+                </ul>
+            </div>
+
+            <!-- 模块 2：头部云厂商投入结构转向 -->
+            <div class="card">
+                <div class="card-title">头部云厂商投入结构印证 (2025)</div>
+                <div class="comparison-bar" style="border-left: 8px solid #ff8c00;">
+                    <div class="comp-item">
+                        <div class="comp-label">训练占比</div>
+                        <div class="comp-val" style="color: #666;">20% - 25%</div>
+                    </div>
+                    <div style="font-size: 24px; color: #ccc;">➔</div>
+                    <div class="comp-item">
+                        <div class="comp-label">推理占比</div>
+                        <div class="comp-val" style="color: #d93025;">70% - 75%</div>
+                    </div>
+                </div>
+                <ul class="text-list">
+                    <li><span class="highlight">阿里云：</span>实现推理主导的投入结构，与 2023 年“训练占比 >60%”形成剧烈反差。</li>
+                    <li><span class="highlight">谷歌策略：</span>CEO Pichai 强调未来多数 AI 支出将投向推理，而非无限制扩容训练集群。</li>
+                </ul>
+            </div>
+
+            <!-- 模块 3：全球推理需求爆发对比 -->
+            <div class="card">
+                <div class="card-title">Token 调用量首次实现国际赶超 (2026.02)</div>
+                <div class="comparison-bar">
+                    <div class="comp-item">
+                        <div class="comp-label">中国 Token 调用量</div>
+                        <div class="comp-val" style="color: #003e8c;">4.12 <small class="stat-unit">万亿次</small></div>
+                    </div>
+                    <div class="comp-item">
+                        <div class="comp-label">美国 Token 调用量</div>
+                        <div class="comp-val" style="color: #666;">2.94 <small class="stat-unit">万亿次</small></div>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; font-size: 15px; color: #555; background: #fff; padding: 10px; border-radius: 8px;">
+                    <b>驱动因素：</b>生成式 AI 深入千行百业。电商客服、脚本生成、财务报表自动分析、工业质检等实时交互服务对推理算力产生“毫秒级”刚需。
+                </p>
+            </div>
+
+            <!-- 模块 4：后预训练时代的技术经济逻辑 -->
+            <div class="card" style="background: #eef5ff; border: 1px solid #003e8c;">
+                <div class="card-title">NeurIPS 2024：边际效益递减理论</div>
+                <div class="stat-grid" style="margin-bottom: 10px;">
+                    <div class="stat-box">
+                        <div class="stat-val" style="color: #1a1a1a;">&lt;5%</div>
+                        <div class="stat-label">万亿参数模型提升幅度</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-val">6-8<small class="stat-unit">倍</small></div>
+                        <div class="stat-label">推理侧投入性价比回报</div>
+                    </div>
+                </div>
+                <ul class="text-list">
+                    <li><span class="warning">规模效应失效：</span>参数从千亿跃升至万亿，效果提升不足 5%，训练算力需求却呈指数级暴涨。</li>
+                    <li><span class="highlight">推理杠杆效应：</span>动态 Token 修剪、KV 缓存量化等架构优化带来的体验提升，是训练侧投入的 <span class="highlight">6-8 倍</span>。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：IDC、阿里云 2025 披露、NeurIPS 2024 总结报告、相关智算中心监测数据</div>
+            <div>INTERNAL USE ONLY | 第 41 章节</div>
+        </div>
+    </div>
+
+</body>
+</html>

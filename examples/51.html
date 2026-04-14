@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 44. 国产算力替代与自主可控生态</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 40px 60px;
+            display: flex; flex-direction: column; position: relative;
+            border-top: 10px solid #c00000; /* 强调安全与底线红 */
+        }
+
+        /* 标题区域 */
+        .header { margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 15px; }
+        .title-index { font-size: 24px; color: #c00000; font-weight: bold; }
+        .title-main { font-size: 42px; color: #1a1a1a; font-weight: bold; margin-top: 5px; }
+        .title-sub { font-size: 18px; color: #666; margin-top: 8px; border-left: 5px solid #c00000; padding-left: 15px; }
+
+        /* 内容网格布局 */
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; gap: 25px; flex-grow: 1; }
+
+        /* 模块卡片通用样式 */
+        .card { background: #fdfdfd; border: 1px solid #e1e8ed; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; }
+        .card-title { font-size: 24px; font-weight: bold; color: #003e8c; margin-bottom: 15px; display: flex; align-items: center; }
+        .card-title::before { content: ""; width: 6px; height: 22px; background: #003e8c; margin-right: 12px; border-radius: 3px; }
+
+        /* 44.1 规模化部署：数据看板 */
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+        .stat-box { background: white; border: 1px solid #dee2e6; padding: 15px; border-radius: 8px; text-align: center; }
+        .stat-val { font-size: 32px; font-weight: bold; color: #d93025; }
+        .stat-label { font-size: 14px; color: #666; margin-top: 5px; }
+        
+        .client-list { background: #eef5ff; padding: 12px; border-radius: 8px; font-size: 15px; line-height: 1.6; }
+
+        /* 44.2 核心支柱：三位一体 */
+        .pillars-row { display: flex; gap: 15px; flex-grow: 1; }
+        .pillar { flex: 1; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 15px; }
+        .p-h { font-size: 18px; font-weight: bold; color: #003e8c; margin-bottom: 10px; text-align: center; background: #f0f4ff; padding: 5px; border-radius: 4px; }
+        .p-text { font-size: 14px; line-height: 1.5; color: #444; }
+        .highlight-b { color: #003e8c; font-weight: bold; }
+
+        /* 44.3 产业安全与政策 */
+        .policy-card { grid-column: span 2; background: #fff8f8; border: 1px solid #ffdcdc; border-left: 8px solid #c00000; }
+        .policy-content { display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; align-items: center; }
+        .miit-goal { text-align: center; border-right: 2px dashed #ffcccc; padding-right: 30px; }
+        .miit-val { font-size: 48px; font-weight: bold; color: #c00000; }
+
+        /* 页脚信息 */
+        .footer { margin-top: auto; padding-top: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 14px; color: #999; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header">
+            <div class="title-index">44. 自主可控生态</div>
+            <h1 class="title-main">国产算力替代：安全与效率的战略平衡</h1>
+            <p class="title-sub">从“战略选项”升级为“生存底线”：全链条协同构建自主AI算力体系</p>
+        </div>
+
+        <div class="content-grid">
+            <!-- 44.1 规模化部署：结束英伟达垄断 -->
+            <div class="card">
+                <div class="card-title">市场规模：2025规模化元年</div>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-val">41%</div>
+                        <div class="stat-label">国产加速卡市场份额</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-val">81.2 <small style="font-size:14px">万颗</small></div>
+                        <div class="stat-label">华为昇腾出货量</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-val">&lt;55%</div>
+                        <div class="stat-label">英伟达在华份额(首次)</div>
+                    </div>
+                </div>
+                <div class="client-list">
+                    <b>头部采购支撑：</b> 2026年，字节跳动国产算力占比超 <b>50%</b> (合计100万颗)；阿里、百度、腾讯采购量均超 20万颗。
+                    <br><b>性能突破：</b> 壁仞BR200良率达85%，成本降30%；昇腾910B推理吞吐量已与英伟达A100相当。
+                </div>
+            </div>
+
+            <!-- 44.2 核心支柱：整栈系统能力 -->
+            <div class="card">
+                <div class="card-title">自主可控生态：芯片-软件-调度协同</div>
+                <div class="pillars-row">
+                    <div class="pillar">
+                        <div class="p-h">芯片层</div>
+                        <p class="p-text">实现从通用计算向<span class="highlight-b">AI专用加速</span>转型。壁仞BR100 FP16算力达1024TOPS，逼近旗舰性能。</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="p-h">软件栈</div>
+                        <p class="p-text"><span class="highlight-b">华为CANN架构</span>适配率98%。DeepSeek V4全量迁移后，训练效率提升30%，推理延迟降低25%。</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="p-h">调度层</div>
+                        <p class="p-text"><span class="highlight-b">ClusterEngine</span>支持万卡调度，算力利用率>85%。阿里E-HPC实现异构国产芯片统一管理。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 44.3 产业安全：政策导向与红线 -->
+            <div class="card policy-card">
+                <div class="card-title" style="color: #c00000;">产业安全与政策保障：规避“卡脖子”风险</div>
+                <div class="policy-content">
+                    <div class="miit-goal">
+                        <p style="font-size: 16px; color: #666;">工信部2026年底目标</p>
+                        <div class="miit-val">≥ 50%</div>
+                        <p style="font-size: 18px; font-weight: bold; color: #333;">国产算力芯片市场占比</p>
+                    </div>
+                    <div class="p-text" style="font-size: 16px; line-height: 1.8;">
+                        ● <span class="highlight-b">关键领域禁用：</span> 政务、金融、能源等行业限制非认证国产芯片，确保数据安全。<br>
+                        ● <span class="highlight-b">财税激励：</span> 采购国产AI芯片享受 <span style="color:#d93025; font-weight:bold;">30% 所得税减免</span> 及 20% 价格扣除优惠。<br>
+                        ● <span class="highlight-b">安全认证：</span> 加速制定安全技术规范，非认证产品不得进入关键基础设施领域。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：IDC、工信部《AI算力产业链升级行动计划》、华为/阿里企业财报</div>
+            <div>INTERNAL USE ONLY | 2026 AI INFRASTRUCTURE REPORT</div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 智能体核心能力框架</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif; }
+        body { background-color: #f5f7fa; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        .slide { width: 1600px; height: 900px; background: #fff; padding: 40px 50px; display: flex; flex-direction: column; position: relative; border-top: 8px solid #003366; }
+        .header { margin-bottom: 30px; }
+        .page-num { color: #0066cc; font-size: 22px; font-weight: bold; }
+        .title { font-size: 40px; color: #1a1a1a; font-weight: bold; margin-top: 5px; }
+
+        /* 内容网格布局 */
+        .content-grid { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 20px; flex-grow: 1; }
+
+        /* 卡片通用样式 */
+        .card { background: #fdfdfd; border: 1px solid #e1e8ed; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; }
+        .card-header { font-size: 22px; font-weight: bold; color: #003366; margin-bottom: 18px; border-bottom: 2px solid #003366; padding-bottom: 8px; }
+        
+        /* 4.1.1 & 4.1.2 框架列表 */
+        .framework-list { list-style: none; }
+        .framework-item { margin-bottom: 15px; }
+        .item-title { font-weight: bold; font-size: 17px; color: #333; display: flex; align-items: center; }
+        .item-title::before { content: "●"; color: #0066cc; margin-right: 8px; }
+        .item-desc { font-size: 14px; color: #666; margin-left: 18px; line-height: 1.5; }
+        .badge { background: #eef2ff; color: #0066cc; font-size: 12px; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-left: 10px; }
+
+        /* 4.1.3 MIT 分级样式 */
+        .mit-levels { display: flex; flex-direction: column; gap: 10px; }
+        .level-row { display: flex; align-items: center; background: #f8f9fa; padding: 12px; border-radius: 8px; border-left: 6px solid #ccc; }
+        .level-num { font-size: 20px; font-weight: bold; color: #fff; background: #003366; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 15px; flex-shrink: 0; }
+        .level-info b { font-size: 16px; display: block; }
+        .level-info span { font-size: 13px; color: #666; }
+        .l5 { border-left-color: #28a745; background: #f0fff4; }
+
+        .footer { margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; display: flex; justify-content: space-between; color: #999; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <div class="page-num">4.1 核心能力的分类框架</div>
+            <div class="title">能力底座：多维评估体系与自主等级划分</div>
+        </div>
+
+        <div class="content-grid">
+            <!-- 李飞飞具身决策框架 -->
+            <div class="card">
+                <div class="card-header">NeurIPS 2024：具身决策框架</div>
+                <div class="framework-list">
+                    <div class="framework-item">
+                        <div class="item-title">目标解释 <span class="badge">LTL转化</span></div>
+                        <div class="item-desc">自然语言目标转化为形式化逻辑目标公式，评估意图理解。</div>
+                    </div>
+                    <div class="framework-item">
+                        <div class="item-title">子目标分解 <span class="badge">可行性评分</span></div>
+                        <div class="item-desc">复杂目标拆解为符合物理或业务规则的行动序列。</div>
+                    </div>
+                    <div class="framework-item">
+                        <div class="item-title">动作序列规划 <span class="badge">准确率</span></div>
+                        <div class="item-desc">根据子目标生成具体的工具调用或物理控制指令。</div>
+                    </div>
+                    <div class="framework-item">
+                        <div class="item-title">转换建模 <span class="badge">反馈利用率</span></div>
+                        <div class="item-desc">根据环境动态变化，实时优化与调整策略的效率。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 信通院产业落地框架 -->
+            <div class="card">
+                <div class="card-header">中国信通院：产业落地框架</div>
+                <div class="framework-list">
+                    <div class="framework-item">
+                        <div class="item-title">感知认知能力</div>
+                        <div class="item-desc">对多源数据、环境感知及多模态意图识别的精度。</div>
+                    </div>
+                    <div class="framework-item">
+                        <div class="item-title">学习能力</div>
+                        <div class="item-desc">模型迭代效率、知识迁移及小样本学习的成熟度。</div>
+                    </div>
+                    <div class="framework-item">
+                        <div class="item-title">规划能力</div>
+                        <div class="item-desc">任务拆解、资源优化配置及策略调整的响应时间。</div>
+                    </div>
+                    <div class="framework-item">
+                        <div class="item-title">执行能力</div>
+                        <div class="item-desc">工具调用成功率、跨系统操作及设备控制精度。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MIT 自主分级 -->
+            <div class="card">
+                <div class="card-header">MIT 2025：自主能力分级</div>
+                <div class="mit-levels">
+                    <div class="level-row">
+                        <div class="level-num">L1</div>
+                        <div class="level-info"><b>操作员</b><span>全程指导，如传统 RPA</span></div>
+                    </div>
+                    <div class="level-row">
+                        <div class="level-num">L2</div>
+                        <div class="level-info"><b>协作者</b><span>子任务辅助，决策需人确认</span></div>
+                    </div>
+                    <div class="level-row">
+                        <div class="level-num">L3</div>
+                        <div class="level-info"><b>顾问</b><span>建议方案，执行需人授权</span></div>
+                    </div>
+                    <div class="level-row">
+                        <div class="level-num">L4</div>
+                        <div class="level-info"><b>批准者</b><span>自主完成，关键节点需核准</span></div>
+                    </div>
+                    <div class="level-row l5">
+                        <div class="level-num">L5</div>
+                        <div class="level-info"><b>观察者</b><span>完全自主，无需干预(工业巡检)</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>资料来源：NeurIPS 2024、中国信通院 2025 报告、MIT 2025 Agent Index</div>
+            <div>INTERNAL USE ONLY | PAGE 27</div>
+        </div>
+    </div>
+</body>
+</html>

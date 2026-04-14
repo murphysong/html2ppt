@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 参数规模的转变</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .slide { 
+            width: 1600px; height: 900px; background: white; padding: 40px 60px;
+            display: flex; flex-direction: column; position: relative; border-top: 8px solid #0052D4;
+        }
+        /* 标题 */
+        .header { margin-bottom: 30px; }
+        .index { color: #0052D4; font-size: 24px; font-weight: bold; }
+        .title { font-size: 44px; color: #1a1a1a; font-weight: bold; }
+        
+        /* 核心逻辑展示 */
+        .logic-bar {
+            display: flex; background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 30px;
+            align-items: center; justify-content: space-around; border: 1px solid #dee2e6;
+        }
+        .logic-item { text-align: center; flex: 1; }
+        .logic-label { font-size: 18px; color: #666; margin-bottom: 10px; }
+        .logic-value { font-size: 28px; font-weight: bold; color: #0052D4; }
+        .logic-arrow { font-size: 30px; color: #adb5bd; }
+
+        /* 模型对比表格 */
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th { background: #f0f4ff; color: #0052D4; font-size: 20px; padding: 18px; text-align: left; border-bottom: 3px solid #0052D4; }
+        td { padding: 18px; border-bottom: 1px solid #eee; font-size: 18px; color: #333; line-height: 1.4; }
+        .model-name { font-weight: bold; color: #1a1a1a; }
+        .tag-intl { color: #0052D4; border: 1px solid #0052D4; padding: 2px 8px; border-radius: 4px; font-size: 14px; margin-right: 8px; }
+        .tag-cn { color: #28a745; border: 1px solid #28a745; padding: 2px 8px; border-radius: 4px; font-size: 14px; margin-right: 8px; }
+        .highlight-data { color: #d93025; font-weight: bold; }
+
+        /* 底部备注 */
+        .footer { margin-top: auto; display: flex; justify-content: space-between; color: #999; font-size: 14px; padding-top: 20px; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <div class="index">6. 参数规模与架构演进</div>
+            <div class="title">从“稠密扩张”到“稀疏激活”：参数效率的革命</div>
+        </div>
+
+        <!-- 核心逻辑 -->
+        <div class="logic-bar">
+            <div class="logic-item">
+                <div class="logic-label">2024年之前：稠密架构</div>
+                <div class="logic-value">全参数激活 (Dense)</div>
+            </div>
+            <div class="logic-arrow">➔</div>
+            <div class="logic-item">
+                <div class="logic-label">2026年共识：稀疏架构 (MoE)</div>
+                <div class="logic-value">动态专家子网络激活</div>
+            </div>
+            <div class="logic-arrow">➔</div>
+            <div class="logic-item">
+                <div class="logic-label">核心目标</div>
+                <div class="logic-value">总参数万亿级 · 激活参数百亿级</div>
+            </div>
+        </div>
+
+        <!-- 对比表格 -->
+        <table>
+            <thead>
+                <tr>
+                    <th width="20%">头部模型</th>
+                    <th width="15%">总参数规模</th>
+                    <th width="15%">单次激活参数</th>
+                    <th>核心效能突破</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="tag-intl">国际</span><span class="model-name">GPT-5.2</span></td>
+                    <td>10 万亿</td>
+                    <td class="highlight-data">420 亿</td>
+                    <td>推理成本较 GPT-4 <b>降低 60%</b>；单次仅激活 0.42% 专家网络。</td>
+                </tr>
+                <tr>
+                    <td><span class="tag-intl">国际</span><span class="model-name">Claude 4 Opus</span></td>
+                    <td>8 万亿</td>
+                    <td class="highlight-data">370 亿</td>
+                    <td>支持 <b>120万 Token</b> 长窗口；长文档处理速度提升 20%。</td>
+                </tr>
+                <tr>
+                    <td><span class="tag-cn">中国</span><span class="model-name">文心一言 5.0</span></td>
+                    <td>2.4 万亿</td>
+                    <td class="highlight-data">< 3%</td>
+                    <td>超稀疏混合专家结构；激活占比低于部分千亿级稠密模型。</td>
+                </tr>
+                <tr>
+                    <td><span class="tag-cn">中国</span><span class="model-name">通义千问 3.5</span></td>
+                    <td>3970 亿</td>
+                    <td class="highlight-data">170 亿</td>
+                    <td>门控 delta 网络优化；<b>推理吞吐量提升 19 倍</b>。</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            <div>注：MoE (Mixture of Experts) 混合专家架构已成为行业标准</div>
+            <div>PAGE 15</div>
+        </div>
+    </div>
+</body>
+</html>

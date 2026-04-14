@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 训练与推理算力基础设施逻辑差异</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 40px 60px;
+            display: flex; flex-direction: column; position: relative; border-top: 8px solid #003e8c;
+        }
+
+        /* 标题区域 */
+        .header { margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 15px; }
+        .title-index { font-size: 24px; color: #003e8c; font-weight: bold; }
+        .title-main { font-size: 42px; color: #1a1a1a; font-weight: bold; margin-top: 5px; }
+
+        /* 内容布局布局：左训练，右推理 */
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex-grow: 1; }
+
+        /* 通用卡片样式 */
+        .card { background: #fdfdfd; border: 1px solid #e1e8ed; border-radius: 12px; padding: 25px; height: 100%; }
+        .card-header { font-size: 24px; font-weight: bold; margin-bottom: 20px; display: flex; align-items: center; }
+        
+        /* 训练侧风格 */
+        .train-header { color: #003e8c; border-bottom: 3px solid #003e8c; }
+        /* 推理侧风格 */
+        .inf-header { color: #28a745; border-bottom: 3px solid #28a745; }
+
+        /* 核心对标表 */
+        .spec-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 16px; }
+        .spec-table td { padding: 12px 10px; border-bottom: 1px solid #eee; line-height: 1.4; }
+        .spec-label { color: #666; width: 140px; font-weight: bold; }
+        .spec-val { color: #333; }
+
+        /* 数据高亮 */
+        .highlight-blue { color: #003e8c; font-weight: bold; }
+        .highlight-red { color: #d93025; font-weight: bold; }
+        .badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 14px; font-weight: bold; margin-bottom: 5px; }
+        .badge-train { background: #eef5ff; color: #003e8c; }
+        .badge-inf { background: #e6f4ea; color: #28a745; }
+
+        /* 底部场景约束 */
+        .latency-grid { grid-column: span 2; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 10px; }
+        .latency-item { background: #fff8f8; border: 1px solid #ffdcdc; padding: 15px; border-radius: 8px; text-align: center; }
+        .lat-val { font-size: 24px; font-weight: bold; color: #d93025; margin-bottom: 5px; }
+        .lat-label { font-size: 14px; color: #555; font-weight: bold; }
+
+        /* 页脚信息 */
+        .footer { margin-top: auto; padding-top: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 14px; color: #999; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header">
+            <div class="title-index">4.2 基础设施逻辑</div>
+            <h1 class="title-main">训练与推理算力：基础设施逻辑的本质分野</h1>
+        </div>
+
+        <div class="content-grid">
+            <!-- 训练：集中式工程攻坚 -->
+            <div class="card">
+                <div class="card-header train-header">训练场景：集中力量办大事</div>
+                <table class="spec-table">
+                    <tr>
+                        <td class="spec-label">核心逻辑</td>
+                        <td class="spec-val">极致算力密度 + 强同步集群</td>
+                    </tr>
+                    <tr>
+                        <td class="spec-label">核心指标</td>
+                        <td class="spec-val"><span class="highlight-blue">MFU (30%-40%)</span>、线性加速比 (夸娥：91%)</td>
+                    </tr>
+                    <tr>
+                        <td class="spec-label">硬件选择</td>
+                        <td class="spec-val"><span class="badge badge-train">H200 GPU</span> 算力达 1.979EFLOPS，144GB HBM3e</td>
+                    </tr>
+                    <tr>
+                        <td class="spec-label">网络架构</td>
+                        <td class="spec-val"><span class="highlight-blue">NVLink / InfiniBand</span> (400Gbps 单链路)</td>
+                    </tr>
+                    <tr>
+                        <td class="spec-label">成本结构</td>
+                        <td class="spec-val">一次性资本投入 (CapEx)，千万美元级单次训练</td>
+                    </tr>
+                </table>
+                <p style="font-size: 15px; color: #666; line-height: 1.6;">
+                    <b>本质：</b>为了在最短时间内完成万亿参数收敛，允许一定的硬件闲置率，追求梯度数据的实时同步，基础设施呈现<b>高度集中化</b>特征。
+                </p>
+            </div>
+
+            <!-- 推理：分布式持续运营 -->
+            <div class="card">
+                <div class="card-header inf-header">推理场景：细水长流保稳定</div>
+                <table class="spec-table">
+                    <tr>
+                        <td class="spec-label">核心逻辑</td>
+                        <td class="spec-val">分布式协同 + 异构算力兼容</td>
+                    </tr>
+                    <tr>
+                        <td class="spec-label">核心指标</td>
+                        <td class="spec-val"><span class="highlight-blue">Token 吞吐率</span>、端到端时延、能效比</td>
+                    </tr>
+                    <tr>
+                        <td class="spec-label">硬件选择</td>
+                        <td class="spec-val"><span class="badge badge-inf">AWS Trainium3</span> 推理吞吐为训练 3 倍，能效比 +40%</td>
+                    </tr>
+                    <tr>
+                        <td class="spec-label">网络架构</td>
+                        <td class="spec-val"><span class="highlight-blue">全光互联 / RDMA</span> (时延 < 3微秒，华为灵衢)</td>
+                    </tr>
+                    <tr>
+                        <td class="spec-label">成本结构</td>
+                        <td class="spec-val">持续性运营成本 (OpEx)，支出占比由 30% 飙至 <span class="highlight-red">70%</span></td>
+                    </tr>
+                </table>
+                <p style="font-size: 15px; color: #666; line-height: 1.6;">
+                    <b>本质：</b>为了响应百万级并发请求，算力必须<b>分布化与下沉</b>。本地边缘节点延迟（45ms）比云端（1200ms）降低 26 倍，决定商业存续。
+                </p>
+            </div>
+
+            <!-- 毫秒级生死线 -->
+            <div class="latency-grid">
+                <div class="latency-item">
+                    <div class="lat-val">&lt; 100ms</div>
+                    <div class="lat-label">自动驾驶车端决策</div>
+                </div>
+                <div class="latency-item">
+                    <div class="lat-val">&lt; 50ms</div>
+                    <div class="lat-label">工业视觉质量检测</div>
+                </div>
+                <div class="latency-item">
+                    <div class="lat-val">&lt; 10ms</div>
+                    <div class="lat-label">实时翻译 / AR 导航</div>
+                </div>
+                <div class="latency-item" style="background: #fff; border-color: #eee;">
+                    <div class="lat-val" style="color: #666;">26 倍</div>
+                    <div class="lat-label">云端 vs 边缘延迟差距</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：IDC 实测、特斯拉产线报告 2023、华为灵衢 2.0 技术白皮书、摩尔线程数据</div>
+            <div>INTERNAL USE ONLY | 2026 AI 基础设施趋势</div>
+        </div>
+    </div>
+
+</body>
+</html>

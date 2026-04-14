@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 江苏政策与集群</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif; }
+        body { background-color: #f4f7f9; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        .slide { width: 1600px; height: 900px; background: white; padding: 40px 50px; display: flex; flex-direction: column; border-top: 8px solid #28a745; }
+        
+        .header { margin-bottom: 25px; }
+        .index { color: #28a745; font-size: 24px; font-weight: bold; }
+        .title { font-size: 42px; color: #1a1a1a; font-weight: bold; }
+
+        .content-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 30px; flex-grow: 1; }
+
+        /* 政策模块 */
+        .policy-section { display: flex; flex-direction: column; gap: 20px; }
+        .policy-card { background: #f6fff8; border: 1px solid #c3e6cb; border-radius: 12px; padding: 20px; }
+        .p-head { font-size: 22px; font-weight: bold; color: #155724; margin-bottom: 12px; display: flex; align-items: center; }
+        .p-head::before { content: "🛡️"; margin-right: 10px; }
+        .p-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .p-item { background: white; padding: 12px; border-radius: 8px; border: 1px solid #d4edda; }
+        .p-val { font-size: 20px; font-weight: bold; color: #28a745; }
+        .p-label { font-size: 13px; color: #666; }
+
+        /* 集群布局 */
+        .cluster-section { background: #fdfdfd; border: 1px solid #eee; border-radius: 12px; padding: 25px; position: relative; }
+        .cluster-title { font-size: 24px; font-weight: bold; color: #1a1a1a; margin-bottom: 20px; text-align: center; }
+        .cluster-map { display: flex; flex-direction: column; gap: 15px; }
+        .region-card { padding: 15px; border-radius: 8px; position: relative; border-left: 6px solid #ccc; }
+        .sn { border-color: #003399; background: #f0f4ff; }
+        .sz { border-color: #28a745; background: #f6fff8; }
+        .sb { border-color: #6c757d; background: #f8f9fa; }
+        .reg-name { font-weight: bold; font-size: 18px; margin-bottom: 5px; }
+        .reg-desc { font-size: 14px; color: #555; line-height: 1.5; }
+
+        .highlight { color: #d93025; font-weight: bold; }
+        .footer { margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee; font-size: 14px; color: #999; display: flex; justify-content: space-between; }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <div class="index">6.2 - 6.3 政策与集群布局</div>
+            <div class="title">从“政策扶持”到“生态构建”：全省协同创新体系</div>
+        </div>
+
+        <div class="content-grid">
+            <!-- 政策引导 -->
+            <div class="policy-section">
+                <div class="policy-card">
+                    <div class="p-head">省级层面：全链条支撑</div>
+                    <div class="p-grid">
+                        <div class="p-item"><div class="p-val">15 亿元</div><div class="p-label">数据产业专项基金</div></div>
+                        <div class="p-item"><div class="p-val">45 亿+</div><div class="p-label">带动社会资本投入</div></div>
+                        <div class="p-item"><div class="p-val">2 亿元</div><div class="p-label">累计发放“算力券”</div></div>
+                        <div class="p-item"><div class="p-val">30% ↓</div><div class="p-label">降低企业算力成本</div></div>
+                    </div>
+                    <p style="font-size: 14px; color: #555; margin-top: 15px;">目标到2030年人工智能产业规模超 <span class="highlight">万亿元</span>，培育国内领先垂域模型。</p>
+                </div>
+                <div class="policy-card" style="background: #eef2ff; border-color: #adc6ff;">
+                    <div class="p-head" style="color: #003399;">市级层面：精准化服务</div>
+                    <p style="font-size: 15px; line-height: 1.6; color: #333;">
+                        • <b>南京玄武“大模型工厂”：</b> 打造五大服务平台，孵化12家垂域企业，备案数全省第一。<br>
+                        • <b>苏州相城“青苔模型”：</b> 覆盖家电、服装等14个产业领域，设计周期 30天➔10天。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 产业集群 -->
+            <div class="cluster-section">
+                <div class="cluster-title">差异化布局与协同链条</div>
+                <div class="cluster-map">
+                    <div class="region-card sn">
+                        <div class="reg-name">苏南强核：研发 + 应用双驱</div>
+                        <div class="reg-desc">南京聚焦“技术底座研发”，苏州聚焦“工业场景验证”。全省 <span class="highlight">1/4</span> 备案模型来自南京玄武。</div>
+                    </div>
+                    <div class="region-card sz">
+                        <div class="reg-name">苏中融链：产业升级融合带</div>
+                        <div class="reg-desc">南通纺织面料检测效率提升 <span class="highlight">25倍</span>；扬州化工设备故障率下降 20%。</div>
+                    </div>
+                    <div class="region-card sb">
+                        <div class="reg-name">苏北筑基：低成本基础支撑</div>
+                        <div class="reg-desc">徐州数据标注年处理量超 <span class="highlight">10亿条</span>，为全省模型提供高质量语料支撑。</div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; font-size: 14px; color: #666; border: 1px dashed #ccc; padding: 10px; border-radius: 8px;">
+                    <span class="highlight">核心特征：</span> 形成了从“苏北标注”到“苏南研发”再到“苏中应用”的完整协同链条。
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>资料来源：江苏省“人工智能+”行动方案、南京玄武大模型工厂、苏州相城区官方发布</div>
+            <div>INTERNAL USE | PAGE 26</div>
+        </div>
+    </div>
+</body>
+</html>

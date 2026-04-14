@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - “更大”不再“更强”原因剖析</title>
+    <style>
+        /* 基础样式复用与优化 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f4f7f9; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 40px 50px;
+            display: flex; flex-direction: column; position: relative;
+        }
+
+        /* 顶部装饰线与标题 */
+        .header-accent { position: absolute; top: 0; left: 0; width: 100%; height: 10px; background: linear-gradient(90deg, #0f2027, #203a43, #2c5364); }
+        .header { margin-bottom: 25px; }
+        .title-index { font-size: 24px; color: #2c5364; font-weight: bold; margin-bottom: 5px; }
+        .title-main { font-size: 42px; color: #1a1a1a; font-weight: bold; }
+        .title-desc { font-size: 20px; color: #666; margin-top: 8px; border-left: 5px solid #2c5364; padding-left: 15px; }
+
+        /* 三大维度布局 */
+        .analysis-grid {
+            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; flex-grow: 1; margin-top: 10px;
+        }
+
+        .column {
+            background: #fcfdfe; border: 1px solid #e1e8ed; border-radius: 12px; padding: 20px;
+            display: flex; flex-direction: column;
+        }
+
+        .col-header {
+            font-size: 24px; font-weight: bold; color: #fff; background: #2c5364;
+            padding: 12px 20px; border-radius: 8px; margin-bottom: 20px; display: flex; align-items: center;
+        }
+        .col-header span { font-size: 16px; font-weight: normal; margin-left: 10px; opacity: 0.8; }
+
+        /* 内容详情样式 */
+        .section-box { margin-bottom: 18px; }
+        .section-title { font-size: 19px; font-weight: bold; color: #0052D4; margin-bottom: 8px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .content-item { font-size: 16px; line-height: 1.6; color: #333; margin-bottom: 10px; }
+        
+        /* 数据高亮 */
+        .highlight { font-weight: bold; color: #d93025; }
+        .data-badge { display: inline-block; background: #e8f0fe; color: #1967d2; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 14px; }
+
+        /* 底部案例/警示框 */
+        .warning-footer {
+            margin-top: 20px; background: #fff5f5; border: 1px solid #ffcfcf; padding: 20px; border-radius: 10px;
+            display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center;
+        }
+        .warning-icon { font-size: 32px; font-weight: bold; color: #d93025; background: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 2px solid #d93025; }
+        .warning-text { font-size: 17px; color: #444; line-height: 1.5; }
+
+        .footer-info {
+            margin-top: 15px; display: flex; justify-content: space-between; font-size: 14px; color: #999; border-top: 1px solid #eee; padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-accent"></div>
+        
+        <div class="header">
+            <div class="title-index">7. 深层原因剖析</div>
+            <div class="title-main">“更大”不再“更强”：规模与效率的不可兼得</div>
+            <div class="title-desc">技术、经济与社会三重约束共同作用，导致“唯参数论”神话破灭</div>
+        </div>
+
+        <div class="analysis-grid">
+            <!-- 技术维度 -->
+            <div class="column">
+                <div class="col-header">7.1 技术瓶颈 <span>饱和与收益递减</span></div>
+                
+                <div class="section-box">
+                    <div class="section-title">缩放定律（Scaling Law）失效</div>
+                    <p class="content-item">参数从 1k亿➔2k亿，提升 <span class="highlight">10-15%</span>；<br>从 2k亿➔3k亿，提升仅 <span class="highlight">3-5%</span>。</p>
+                    <p class="content-item"><span class="data-badge">Meta验证</span> 追平 Llama 4 性能仅需 1/10 算力，单纯参数红利基本耗尽。</p>
+                </div>
+
+                <div class="section-box">
+                    <div class="section-title">激活饱和（Activation Saturation）</div>
+                    <p class="content-item">参数从 1万亿➔10万亿，神经元激活率从 <span class="highlight">20% 降至 5%</span>。</p>
+                    <p class="content-item">新增 9 万亿参数对特征提取贡献微乎其微。</p>
+                </div>
+            </div>
+
+            <!-- 经济维度 -->
+            <div class="column">
+                <div class="col-header">7.2 经济约束 <span>不可承受的成本</span></div>
+                
+                <div class="section-box">
+                    <div class="section-title">训练成本“螺旋上升”</div>
+                    <p class="content-item">2024年 GPT-4 级模型训练成本达 <span class="highlight">1-2 亿美元</span>。</p>
+                    <p class="content-item">2025年千亿级单次训练破千万美元，<span class="highlight">30% 成本</span> 耗于算力拥堵与时间损耗。</p>
+                </div>
+
+                <div class="section-box">
+                    <div class="section-title">ROI 与盈利门槛</div>
+                    <p class="content-item">推理负载将占算力需求 <span class="highlight">73%</span>，推理成本占运维总额 <span class="highlight">>70%</span>。</p>
+                    <p class="content-item">纯堆参数模型 ROI <span class="highlight"><10%</span>，远低于行业 30% 盈利线。</p>
+                </div>
+            </div>
+
+            <!-- 社会维度 -->
+            <div class="column">
+                <div class="col-header">7.3 监管与供应链 <span>安全与红线</span></div>
+                
+                <div class="section-box">
+                    <div class="section-title">全球法案倒逼</div>
+                    <p class="content-item"><span class="data-badge">欧盟 AI 法案</span> 训练计算量超 10²³FLOPS 需强制风评，合规成本占研发投入 <span class="highlight">>20%</span>。</p>
+                    <p class="content-item"><span class="data-badge">中国 2026修订版</span> 参数规模每增一倍，合规成本增加 <span class="highlight">50% 以上</span>。</p>
+                </div>
+
+                <div class="section-box">
+                    <div class="section-title">供应链与算力出口管制</div>
+                    <p class="content-item">2026年 3 月出口管制升级：超 20 万颗 GPU 集群部署需审批。</p>
+                    <p class="content-item">某厂商因集群受限导致成本增加 <span class="highlight">30%</span>，训练周期延长 <span class="highlight">40%</span>。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 负面案例警示 -->
+        <div class="warning-footer">
+            <div class="warning-icon">!</div>
+            <div class="warning-text">
+                <strong>行业淘汰赛已经开启：</strong> 2025 年某头部厂商尝试 3 万亿参数稠密模型，因训练成本突破 <b>2 亿美元</b>且 ROI 仅 <b>5%</b> 被迫终止；同年超 <b>30%</b> 的中小模型厂商因无法承担运维成本退出市场。
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <div>数据来源：信通院 (2024-2026)、IDC、欧盟 AI Act 官方文件、OpenAI 联合研究报告</div>
+            <div>INTERNAL REFERENCE | STRATEGY CONFIDENTIAL | 17</div>
+        </div>
+    </div>
+
+</body>
+</html>

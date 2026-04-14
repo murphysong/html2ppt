@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 智能体技术瓶颈与未来愿景</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 35px 50px;
+            display: flex; flex-direction: column; position: relative;
+        }
+
+        /* 装饰线条 */
+        .header-line { position: absolute; top: 0; left: 0; width: 100%; height: 10px; background: linear-gradient(90deg, #003366, #0052D4, #4facfe); }
+        
+        /* 标题区域 */
+        .header { margin-bottom: 25px; }
+        .title-index { font-size: 22px; color: #0052D4; font-weight: bold; }
+        .title-main { font-size: 40px; color: #1a1a1a; font-weight: bold; }
+
+        /* 内容网格布局 */
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; flex-grow: 1; }
+
+        /* 子标题样式 */
+        .section-title { font-size: 24px; font-weight: bold; color: #003366; margin-bottom: 15px; display: flex; align-items: center; }
+        .section-title::before { content: ""; width: 8px; height: 24px; background: #0052D4; margin-right: 12px; }
+
+        /* 7.3 技术瓶颈卡片 */
+        .bottleneck-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .tech-card { background: #f8f9fa; border: 1px solid #e1e8ed; border-radius: 10px; padding: 15px; }
+        .tech-h { font-size: 18px; font-weight: bold; color: #1a1a1a; margin-bottom: 8px; }
+        .tech-p { font-size: 14px; line-height: 1.5; color: #444; }
+        .breakthrough { color: #28a745; font-weight: bold; margin-top: 5px; display: block; font-size: 13px; }
+
+        /* 7.4 未来判断：横向进度条 */
+        .vision-item { background: linear-gradient(90deg, #f0f4ff 0%, #ffffff 100%); padding: 15px; border-left: 5px solid #0052D4; border-radius: 4px; margin-bottom: 12px; }
+        .vision-h { font-size: 19px; font-weight: bold; color: #1a1a1a; margin-bottom: 5px; }
+        .vision-p { font-size: 14px; color: #555; }
+        .stat-highlight { color: #d93025; font-weight: bold; font-size: 20px; }
+
+        /* 7.5 对比表格 */
+        .compare-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+        .compare-table th { background: #003366; color: white; padding: 12px; text-align: left; border: 1px solid #dee2e6; }
+        .compare-table td { padding: 12px; border: 1px solid #dee2e6; background: #fff; line-height: 1.5; }
+        .org-name { font-weight: bold; color: #003366; font-size: 16px; }
+
+        /* 页脚 */
+        .footer { margin-top: auto; padding-top: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 14px; color: #999; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-line"></div>
+        
+        <div class="header">
+            <div class="title-index">7.3 - 7.5 中长期愿景</div>
+            <h1 class="title-main">智能体技术瓶颈攻坚与 2030-2040 宏观演进</h1>
+        </div>
+
+        <div class="content-grid">
+            <!-- 左侧：技术瓶颈与突破 -->
+            <div class="section">
+                <div class="section-title">7.3 核心技术瓶颈与突破方向</div>
+                <div class="bottleneck-container">
+                    <div class="tech-card">
+                        <div class="tech-h">认知 - 执行断层</div>
+                        <p class="tech-p">认知能力无法转化为系统执行，对接适配性不足。</p>
+                        <span class="breakthrough">突破：A2A/MCP 标准化协议对接</span>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-h">长周期记忆效率</div>
+                        <p class="tech-p">向量数据库膨胀快，长周期经验检索效率低。</p>
+                        <span class="breakthrough">突破：SEDM/MEM1 主动进化架构</span>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-h">跨场景泛化能力</div>
+                        <p class="tech-p">知识表示适配性差，难以在异构场景快速迁移。</p>
+                        <span class="breakthrough">突破：Alpha Evolve 语义代码进化</span>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-h">安全对齐</div>
+                        <p class="tech-p">决策黑箱导致伦理风险，意图与行为不一致。</p>
+                        <span class="breakthrough">突破：形式化验证与可解释性技术</span>
+                    </div>
+                </div>
+
+                <div class="section-title" style="margin-top: 30px;">7.4 2030-2040 中长期未来判断</div>
+                <div class="vision-item">
+                    <div class="vision-h">数字劳动力时代的到来</div>
+                    <div class="vision-p">2030年全球活跃智能体将达 <span class="stat-highlight">22.16 亿</span>，全面替代高复杂度重复任务。</div>
+                </div>
+                <div class="vision-item">
+                    <div class="vision-h">“自我进化”闭环</div>
+                    <div class="vision-p">通过 <b>A-Mem</b> 动态索引实现算法与记忆的自主迭代，脱离人工硬编码。</div>
+                </div>
+                <div class="vision-item">
+                    <div class="vision-h">深度“人机协同”范式</div>
+                    <div class="vision-p">人类负责“创造性规约”，智能体负责“端到端执行”，重塑社会生产力。</div>
+                </div>
+            </div>
+
+            <!-- 右侧：中美权威机构预测对比 -->
+            <div class="section">
+                <div class="section-title">7.5 全球视野：OpenAI vs. 中国信通院</div>
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th width="15%">机构</th>
+                            <th width="25%">核心预测</th>
+                            <th width="30%">技术路线</th>
+                            <th width="30%">产业重点</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="org-name">OpenAI</td>
+                            <td>2029年活跃 Agent > 10亿，具备情感个性化。</td>
+                            <td><b>通用智能体：</b><br>强化学习 + 原生工具调用 + 思维链推理。</td>
+                            <td>企业级商业化、通用全场景落地。</td>
+                        </tr>
+                        <tr>
+                            <td class="org-name">中国信通院</td>
+                            <td>2030年中国产业规模 > 5000亿元。</td>
+                            <td><b>专用智能体：</b><br>行业知识 + 标准化协议 + 可信治理。</td>
+                            <td>工业、金融、零售等产业级落地。</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div style="margin-top: 25px; padding: 20px; background: #fff8e1; border-radius: 8px; border: 1px dashed #f09819;">
+                    <p style="font-size: 15px; color: #856404; line-height: 1.6;">
+                        <b>核心差异洞察：</b><br>
+                        ● <b>美国优势：</b> 侧重技术源头突破，走“通用智能体”路线，关注模型的情感与自主推理能力。<br>
+                        ● <b>中国优势：</b> 侧重产业深度结合，走“专用智能体”路线，关注标准化协议、可信安全及行业知识的深度集成。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：IDC 2026、OpenAI 2029 路线图、信通院《智能体产业研究报告》、NeurIPS 2025</div>
+            <div>INTERNAL REFERENCE | STRATEGIC OUTLOOK | PAGE 36</div>
+        </div>
+    </div>
+
+</body>
+</html>

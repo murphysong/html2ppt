@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif; }
+        body { background-color: #f5f7fa; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide { 
+            width: 1600px; height: 900px; background: #fff; padding: 40px 50px;
+            display: flex; flex-direction: column; border-top: 8px solid #00B4DB;
+        }
+
+        .header { margin-bottom: 25px; }
+        .index { color: #00B4DB; font-size: 24px; font-weight: bold; }
+        .title { font-size: 42px; color: #1a1a1a; font-weight: bold; margin-top: 5px; }
+
+        /* 三大约束网格 */
+        .constraint-grid {
+            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; flex-grow: 1;
+        }
+
+        .constraint-card {
+            background: #fdfdfe; border: 1px solid #eef2f5; border-radius: 15px; padding: 25px;
+            display: flex; flex-direction: column;
+        }
+
+        .c-title { 
+            font-size: 24px; font-weight: bold; color: #1a1a1a; margin-bottom: 20px; 
+            padding-bottom: 10px; border-bottom: 3px solid #00B4DB;
+        }
+
+        /* 小标题与内容 */
+        .sub-sec { margin-bottom: 20px; }
+        .sub-header { font-size: 19px; font-weight: bold; color: #0052D4; margin-bottom: 10px; display: flex; align-items: center; }
+        .sub-header::before { content: ""; width: 6px; height: 18px; background: #00B4DB; margin-right: 10px; }
+        
+        .content-text { font-size: 16px; line-height: 1.6; color: #444; }
+        .stat-badge { background: #f0f7ff; color: #0052D4; padding: 5px 10px; border-radius: 4px; font-weight: bold; margin: 5px 0; display: inline-block; }
+
+        /* 重点警示区 */
+        .alert-box {
+            margin-top: 25px; background: #fff5f5; border: 1px dashed #ffcccc; padding: 20px; border-radius: 10px;
+        }
+
+        .highlight-red { color: #d93025; font-weight: bold; }
+
+        .footer { margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee; color: #999; font-size: 14px; display: flex; justify-content: space-between; }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <div class="index">5.3 动力机制分析</div>
+            <div class="title">动因分析：技术、经济与社会的“三重约束”</div>
+        </div>
+
+        <div class="constraint-grid">
+            <!-- 技术瓶颈 -->
+            <div class="constraint-card">
+                <div class="c-title">技术约束：边际效益递减</div>
+                <div class="sub-sec">
+                    <div class="sub-header">Scaling Law 变缓</div>
+                    <div class="content-text">
+                        参数从1k亿增至2k亿，性能提升10-15%；<br>
+                        从2k亿增至3k亿，<span class="highlight-red">提升仅 3-5%</span>。
+                    </div>
+                </div>
+                <div class="sub-sec">
+                    <div class="sub-header">复杂任务瓶颈</div>
+                    <div class="content-text">
+                        参数突破1万亿后，高难度数学任务（AIME）得分提升<span class="highlight-red">不足 1%</span>。<br>
+                        <div class="stat-badge">Meta验证：算力红利基本耗尽</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 经济约束 -->
+            <div class="constraint-card">
+                <div class="c-title">经济约束：成本螺旋上升</div>
+                <div class="sub-sec">
+                    <div class="sub-header">训练成本高企</div>
+                    <div class="content-text">
+                        2024年GPT-4级别单次训练需 <span class="highlight-red">1-2亿美元</span>。<br>
+                        算力拥堵与损耗占比 > 30%。
+                    </div>
+                </div>
+                <div class="sub-sec">
+                    <div class="sub-header">运维与ROI压力</div>
+                    <div class="content-text">
+                        2025年推理成本占总运维成本 <span class="highlight-red">70% 以上</span>。<br>
+                        堆砌参数模型ROI仅 10%，远低于 30% 盈利门槛。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 社会与监管 -->
+            <div class="constraint-card">
+                <div class="c-title">需求与监管：真实场景倒逼</div>
+                <div class="sub-sec">
+                    <div class="sub-header">企业诉求三要素</div>
+                    <div class="content-text">
+                        1. 准确率要求 ≥ 95%<br>
+                        2. 延迟要求 ≤ 200ms<br>
+                        3. 满足等保三级/合规要求
+                    </div>
+                </div>
+                <div class="sub-sec">
+                    <div class="sub-header">监管门槛</div>
+                    <div class="content-text">
+                        欧盟《AI法案》/中国《管理办法》：<br>
+                        参数越大，安全评估与合规成本越高（占总投入<span class="highlight-red">> 20%</span>）。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert-box">
+            <span style="font-weight: bold; color: #d93025;">典型失败案例：</span> 2025年某厂商尝试研发 3 万亿参数稠密模型，仅训练环节耗资 2 亿美元，最终因 ROI 不足 5% 被迫终止项目。
+        </div>
+
+        <div class="footer">
+            <div>数据来源：arXiv (2025)、IDC预测、信通院白皮书</div>
+            <div>PAGE 14</div>
+        </div>
+    </div>
+</body>
+</html>

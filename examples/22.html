@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif; }
+        body { background: #f5f7f9; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .slide { width: 1600px; height: 900px; background: white; padding: 40px 60px; border-top: 8px solid #ff9800; }
+        
+        .header { margin-bottom: 25px; }
+        .title { font-size: 42px; font-weight: bold; color: #1a1a1a; }
+        .subtitle { font-size: 22px; color: #ff9800; margin-top: 10px; font-weight: bold; }
+
+        .wall-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 30px; }
+        .wall-card { position: relative; padding: 30px; border-radius: 15px; color: white; overflow: hidden; height: 450px; }
+        .wall-1 { background: linear-gradient(135deg, #004098 0%, #0072ff 100%); }
+        .wall-2 { background: linear-gradient(135deg, #1e8e3e 0%, #34a853 100%); }
+        .wall-3 { background: linear-gradient(135deg, #e65100 0%, #ff9800 100%); }
+
+        .wall-title { font-size: 28px; font-weight: bold; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 15px; }
+        .wall-content { font-size: 18px; line-height: 1.8; opacity: 0.95; }
+        .wall-icon { position: absolute; bottom: -20px; right: -10px; font-size: 120px; opacity: 0.1; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">3.3 构建产业级生态壁垒</h1>
+            <p class="subtitle">三重协同屏障：通用模型企业无法突破的“护城河”</p>
+        </div>
+
+        <div class="wall-grid">
+            <div class="wall-card wall-1">
+                <div class="wall-title">数据壁垒</div>
+                <div class="wall-content">
+                    <b>钢铁创新联合体：</b><br>
+                    2025年沉淀 <b>120TB</b> 专属生产数据（转炉吹氧、结晶器温度、轧钢辊缝等）。<br><br>
+                    <i>新进入者无法在短时间内获取同等质量的脱敏标注资产。</i>
+                </div>
+                <div class="wall-icon">DATA</div>
+            </div>
+
+            <div class="wall-card wall-2">
+                <div class="wall-title">场景壁垒</div>
+                <div class="wall-content">
+                    <b>玄武大模型产业生态联盟：</b><br>
+                    对接沙钢等 <b>100+</b> 民营制造企业。纺织面料检测效率提升 <b>25倍</b>。<br><br>
+                    <i>形成“场景共享、模型迭代”的正向循环，实现跨企业快速复制。</i>
+                </div>
+                <div class="wall-icon">SCENE</div>
+            </div>
+
+            <div class="wall-card wall-3">
+                <div class="wall-title">知识壁垒</div>
+                <div class="wall-content">
+                    <b>东大“问道”伦理模型：</b><br>
+                    融合传统哲学与法律法规，将伦理原则转化为工程标准。<br><br>
+                    <i>自动识别招聘偏好等合规风险，构建本土化竞争优势。</i>
+                </div>
+                <div class="wall-icon">CORE</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

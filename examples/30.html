@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>智能体基本结构：认知架构与标准化</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 30px 40px;
+            display: flex; flex-direction: column; position: relative;
+        }
+
+        /* 标题装饰 */
+        .header-line { position: absolute; top: 0; left: 0; width: 100%; height: 8px; background: linear-gradient(90deg, #003399, #0066cc, #28a745); }
+        .header { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .title-index { font-size: 20px; color: #003399; font-weight: bold; }
+        .title-main { font-size: 36px; color: #1a1a1a; font-weight: bold; }
+
+        /* 内容布局布局 */
+        .content-grid { display: grid; grid-template-columns: 1.2fr 1fr; grid-template-rows: auto 1fr; gap: 20px; flex-grow: 1; }
+
+        /* 3.1 认知架构模块 */
+        .module-card { background: #f8f9fa; border: 1px solid #e1e8ed; border-radius: 10px; padding: 15px; }
+        .card-title { font-size: 20px; font-weight: bold; color: #003399; margin-bottom: 12px; display: flex; align-items: center; }
+        .card-title::before { content: ""; width: 5px; height: 18px; background: #003399; margin-right: 10px; }
+
+        /* 认知闭环四要素 */
+        .cognitive-loop { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 15px; }
+        .loop-item { background: #fff; border: 1px solid #dee2e6; padding: 10px; border-radius: 6px; }
+        .loop-header { font-weight: bold; font-size: 16px; color: #1a1a1a; border-bottom: 2px solid #0066cc; margin-bottom: 8px; }
+        .loop-text { font-size: 13px; line-height: 1.4; color: #555; }
+        .stat-tag { display: inline-block; background: #eef2ff; color: #003399; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: bold; margin-top: 5px; }
+
+        /* 3.2 框架对比表格 */
+        .table-container { margin-top: 10px; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
+        th { background: #003399; color: white; padding: 10px; border: 1px solid #ddd; }
+        td { padding: 8px; border: 1px solid #ddd; background: #fff; }
+        .highlight-v { color: #d93025; font-weight: bold; }
+
+        /* 3.3 标准化协议栈 */
+        .protocol-stack { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+        .layer { background: #fff; border: 1px solid #c3e6cb; padding: 8px 12px; border-left: 6px solid #28a745; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; }
+        .layer-name { font-weight: bold; font-size: 15px; color: #155724; }
+        .layer-desc { font-size: 12px; color: #444; width: 70%; }
+
+        /* 侧边高亮框 */
+        .caict-box { background: #fff8e1; border: 1px solid #ffeeba; border-radius: 8px; padding: 12px; margin-top: 10px; }
+        .caict-title { font-weight: bold; color: #856404; font-size: 14px; margin-bottom: 5px; }
+        .caict-text { font-size: 12px; color: #856404; line-height: 1.4; }
+
+        .footer { margin-top: 15px; display: flex; justify-content: space-between; font-size: 12px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-line"></div>
+        
+        <div class="header">
+            <div class="title-index">第 24-26 页 | 核心技术解析</div>
+            <h1 class="title-main">智能体基本结构：认知架构闭环与行业标准化趋势</h1>
+        </div>
+
+        <div class="content-grid">
+            <!-- 3.1 认知架构 -->
+            <div class="module-card" style="grid-column: span 2;">
+                <div class="card-title">3.1 认知架构核心组件：“感知-规划-执行-反思”闭环</div>
+                <div class="cognitive-loop">
+                    <div class="loop-item">
+                        <div class="loop-header">规划层 (Planning)</div>
+                        <p class="loop-text"><b>决策中枢：</b>将自然语言目标拆解为执行路径。<br>
+                            ● <b>ReAct：</b>推理与行动交织<br>
+                            ● <b>ToT：</b>思维树探索并行验证<br>
+                            ● <b>Reflexion：</b>自我反思优化机制
+                        </p>
+                        <span class="stat-tag">成功率提升 10-20%</span>
+                    </div>
+                    <div class="loop-item">
+                        <div class="loop-header">记忆层 (Memory)</div>
+                        <p class="loop-text"><b>经验库：</b>存储历史任务。模拟人类短期(Context)与长期(RAG/向量数据库)记忆。<br>
+                            ● <b>Synthius-Mem：</b>长周期对话准确率 94.37%<br>
+                            ● <b>DeerFlow：</b>主动遗忘机制提升效率20%
+                        </p>
+                        <span class="stat-tag">记忆准确率 94.37%</span>
+                    </div>
+                    <div class="loop-item">
+                        <div class="loop-header">执行层 (Tool Use)</div>
+                        <p class="loop-text"><b>行动手脚：</b>对接外部API或物理设备。<br>
+                            ● <b>标准化：</b>通过MCP/A2A等协议扩展能力边界<br>
+                            ● <b>权限：</b>RBAC细粒度访问控制确保安全
+                        </p>
+                        <span class="stat-tag">实现跨系统/物理操作</span>
+                    </div>
+                    <div class="loop-item">
+                        <div class="loop-header">反思层 (Reflection)</div>
+                        <p class="loop-text"><b>复盘优化：</b>识别错误并修正策略。<br>
+                            ● <b>单体反思：</b>Reflexion框架总结得失<br>
+                            ● <b>多体验证：</b>CrewAI审计模式
+                        </p>
+                        <span class="stat-tag">幻觉率降低约 65%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3.2 框架对比 -->
+            <div class="module-card">
+                <div class="card-title">3.2 主流智能体框架结构对比 (2025-2026)</div>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>框架</th>
+                            <th>核心协作机制</th>
+                            <th>性能优势指标</th>
+                            <th>最佳适用场景</th>
+                        </tr>
+                        <tr>
+                            <td><b>MetaGPT</b></td>
+                            <td>共享内存 + SOP驱动</td>
+                            <td>代码生成准确率 <span class="highlight-v">85.9%</span></td>
+                            <td>软件工程、复杂管理</td>
+                        </tr>
+                        <tr>
+                            <td><b>AutoGen</b></td>
+                            <td>动态对话图协作</td>
+                            <td>推理成功率 <span class="highlight-v">70-85%</span></td>
+                            <td>科研探索、开放式求解</td>
+                        </tr>
+                        <tr>
+                            <td><b>CrewAI</b></td>
+                            <td>专家角色-任务绑定</td>
+                            <td>错误率降低 <span class="highlight-v">65%</span></td>
+                            <td>金融分析、市场调研</td>
+                        </tr>
+                        <tr>
+                            <td><b>ChatDev</b></td>
+                            <td>指导者+助手子任务</td>
+                            <td>任务完成率 <span class="highlight-v">82%</span></td>
+                            <td>严格流程化软件开发</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 3.3 标准化 -->
+            <div class="module-card">
+                <div class="card-title">3.3 结构标准化：从“烟囱式”到“乐高式”</div>
+                <div class="protocol-stack">
+                    <div class="layer">
+                        <span class="layer-name">MCP</span>
+                        <span class="layer-desc">Model Context Protocol: 统一外部工具调用协议，消除API适配壁垒</span>
+                    </div>
+                    <div class="layer">
+                        <span class="layer-name">A2A</span>
+                        <span class="layer-desc">Agent-to-Agent: 毫秒级语义通信，支持千台级智能体集群协同</span>
+                    </div>
+                    <div class="layer">
+                        <span class="layer-name">ANP</span>
+                        <span class="layer-desc">Agent Network Protocol: 网络层自动发现与动态资源调度</span>
+                    </div>
+                </div>
+                <div class="caict-box">
+                    <div class="caict-title">信通院 (CAICT) & 国际标准</div>
+                    <p class="caict-text">
+                        ● 2025年4月：信通院制定的<b>四大模块国际标准</b>发布。<br>
+                        ● IEEE P3945：明确<b>《工业智能体系统架构》</b>，为产业落地提供顶层指引。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：ICML、信通院《智能体白皮书》、GAIA基准、IEEE标准委员会</div>
+            <div>INTERNAL REFERENCE | STRATEGIC DEPLOYMENT | PAGE 24-26</div>
+        </div>
+    </div>
+
+</body>
+</html>

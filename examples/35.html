@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT第6章：智能体应用场景与标杆案例</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 40px 50px;
+            display: flex; flex-direction: column; position: relative;
+        }
+
+        /* 顶部装饰条 */
+        .header-line { position: absolute; top: 0; left: 0; width: 100%; height: 8px; background: linear-gradient(90deg, #003399, #0066cc, #00B4DB); }
+        
+        /* 标题区域 */
+        .header { margin-bottom: 25px; display: flex; justify-content: space-between; align-items: flex-end; }
+        .title-group .chapter { color: #0066cc; font-size: 22px; font-weight: bold; }
+        .title-group .main-title { font-size: 40px; color: #1a1a1a; font-weight: bold; margin-top: 5px; }
+        .tag-info { background: #f0f4ff; color: #003399; padding: 8px 15px; border-radius: 4px; font-size: 16px; border-left: 5px solid #003399; }
+
+        /* 内容布局布局 */
+        .content-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 30px; flex-grow: 1; }
+
+        /* 6.1 分类体系 */
+        .section-title { font-size: 24px; font-weight: bold; color: #1a1a1a; margin-bottom: 15px; display: flex; align-items: center; }
+        .section-title::before { content: ""; width: 6px; height: 24px; background: #0066cc; margin-right: 12px; border-radius: 3px; }
+
+        .layer-container { display: flex; flex-direction: column; gap: 12px; }
+        .layer-card { background: #f8f9fa; border: 1px solid #e1e8ed; border-radius: 10px; padding: 15px; position: relative; }
+        .layer-card::after { content: "L" attr(data-level); position: absolute; right: 15px; top: 10px; font-size: 24px; font-weight: bold; color: #e1e8ed; }
+        .layer-name { font-size: 18px; font-weight: bold; color: #003399; margin-bottom: 8px; }
+        .layer-content { font-size: 14px; color: #444; line-height: 1.6; }
+        .layer-item { display: inline-block; background: #fff; padding: 2px 8px; border-radius: 4px; margin: 2px; border: 1px solid #ddd; font-weight: bold; color: #555; }
+
+        /* 6.2 南京案例 */
+        .case-grid { display: grid; grid-template-rows: repeat(3, 1fr); gap: 15px; }
+        .case-card { border: 1px solid #dbeafe; border-radius: 12px; padding: 15px; display: flex; gap: 20px; transition: all 0.3s; }
+        .case-card:nth-child(1) { background: #f0f9ff; border-left: 6px solid #0ea5e9; }
+        .case-card:nth-child(2) { background: #fdf2f8; border-left: 6px solid #ec4899; }
+        .case-card:nth-child(3) { background: #f0fdf4; border-left: 6px solid #22c55e; }
+
+        .case-icon { width: 80px; height: 80px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 32px; flex-shrink: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .case-info { flex-grow: 1; }
+        .case-title { font-size: 20px; font-weight: bold; color: #1a1a1a; margin-bottom: 8px; }
+        .case-stats { display: flex; gap: 20px; margin-top: 10px; }
+        .stat-item { text-align: left; }
+        .stat-val { font-size: 22px; font-weight: bold; color: #d93025; }
+        .stat-label { font-size: 12px; color: #666; }
+        .case-desc { font-size: 14px; color: #555; line-height: 1.4; margin-top: 5px; }
+
+        /* 页脚 */
+        .footer { margin-top: auto; padding-top: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; color: #999; font-size: 14px; }
+        .highlight { color: #0066cc; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-line"></div>
+        
+        <div class="header">
+            <div class="title-group">
+                <div class="chapter">6. 应用场景与产业价值</div>
+                <div class="main-title">智能体应用：从“基础支撑”到“行业标杆”</div>
+            </div>
+            <div class="tag-info">2026 产业深度：南京成为长三角智能体落地先导区</div>
+        </div>
+
+        <div class="content-grid">
+            
+            <!-- 6.1 分类体系 -->
+            <div class="section">
+                <div class="section-title">6.1 场景标准化“三层三类”体系</div>
+                <div class="layer-container">
+                    <div class="layer-card" data-level="1">
+                        <div class="layer-name">基础支撑层：工具调用与环境交互</div>
+                        <div class="layer-content">
+                            <p>核心：突破大模型边界，实现实时数据获取与跨系统执行。</p>
+                            <div>
+                                <span class="layer-item">API 调用</span>
+                                <span class="layer-item">GUI 控制 (RPA+)</span>
+                                <span class="layer-item">物理设备控制</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layer-card" data-level="2">
+                        <div class="layer-name">通用场景层：企业级任务执行</div>
+                        <div class="layer-content">
+                            <p>核心：直接解决业务痛点。某大型企业办公效率提升 <span class="highlight">30%</span>，客服满意度提升 <span class="highlight">25%</span>。</p>
+                            <div>
+                                <span class="layer-item">办公自动化</span>
+                                <span class="layer-item">客服与支持</span>
+                                <span class="layer-item">软件开发 (MetaGPT)</span>
+                                <span class="layer-item">数据分析</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layer-card" data-level="3">
+                        <div class="layer-name">垂直行业层：行业专属价值释放</div>
+                        <div class="layer-content">
+                            <p>核心：通用能力与行业知识深度结合，驱动数字化转型深化。</p>
+                            <div>
+                                <span class="layer-item">工业制造</span>
+                                <span class="layer-item">金融服务</span>
+                                <span class="layer-item">零售电商</span>
+                                <span class="layer-item">政务服务</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6.2 南京标杆案例 -->
+            <div class="section">
+                <div class="section-title">6.2 南京本地标杆案例：价值创造实证</div>
+                <div class="case-grid">
+                    <!-- 政务 -->
+                    <div class="case-card">
+                        <div class="case-icon">🏛️</div>
+                        <div class="case-info">
+                            <div class="case-title">建邺区：政务智能体 (DeepSeek驱动)</div>
+                            <p class="case-desc">实现政务服务从“人工驱动”向“智能驱动”全流程自动化升级。</p>
+                            <div class="case-stats">
+                                <div class="stat-item"><div class="stat-val">300% ↑</div><div class="stat-label">数据统计效率</div></div>
+                                <div class="stat-item"><div class="stat-val">0.1%</div><div class="stat-label">工单处理错误率</div></div>
+                                <div class="stat-item"><div class="stat-val">99.9%</div><div class="stat-label">政策解读准确率</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 物流 -->
+                    <div class="case-card">
+                        <div class="case-icon">🚚</div>
+                        <div class="case-info">
+                            <div class="case-title">运满满：公路货运智能体 (满运大模型)</div>
+                            <p class="case-desc">解决车货匹配痛点。司找货时间由3-4天缩短至 <span class="highlight">2小时</span>。</p>
+                            <div class="case-stats">
+                                <div class="stat-item"><div class="stat-val">40% ↑</div><div class="stat-label">匹配效率提升</div></div>
+                                <div class="stat-item"><div class="stat-val">-4%</div><div class="stat-label">货运“三空率”下降</div></div>
+                                <div class="stat-item"><div class="stat-val">3200w吨</div><div class="stat-label">带动碳减排总量</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 制造 -->
+                    <div class="case-card">
+                        <div class="case-icon">🏭</div>
+                        <div class="case-info">
+                            <div class="case-title">南钢：工业多智能体集群</div>
+                            <p class="case-desc">基于元冶·钢铁大模型部署30+场景。从“经验炼钢”迈向“科技炼钢”。</p>
+                            <div class="case-stats">
+                                <div class="stat-item"><div class="stat-val">50% ↓</div><div class="stat-label">新产品研发周期</div></div>
+                                <div class="stat-item"><div class="stat-val">12% ↓</div><div class="stat-label">单位产值综能</div></div>
+                                <div class="stat-item"><div class="stat-val">9% ↓</div><div class="stat-label">产业链协同成本</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <div>资料来源：IDC、信通院、南京市建邺区政务服务中心、运满满、南钢股份 (2025-2026)</div>
+            <div>INTERNAL USE ONLY | PAGE 33</div>
+        </div>
+    </div>
+
+</body>
+</html>

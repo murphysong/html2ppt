@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 12. 成本改变产业化节奏</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f4f7f9; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 40px 60px;
+            display: flex; flex-direction: column; position: relative;
+        }
+
+        /* 装饰条与标题 */
+        .header-accent { position: absolute; top: 0; left: 0; width: 100%; height: 10px; background: linear-gradient(90deg, #003399, #0066CC, #28A745); }
+        .header { margin-bottom: 20px; }
+        .title-index { font-size: 24px; color: #003399; font-weight: bold; }
+        .title-main { font-size: 42px; color: #1a1a1a; font-weight: bold; display: flex; align-items: center; }
+        .title-tag { margin-left: 20px; font-size: 18px; font-weight: normal; background: #eef2ff; color: #003399; padding: 4px 15px; border-radius: 4px; border: 1px solid #d0daff; }
+
+        /* 内容布局 */
+        .grid-container { display: grid; grid-template-columns: 0.8fr 1.2fr; grid-template-rows: 1fr 1.1fr; gap: 20px; flex-grow: 1; }
+
+        /* 通用卡片样式 */
+        .card { background: #fdfdfd; border: 1px solid #e1e8ed; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; }
+        .card-title { font-size: 22px; font-weight: bold; color: #1a1a1a; margin-bottom: 15px; display: flex; align-items: center; border-left: 6px solid #003399; padding-left: 12px; }
+
+        /* 12.1 算力成本结构反转 */
+        .cost-reversal { display: flex; align-items: center; justify-content: space-around; background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 10px; }
+        .cost-box { text-align: center; }
+        .cost-val { font-size: 32px; font-weight: bold; color: #d93025; }
+        .cost-label { font-size: 14px; color: #666; }
+        .arrow-icon { font-size: 24px; color: #999; }
+
+        /* 12.2 普惠化数据 */
+        .metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .metric-item { background: #fff; border: 1px solid #eee; padding: 12px; border-radius: 8px; }
+        .m-title { font-size: 14px; color: #777; margin-bottom: 5px; }
+        .m-data { font-size: 20px; font-weight: bold; color: #28A745; }
+        .m-sub { font-size: 12px; color: #999; }
+
+        /* 12.3 比价表格 */
+        .price-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+        .price-table th { background: #f0f4ff; color: #003399; padding: 10px; text-align: left; border: 1px solid #dee2e6; }
+        .price-table td { padding: 10px; border: 1px solid #dee2e6; }
+        .tag-us { color: #d93025; font-weight: bold; }
+        .tag-cn { color: #28A745; font-weight: bold; }
+
+        /* 高亮文字 */
+        .h-red { color: #d93025; font-weight: bold; }
+        .h-blue { color: #003399; font-weight: bold; }
+        
+        /* 底部信息流 */
+        .bottom-summary { grid-column: span 2; background: #1a1a1a; color: white; border-radius: 12px; padding: 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+        .sum-val { font-size: 32px; font-weight: bold; color: #28A745; margin-bottom: 5px; }
+        .sum-label { font-size: 14px; opacity: 0.8; }
+
+        .footer { margin-top: 15px; display: flex; justify-content: space-between; font-size: 14px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-accent"></div>
+        
+        <div class="header">
+            <div class="title-index">12. 成本改变产业化节奏</div>
+            <div class="title-main">
+                算力普惠化：从“巨头垄断”转向“基础设施”
+                <span class="title-tag">核心驱动力：算力结构反转 + 国产性价比突破</span>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <!-- 12.1 算力成本结构 -->
+            <div class="card">
+                <div class="card-title">12.1 算力结构从“训练”转向“推理”</div>
+                <p style="font-size: 15px; color: #444; margin-bottom: 10px;">算力需求比例逆转：2023年 <span class="h-blue">7:3</span> ➔ 2026年 <span class="h-red">2:8</span></p>
+                <div class="cost-reversal">
+                    <div class="cost-box"><div class="cost-val">37.7%</div><div class="cost-label">训练成本</div></div>
+                    <div class="arrow-icon">vs</div>
+                    <div class="cost-box"><div class="cost-val">62.3%</div><div class="cost-label">推理成本</div></div>
+                </div>
+                <p style="font-size: 14px; line-height: 1.6; color: #555; margin-top: 15px;">
+                    ● <span class="h-blue">属性差异：</span>训练为一次性沉没成本，推理为持续性交互消耗。<br>
+                    ● <span class="h-blue">市场规模：</span>2026年全球推理算力将突破 <span class="h-red">520亿美元</span>，年增75%。<br>
+                    ● <span class="h-blue">主导地位：</span>推理算力占全球AI总支出比例已突破 <span class="h-red">80%</span>。
+                </p>
+            </div>
+
+            <!-- 12.3 中国厂商性价比优势 -->
+            <div class="card" style="grid-row: span 2;">
+                <div class="card-title">12.3 国产算力全栈适配与价格战</div>
+                <table class="price-table">
+                    <tr>
+                        <th>能力指标</th>
+                        <th>美国头部模型 (Claude/GPT)</th>
+                        <th>国产大模型 (MiniMax/GLM)</th>
+                        <th>价差倍数</th>
+                    </tr>
+                    <tr>
+                        <td>输入Token价</td>
+                        <td class="tag-us">$5 / 百万</td>
+                        <td class="tag-cn">$0.3 / 百万</td>
+                        <td class="h-red">16.7倍</td>
+                    </tr>
+                    <tr>
+                        <td>输出Token价</td>
+                        <td class="tag-us">$25 / 百万</td>
+                        <td class="tag-cn">$1.1 / 百万</td>
+                        <td class="h-red">22.7倍</td>
+                    </tr>
+                </table>
+                <div style="margin-top: 20px; background: #fff5f5; border: 1px solid #ffdcdc; padding: 15px; border-radius: 8px;">
+                    <p style="font-weight: bold; color: #d93025; margin-bottom: 8px;">华为昇腾 950PR vs 英伟达 H200</p>
+                    <p style="font-size: 14px; color: #444; line-height: 1.6;">
+                        ● <span class="h-blue">采购成本：</span>7万元 vs 25万元，国产成本仅为英伟达的 <span class="h-red">1/3</span>。<br>
+                        ● <span class="h-blue">能效表现：</span>FP4算力 1.56 PFLOPS，是传统精度的 4-8 倍。<br>
+                        ● <span class="h-blue">实战应用：</span>DeepSeek V4 适配昇腾，推理成本再降 <span class="h-red">60%</span>，利润率理论值达 545%。
+                    </p>
+                </div>
+                <p style="margin-top: 15px; font-size: 14px; color: #666; border-left: 4px solid #28A745; padding-left: 10px;">
+                    Gartner预测：2027年全球 <span class="h-blue">50%</span> 的企业将纳入中国大模型组合，影响力迎爆发式增长。
+                </p>
+            </div>
+
+            <!-- 12.2 垂直行业普惠性 -->
+            <div class="card">
+                <div class="card-title">12.2 落地门槛从“百万”降至“万”级</div>
+                <div class="metric-grid">
+                    <div class="metric-item">
+                        <div class="m-title">GPT-4级微调成本</div>
+                        <div class="m-data">↓ 90% 以上</div>
+                        <div class="m-sub">2亿$ ➔ 500-1000万$</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="m-title">主流Token单价</div>
+                        <div class="m-data">↓ 70% - 85%</div>
+                        <div class="m-sub">降至 $0.1-$1/百万</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="m-title">持有成本(开源方案)</div>
+                        <div class="m-data">↓ 70.8%</div>
+                        <div class="m-sub">120万元/年 ➔ 35万元/年</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="m-title">垂直优化模型数</div>
+                        <div class="m-data">500+ 个</div>
+                        <div class="m-sub">远超通用模型(不足20个)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 底部看板 -->
+            <div class="bottom-summary">
+                <div><div class="sum-val">12.96 万亿</div><div class="sum-label">中国大模型周调用量</div></div>
+                <div><div class="sum-val">4.28 倍</div><div class="sum-label">中国调用量 vs 美国调用量</div></div>
+                <div><div class="sum-val">10 万家+</div><div class="sum-label">2026年完成部署中国企业数</div></div>
+                <div><div class="sum-val">TOP 6</div><div class="sum-label">全球顶尖大模型中国包揽数</div></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：信通院 2026 Q1、GitHub 2026 报告、Gartner、德勤、华为云/DeepSeek 披露</div>
+            <div>INTERNAL REFERENCE | STRATEGY CONFIDENTIAL | PAGE 22</div>
+        </div>
+    </div>
+
+</body>
+</html>

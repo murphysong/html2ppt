@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 具身智能 2026-2028 未来预判</title>
+    <style>
+        /* 页面基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", "微软雅黑", sans-serif; }
+        body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        
+        /* 16:9 幻灯片容器 */
+        .slide { 
+            width: 1600px; height: 900px; background: #ffffff; padding: 35px 50px;
+            display: flex; flex-direction: column; position: relative;
+        }
+
+        /* 顶部装饰条 */
+        .header-line { position: absolute; top: 0; left: 0; width: 100%; height: 10px; background: linear-gradient(90deg, #003366, #0052D4, #4facfe); }
+        
+        /* 标题区域 */
+        .header { margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .title-index { font-size: 22px; color: #0052D4; font-weight: bold; }
+        .title-main { font-size: 40px; color: #1a1a1a; font-weight: bold; }
+
+        /* 内容网格布局 */
+        .content-grid { display: grid; grid-template-columns: 1fr 1.1fr 0.9fr; gap: 20px; flex-grow: 1; }
+
+        /* 通用卡片样式 */
+        .card { background: #fdfdfd; border: 1px solid #e1e8ed; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; }
+        .card-header { font-size: 20px; font-weight: bold; color: #003366; margin-bottom: 12px; display: flex; align-items: center; border-left: 6px solid #0052D4; padding-left: 12px; }
+
+        /* 1. 市场与里程碑 (Timeline 风格) */
+        .timeline-item { margin-bottom: 12px; padding-left: 15px; border-left: 2px dashed #0052D4; position: relative; }
+        .timeline-year { font-weight: bold; color: #0052D4; font-size: 18px; margin-bottom: 4px; }
+        .timeline-p { font-size: 14px; line-height: 1.5; color: #444; }
+        .stat-badge { font-weight: bold; color: #d93025; }
+
+        /* 2. 企业路线图 (对比风格) */
+        .enterprise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex-grow: 1; }
+        .ent-card { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 12px; }
+        .ent-name { font-size: 16px; font-weight: bold; color: #333; margin-bottom: 6px; display: flex; justify-content: space-between; }
+        .ent-tag { font-size: 11px; background: #eef2ff; color: #0052D4; padding: 1px 6px; border-radius: 4px; }
+        .ent-p { font-size: 13px; line-height: 1.4; color: #555; }
+
+        /* 3. AGI 与技术攻坚 (金句与任务风格) */
+        .quote-box { background: #fff8e1; border-radius: 8px; padding: 12px; margin-bottom: 15px; font-size: 14px; color: #856404; line-height: 1.5; font-style: italic; }
+        .tech-task { background: #f0f7ff; border-radius: 8px; padding: 10px; margin-bottom: 8px; }
+        .task-h { font-size: 15px; font-weight: bold; color: #0052D4; margin-bottom: 4px; display: flex; justify-content: space-between; }
+        .task-p { font-size: 13px; color: #666; }
+
+        /* 底部汇总看板 */
+        .footer-banner { background: #003366; color: white; border-radius: 10px; padding: 15px 25px; margin-top: 15px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+        .sum-val { font-size: 24px; font-weight: bold; color: #4facfe; }
+        .sum-label { font-size: 13px; opacity: 0.8; margin-top: 4px; }
+
+        /* 页脚 */
+        .footer { margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="header-line"></div>
+        
+        <div class="header">
+            <div class="title-index">4.0 具身智能未来三年（2026-2028）判断</div>
+            <h1 class="title-main">向“通用物理智能体”迈进：规模落地与量产降本的关键期</h1>
+        </div>
+
+        <div class="content-grid">
+            <!-- 模块 1：市场预测与技术里程碑 -->
+            <div class="card">
+                <div class="card-header">市场规模与技术里程碑</div>
+                <div style="margin-bottom: 15px; background: #eef2ff; padding: 10px; border-radius: 8px;">
+                    <p style="font-size: 14px; color: #003366;"><b>中国市场：</b>2028年突破 <span class="stat-badge">2万亿元</span> (CAGR 45%)</p>
+                    <p style="font-size: 14px; color: #003366;"><b>全球出货：</b>2028年突破 <span class="stat-badge">10万台</span> (工业占 80%+)</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2026 年</div>
+                    <p class="timeline-p">零部件国产化率达 <span class="stat-badge">70%-80%</span>；Sim2Real 成功率 >85%；VLA 模型攻克长程任务。</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2027 年</div>
+                    <p class="timeline-p">推理延迟 <span class="stat-badge">< 10ms</span>；单台成本降至 <span class="stat-badge">15万元</span> (临界点)；工业渗透率达 20%。</p>
+                </div>
+                <div class="timeline-item" style="border:none;">
+                    <div class="timeline-year">2028 年</div>
+                    <p class="timeline-p">通用跨本体模型支持 5+ 载体；家庭渗透率 >5%；Sim2Real 成功率达 <span class="stat-badge">90% 以上</span>。</p>
+                </div>
+            </div>
+
+            <!-- 模块 2：头部企业路线图 -->
+            <div class="card">
+                <div class="card-header">头部企业量产与场景路线图</div>
+                <div class="enterprise-grid">
+                    <div class="ent-card">
+                        <div class="ent-name">波士顿动力 <span class="ent-tag">Atlas</span></div>
+                        <p class="ent-p">2026年产能数千台，成本降至 30万美元；2028年进驻现代汽车工厂，计划年产 <span class="stat-badge">3万台</span>。</p>
+                    </div>
+                    <div class="ent-card">
+                        <div class="ent-name">特斯拉 <span class="ent-tag">Optimus</span></div>
+                        <p class="ent-p">2027年面向消费者，产能目标 10万台；2028年单台成本降至 <span class="stat-badge">2万美元</span>，年化产能 50万台。</p>
+                    </div>
+                    <div class="ent-card">
+                        <div class="ent-name">Figure AI <span class="ent-tag">Figure03</span></div>
+                        <p class="ent-p">2026年量产，成本降至 3万美元；2028年实现周产 1万台，单台成本下探至 <span class="stat-badge">1.5万美元</span>。</p>
+                    </div>
+                    <div class="ent-card" style="border-color: #28a745;">
+                        <div class="ent-name">优必选 <span class="ent-tag">Walker S</span></div>
+                        <p class="ent-p">2026年换电接口通用化；2027年成本降至 <span class="stat-badge">15万RMB</span>；2028年家庭场景年销破 10万台。</p>
+                    </div>
+                </div>
+                <p style="font-size: 12px; color: #888; margin-top: 10px;">* 核心竞争点：从“技术验证机”向“低成本、高性能量产机”转变。</p>
+            </div>
+
+            <!-- 模块 3：AGI 路径与技术攻坚 -->
+            <div class="card">
+                <div class="card-header">AGI 路径与技术攻坚</div>
+                <div class="quote-box">
+                    “AI的未来不在更大的模型里，而在更智能的系统里。” —— 姚期智：需实现从“模仿”到“推理学习”的转向。
+                </div>
+                
+                <div class="tech-task">
+                    <div class="task-h">Sim2Real 泛化提升 <span class="stat-badge">90%+</span></div>
+                    <p class="task-p">世界模型 + Real2Sim 毫米级数字孪生，解决“场景鸿沟”。</p>
+                </div>
+                <div class="tech-task">
+                    <div class="task-h">核心零部件全面自主</div>
+                    <p class="task-p">减速器等成本降 50%，2028年打破海外垄断，实现全面可控。</p>
+                </div>
+                <div class="tech-task">
+                    <div class="task-h">端侧大模型轻量化</div>
+                    <p class="task-p">推理延迟 <10ms，自研神经形态芯片，参数压缩至 1B 以内。</p>
+                </div>
+                <div class="tech-task">
+                    <div class="task-h">物理规律直觉理解</div>
+                    <p class="task-p">通过强化学习解决“符号落地”，让机器人具备物理直觉。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部汇总看板 -->
+        <div class="footer-banner">
+            <div>
+                <div class="sum-val">2 万亿+</div>
+                <div class="sum-label">2028年中国市场潜力</div>
+            </div>
+            <div>
+                <div class="sum-val">15 万元</div>
+                <div class="sum-label">人机替代成本临界点</div>
+            </div>
+            <div>
+                <div class="sum-val">90% +</div>
+                <div class="sum-label">Sim2Real 迁移成功率目标</div>
+            </div>
+            <div>
+                <div class="sum-val">80%</div>
+                <div class="sum-label">零部件国产化率目标(2026)</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：中商产业研究院、高盛、工信部、波士顿动力/特斯拉/优必选公开路线图</div>
+            <div>INTERNAL REFERENCE | STRATEGIC OUTLOOK | PAGE 40</div>
+        </div>
+    </div>
+
+</body>
+</html>

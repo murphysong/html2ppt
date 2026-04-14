@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 江苏标杆案例</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif; }
+        body { background-color: #f4f7f9; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        .slide { width: 1600px; height: 900px; background: white; padding: 40px 50px; display: flex; flex-direction: column; border-top: 8px solid #003399; position: relative; }
+        
+        /* 标题 */
+        .header { margin-bottom: 20px; }
+        .index { color: #003399; font-size: 24px; font-weight: bold; }
+        .title { font-size: 42px; color: #1a1a1a; font-weight: bold; }
+
+        /* 内容布局 */
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; flex-grow: 1; }
+
+        /* 企业卡片样式 */
+        .company-card { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; }
+        .comp-header { display: flex; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #003399; padding-bottom: 10px; }
+        .comp-name { font-size: 28px; font-weight: bold; color: #1a1a1a; }
+        .comp-tag { margin-left: auto; background: #003399; color: white; padding: 4px 12px; border-radius: 4px; font-size: 16px; }
+
+        /* 南钢架构图解 */
+        .arch-box { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
+        .brain { padding: 15px; border-radius: 8px; text-align: center; }
+        .brain-r { background: #eef2ff; border: 1px solid #adc6ff; }
+        .brain-l { background: #f6ffed; border: 1px solid #b7eb8f; }
+        .brain-title { font-weight: bold; color: #333; margin-bottom: 5px; }
+
+        /* 数据指标 */
+        .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: auto; }
+        .stat-item { background: white; padding: 12px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); text-align: center; }
+        .stat-v { font-size: 24px; font-weight: bold; color: #d93025; }
+        .stat-l { font-size: 13px; color: #666; margin-top: 4px; }
+
+        /* 列表样式 */
+        .info-list { list-style: none; font-size: 16px; color: #444; line-height: 1.6; }
+        .info-list li { margin-bottom: 8px; padding-left: 20px; position: relative; }
+        .info-list li::before { content: "●"; position: absolute; left: 0; color: #003399; font-size: 12px; }
+        .highlight { font-weight: bold; color: #003399; }
+
+        .footer { margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee; font-size: 14px; color: #999; display: flex; justify-content: space-between; }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <div class="index">6.1 标杆企业实践</div>
+            <div class="title">制造大省的垂域转型：南钢“智造”与联著“国标”</div>
+        </div>
+
+        <div class="content-grid">
+            <!-- 南钢案例 -->
+            <div class="company-card">
+                <div class="comp-header">
+                    <div class="comp-name">南钢：元冶·钢铁大模型</div>
+                    <div class="comp-tag">工业核心引擎</div>
+                </div>
+                <div class="arch-box">
+                    <div class="brain brain-r">
+                        <div class="brain-title">右脑：概率计算</div>
+                        <p style="font-size: 13px;">多模态数据处理<br>输出工艺调整建议</p>
+                    </div>
+                    <div class="brain brain-l">
+                        <div class="brain-title">左脑：精确求解</div>
+                        <p style="font-size: 13px;">冶金机理模型验证<br>输出可执行方案</p>
+                    </div>
+                </div>
+                <ul class="info-list">
+                    <li><span class="highlight">场景突破：</span>转炉吹氧优化，终点命中率 <span class="highlight">82%➔96%</span>，吨钢能耗降8%。</li>
+                    <li><span class="highlight">全端覆盖：</span>落地30+应用场景，涵盖研发、生产、营销及经营。</li>
+                    <li><span class="highlight">新质生产力：</span>研发周期缩短50%，订单交付周期缩短10%。</li>
+                </ul>
+                <div class="stat-row">
+                    <div class="stat-item"><div class="stat-v">10 亿+</div><div class="stat-label">2025新增营收</div></div>
+                    <div class="stat-item"><div class="stat-v">5 亿+</div><div class="stat-label">2025降本总额</div></div>
+                    <div class="stat-item"><div class="stat-v">22% ↓</div><div class="stat-label">设备故障率下降</div></div>
+                </div>
+            </div>
+
+            <!-- 联著案例 -->
+            <div class="company-card">
+                <div class="comp-header">
+                    <div class="comp-name">江苏联著实业</div>
+                    <div class="comp-tag">垂域微调引领者</div>
+                </div>
+                <p style="font-size: 15px; margin-bottom: 15px; color: #555;">
+                    <span class="highlight">国标引领：</span>牵头制定《中文新闻语义结构化标注》国家标准，填补行业空白。
+                </p>
+                <ul class="info-list">
+                    <li><span class="highlight">核心技术：</span>“TSP语义编译器+DeepSeek”全链路一体化微调框架。</li>
+                    <li><span class="highlight">降本增效：</span>档案审核效率提升 <span class="highlight">30倍</span>，构建成本降低 <span class="highlight">70%</span> 以上。</li>
+                    <li><span class="highlight">产品标杆：</span>“知芽”智能助手，通过信通院可信AI测评（4级证书）。</li>
+                </ul>
+                <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid #28a745;">
+                    <p style="font-size: 14px; font-weight: bold;">本地小模型 + 私人微调路径：</p>
+                    <p style="font-size: 13px; color: #666;">日均处理1.5万件档案，推理成本仅为通用模型的 1/5。</p>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-item"><div class="stat-v">18%</div><div class="stat-label">付费转化率</div></div>
+                    <div class="stat-item"><div class="stat-v">2000 万</div><div class="stat-label">2025年度营收</div></div>
+                    <div class="stat-item"><div class="stat-v">25 倍</div><div class="stat-label">语义处理能力提升</div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：南钢“人工智能百景千模”计划、联著实业2025年报、信通院可信AI报告</div>
+            <div>INTERNAL USE | PAGE 25</div>
+        </div>
+    </div>
+</body>
+</html>

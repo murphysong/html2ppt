@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 能力演进的技术驱动力 (1)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif; }
+        body { background-color: #f5f7fa; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .slide { width: 1600px; height: 900px; background: white; padding: 40px 60px; display: flex; flex-direction: column; position: relative; border-top: 8px solid #0052D4; }
+        .header { margin-bottom: 25px; }
+        .index { color: #0052D4; font-size: 24px; font-weight: bold; }
+        .title { font-size: 44px; color: #1a1a1a; font-weight: bold; }
+        .main-content { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; flex-grow: 1; }
+        
+        /* 模块样式 */
+        .module { border: 1px solid #e0e6ed; border-radius: 12px; padding: 25px; background: #fcfdfe; display: flex; flex-direction: column; }
+        .mod-header { display: flex; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #0052D4; padding-bottom: 10px; }
+        .mod-title { font-size: 26px; font-weight: bold; color: #0052D4; }
+        .mod-tag { margin-left: auto; font-size: 14px; background: #eef2ff; color: #0052D4; padding: 4px 12px; border-radius: 4px; }
+
+        /* 内容详情 */
+        .sub-sec { margin-bottom: 15px; }
+        .sub-title { font-size: 19px; font-weight: bold; color: #333; margin-bottom: 8px; display: flex; align-items: center; }
+        .sub-title::before { content: ""; width: 4px; height: 18px; background: #4364F7; margin-right: 10px; }
+        .detail-text { font-size: 16px; line-height: 1.6; color: #444; }
+        .highlight { color: #d93025; font-weight: bold; }
+        
+        /* 数据徽标 */
+        .data-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 10px 0; }
+        .data-card { background: #fff; border: 1px solid #eee; padding: 12px; border-radius: 8px; }
+        .data-val { font-size: 22px; font-weight: bold; color: #1a1a1a; }
+        .data-label { font-size: 13px; color: #777; }
+
+        .footer { margin-top: auto; padding-top: 15px; border-top: 1px solid #eee; font-size: 14px; color: #999; display: flex; justify-content: space-between; }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <div class="index">11. 技术驱动力 (I)</div>
+            <div class="title">技术底座：从“规模优先”转向“效率优先”</div>
+        </div>
+
+        <div class="main-content">
+            <!-- 11.1 MoE 架构 -->
+            <div class="module">
+                <div class="mod-header">
+                    <div class="mod-title">11.1 混合专家 (MoE) 架构</div>
+                    <div class="mod-tag">分工处理 + 动态激活</div>
+                </div>
+                <div class="sub-sec">
+                    <div class="sub-title">核心逻辑</div>
+                    <p class="detail-text">拆分专家子网络，推理时仅激活相关节点，实现“参数规模上升、计算量稳定”。</p>
+                </div>
+                <div class="data-grid">
+                    <div class="data-card">
+                        <div class="data-val">4.25%</div>
+                        <div class="data-label">GPT-OSS 活跃参数占比</div>
+                    </div>
+                    <div class="data-card">
+                        <div class="data-val">95% ↓</div>
+                        <div class="data-label">推理计算量降低幅度</div>
+                    </div>
+                </div>
+                <div class="sub-sec">
+                    <div class="sub-title">厂商实践对比</div>
+                    <p class="detail-text"><b>DeepSeek V4：</b>推理速度提升 <span class="highlight">1.8倍</span>，显存占用降 40%。</p>
+                    <p class="detail-text"><b>华为盘古 5.5：</b>256路由专家架构，推理效率提升 <span class="highlight">8倍</span>，首创快慢思考合一技术。</p>
+                </div>
+            </div>
+
+            <!-- 11.2 上下文扩展 -->
+            <div class="module">
+                <div class="mod-header">
+                    <div class="mod-title">11.2 上下文窗口持续扩展</div>
+                    <div class="mod-tag">记忆容量革命</div>
+                </div>
+                <div class="sub-sec">
+                    <div class="sub-title">能力指标</div>
+                    <p class="detail-text"><b>Claude 4 Opus：</b>120万 Token，覆盖百页研报/2小时视频。</p>
+                    <p class="detail-text"><b>DeepSeek V4 / OpenAI o1：</b>100万 Token 窗口下，长文档理解准确率突破 <span class="highlight">57%</span> (超人类专家)。</p>
+                </div>
+                <div class="sub-sec">
+                    <div class="sub-title">技术突破</div>
+                    <p class="detail-text"><b>RoPE-ABF 方法：</b>无需训练即可实现百万级窗口稳定外推。</p>
+                    <p class="detail-text"><b>SHAREDLLM 框架：</b>8K训练序列实现 128K 处理，推理速度快 <span class="highlight">2-3倍</span>。</p>
+                </div>
+                <div class="data-grid">
+                    <div class="data-card">
+                        <div class="data-val">120万</div>
+                        <div class="data-label">最高上下文 Token 数</div>
+                    </div>
+                    <div class="data-card">
+                        <div class="data-val">50% ↓</div>
+                        <div class="data-label">扩展成本降低幅度</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>资料来源：ICLR 2026, LongBench v2, 头部厂商发布会 (2025-2026)</div>
+            <div>PAGE 22</div>
+        </div>
+    </div>
+</body>
+</html>

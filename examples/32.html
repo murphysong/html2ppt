@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT - 智能体评估与行业应用</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif; }
+        body { background-color: #f5f7fa; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        .slide { width: 1600px; height: 900px; background: #fff; padding: 40px 50px; display: flex; flex-direction: column; position: relative; border-top: 8px solid #0066cc; }
+        .header { margin-bottom: 25px; }
+        .page-num { color: #0066cc; font-size: 22px; font-weight: bold; }
+        .title { font-size: 40px; color: #1a1a1a; font-weight: bold; margin-top: 5px; }
+
+        /* 内容布局 */
+        .content-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 20px; flex-grow: 1; }
+
+        /* 4.2 量化基准 */
+        .bench-card { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 12px; padding: 20px; }
+        .bench-title { font-size: 22px; font-weight: bold; color: #0066cc; margin-bottom: 15px; display: flex; align-items: center; }
+        .bench-title::before { content: "📊"; margin-right: 10px; }
+        .bench-item { background: white; border: 1px solid #eee; padding: 15px; border-radius: 8px; margin-bottom: 12px; }
+        .bench-item b { font-size: 16px; display: block; margin-bottom: 5px; }
+        .bench-item p { font-size: 14px; color: #666; line-height: 1.4; }
+        .highlight-v { font-size: 20px; font-weight: bold; color: #d93025; float: right; }
+
+        /* 4.3 行业优先级 */
+        .industry-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        .ind-card { border: 1px solid #e1e8ed; border-radius: 12px; padding: 20px; position: relative; display: flex; }
+        .ind-icon { font-size: 36px; margin-right: 20px; background: #f0f7ff; width: 80px; height: 80px; display: flex; justify-content: center; align-items: center; border-radius: 12px; }
+        .ind-content { flex: 1; }
+        .ind-name { font-size: 20px; font-weight: bold; color: #1a1a1a; margin-bottom: 5px; }
+        .ind-pri { font-size: 14px; font-weight: bold; color: #0066cc; margin-bottom: 10px; border-bottom: 1px dashed #ccc; padding-bottom: 5px; }
+        .ind-detail { font-size: 13px; color: #444; line-height: 1.5; }
+        .ind-stat { color: #d93025; font-weight: bold; }
+
+        .footer { margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; display: flex; justify-content: space-between; color: #999; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <div class="page-num">4.2 - 4.3 能力评估与行业落地</div>
+            <div class="title">实战效能：量化评估基准与行业化优先部署策略</div>
+        </div>
+
+        <div class="content-grid">
+            <!-- 左侧：量化评估 -->
+            <div class="bench-card">
+                <div class="bench-title">能力量化评估基准 (2026)</div>
+                <div class="bench-item">
+                    <span class="highlight-v">80.9%</span>
+                    <b>SWE-bench Verified (编程)</b>
+                    <p>Claude Opus 4.5 创历史新高；GPT-5.2-Codex 达 80.0%。国产模型 InfCode 跻身全球第一梯队。</p>
+                </div>
+                <div class="bench-item">
+                    <span class="highlight-v">82%</span>
+                    <b>跨系统操作 (企业级)</b>
+                    <p>实现“数据提取-订单创建-发票生成”全闭环。合规审查错误率降低 60%。</p>
+                </div>
+                <div class="bench-item" style="border-left: 5px solid #d93025;">
+                    <span class="highlight-v">31%</span>
+                    <b>长周期任务瓶颈</b>
+                    <p>超过 10 步的任务链中，由于“多步推理误差累积”，纯大模型完成率仅 31%，智能体为 62-65%。</p>
+                </div>
+            </div>
+
+            <!-- 右侧：行业优先级 -->
+            <div class="industry-grid">
+                <div class="ind-card">
+                    <div class="ind-icon">⚙️</div>
+                    <div class="ind-content">
+                        <div class="ind-name">制造行业</div>
+                        <div class="ind-pri">优先级：工具调用、环境感知</div>
+                        <p class="ind-detail">● <b>设备运维：</b>非计划停机时间 <span class="ind-stat">↓ 45%</span>，维护成本下降 30%。<br>● <b>工艺优化：</b>实时配方调整，原料成本 <span class="ind-stat">↓ 15%</span>。</p>
+                    </div>
+                </div>
+                <div class="ind-card">
+                    <div class="ind-icon">🛒</div>
+                    <div class="ind-content">
+                        <div class="ind-name">零售行业</div>
+                        <div class="ind-pri">优先级：感知认知、记忆留存</div>
+                        <p class="ind-detail">● <b>意图识别：</b>多模态推荐，用户转化率 <span class="ind-stat">↑ 25%</span>。<br>● <b>库存管理：</b>商圈消费预测，周转效率 <span class="ind-stat">↑ 30%</span>。</p>
+                    </div>
+                </div>
+                <div class="ind-card">
+                    <div class="ind-icon">🛡️</div>
+                    <div class="ind-content">
+                        <div class="ind-name">金融行业</div>
+                        <div class="ind-pri">优先级：记忆反思、合规执行</div>
+                        <p class="ind-detail">● <b>风险评估：</b>基于历史案例记忆，评估效率 <span class="ind-stat">↑ 8倍</span>。<br>● <b>审计追踪：</b>任务执行全轨迹留存，审计时间由 3天 缩短至 1天。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>数据来源：NeurIPS, CAICT 2025, 红杉中国 AgentIF-OneDay, Everest Group</div>
+            <div>INTERNAL USE ONLY | PAGE 28</div>
+        </div>
+    </div>
+</body>
+</html>
