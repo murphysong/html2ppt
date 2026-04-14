@@ -45,3 +45,9 @@ Not recommended for MVP:
 Render from JSON:
 ```bash
 python build_ppt.py --input examples/slides.example.json --output output/demo.pptx
+```
+
+Render from constrained HTML:
+```bash
+python build_ppt.py --html examples/5.html --output output/from_html_5.pptx
+```
