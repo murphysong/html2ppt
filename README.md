@@ -45,3 +45,15 @@ Not recommended for MVP:
 Render from JSON:
 ```bash
 python build_ppt.py --input examples/slides.example.json --output output/demo.pptx
+```
+
+Render from constrained HTML:
+```bash
+python build_ppt.py --html examples/5.html --output output/from_html_5.pptx
+```
+
+
+Batch render all `examples/*.html` and merge into one PPT:
+```bash
+python build_examples_batch.py --examples-dir examples --output-dir output/examples_ppt --merged-output output/examples_merged.pptx
+```
