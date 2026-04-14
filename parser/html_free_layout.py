@@ -87,6 +87,43 @@ def _mk_text(id_: str, txt: str, box: Box, style: dict[str, Any]) -> dict[str, A
     }
 
 
+def _border_color(border_value: str | None, default: tuple[int, int, int]) -> tuple[int, int, int]:
+    if not border_value:
+        return default
+    for token in border_value.split():
+        parsed = parse_color(token)
+        if parsed is not None:
+            return parsed
+    return default
+
+
+def _element_bottom(el: dict[str, Any]) -> float:
+    return float(el.get("top", 0.0)) + float(el.get("height", 0.0))
+
+
+def _clip_to_bottom(
+    elements: list[dict[str, Any]],
+    clip_ids: set[str],
+    allowed_bottom_inch: float,
+    diagnostics: list[str],
+) -> None:
+    for el in elements:
+        if el.get("id") not in clip_ids:
+            continue
+        top = float(el.get("top", 0.0))
+        height = float(el.get("height", 0.0))
+        bottom = top + height
+        if bottom <= allowed_bottom_inch:
+            continue
+        if top >= allowed_bottom_inch:
+            el["visible"] = False
+            diagnostics.append(f"Element hidden to avoid footer overlap: {el.get('id')}")
+            continue
+        new_height = round(max(0.02, allowed_bottom_inch - top), 4)
+        el["height"] = new_height
+        diagnostics.append(f"Element clipped to avoid footer overlap: {el.get('id')}")
+
+
 def parse_html_to_render(html_path: str | Path, theme: Theme) -> dict[str, Any]:
     source = Path(html_path).read_text(encoding="utf-8")
     soup = BeautifulSoup(source, "lxml")
@@ -178,6 +215,7 @@ def parse_html_to_render(html_path: str | Path, theme: Theme) -> dict[str, Any]:
 
     # cards/panels
     cards = slide.select(".card, .case-card, .comp-box, .eval-card, .constraint-card, .case-item, .alert-box")
+    flow_element_ids: set[str] = set()
     cols = 2
     if slide.select_one(".constraint-grid"):
         cols = 3
@@ -201,6 +239,7 @@ def parse_html_to_render(html_path: str | Path, theme: Theme) -> dict[str, Any]:
             "width": px_to_inch_x(card_w, theme), "height": px_to_inch_y(h, theme),
             "style": {"fill_color": list(bg), "line_color": list(line), "line_width_pt": 1.0, "radius_inch": px_to_inch_x(radius, theme)},
         })
+        flow_element_ids.add(f"panel_{i+1}")
         text = c.get_text(" ", strip=True)
         if text:
             elements.append({
@@ -213,13 +252,28 @@ def parse_html_to_render(html_path: str | Path, theme: Theme) -> dict[str, Any]:
                     "color": [68, 68, 68], "align": "left", "valign": "top"
                 },
             })
+            flow_element_ids.add(f"panel_{i+1}_text")
 
     # footer separator & footer text
     footer = slide.select_one(".footer")
     if footer:
         fs = _merged_style(footer, css)
-        footer_top = 900 - p_bottom - 35
-        line_col = parse_color((fs.get("border-top") or "").split()[-1]) or (238, 238, 238)
+        min_gap_px = 16.0
+        footer_text_block_px = 32.0
+        base_footer_top_px = 900 - p_bottom - 35
+        max_content_bottom_inch = 0.0
+        for el in elements:
+            max_content_bottom_inch = max(max_content_bottom_inch, _element_bottom(el))
+        max_content_bottom_px = max_content_bottom_inch / theme.px_to_inch_y
+
+        max_footer_top_px = 900 - p_bottom - footer_text_block_px
+        requested_footer_top_px = max(base_footer_top_px, max_content_bottom_px + min_gap_px)
+        footer_top = min(max_footer_top_px, requested_footer_top_px)
+
+        allowed_content_bottom_inch = px_to_inch_y(footer_top - min_gap_px, theme)
+        _clip_to_bottom(elements, flow_element_ids, allowed_content_bottom_inch, diags)
+
+        line_col = _border_color(fs.get("border-top"), (238, 238, 238))
         elements.append({
             "id": "footer_separator", "type": "line", "left": 0, "top": 0, "width": 0, "height": 0,
             "x1": px_to_inch_x(content_left, theme), "y1": px_to_inch_y(footer_top, theme),
